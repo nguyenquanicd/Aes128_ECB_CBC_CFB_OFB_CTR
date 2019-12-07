@@ -2,6 +2,7 @@
 AES128 IP core supports ECB, CBC, CFB, OFB and CTR mode
 
 1) File structure
+rtl/
 
 aes128.sv - TOP module
   
@@ -16,6 +17,15 @@ aes128.sv - TOP module
     |- aes128_cipher_core_inv.sv - Cipher inversion core
     
     |- aes128_key_expansion_inv.sv - Key expansion inversion
+ 
+ pat/ - testcases (testbenches)
+ 
+ sim/ - execute a simulation at here
+ 
+ uvm_comp/ - all UVM component files and test models
+ 
+ checker/ - some individual checkers if any
+ 
   
 2) Detail description (Vietnamese)
 
