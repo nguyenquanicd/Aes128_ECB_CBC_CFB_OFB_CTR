@@ -1,5 +1,5 @@
 # Aes128_ECB_CBC_CFB_OFB_CTR
-AES128 IP core supports ECB, CBC, CFB, OFB and CTR mode
+AES128 IP core supports ECB, CBC, CFB, OFB and CTR mode (NOTE: ONLY RTL Code is available now, the simulation environment is building and NOT completed)
 
 1) File structure
 rtl/
