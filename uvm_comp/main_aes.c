@@ -59,14 +59,14 @@ uint8_t* Xcrypt_cbc(uint8_t xcrypt, uint8_t* key, uint8_t* in, uint8_t* out, uin
 		printf("CBC encrypt\n");
         struct AES_ctx ctx;
         AES_init_ctx_iv(&ctx,key, iv);
-        AES_CBC_encrypt(&ctx,in,64);
+        AES_CBC_encrypt_buffer(&ctx,in,64);
         out = in;
 	}
     else if(xcrypt == 1) {
 		printf("CBC decrypt\n");
         struct AES_ctx ctx;
         AES_init_ctx_iv(&ctx,key,iv);
-        AES_CBC_decrypt(&ctx,in,64);
+        AES_CBC_decrypt_buffer(&ctx,in,64);
         out = in;
 	}
 	else {
