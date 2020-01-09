@@ -25,15 +25,15 @@ class aes_Driver extends uvm_driver #(aes_Transaction);
             .inst_name(""),
             .field_name("vifAes"),
             .value(ifAes_inst))) 
-	    begin
-         //`uvm_fatal(ID, MSG)
-         //ID: message tag
-         //MSG message text
-         //get_full_name returns the full hierarchical name of the driver object
-	      // kiem tra connection!!!
-         `uvm_fatal("NON-ifAes", {"A virtual interface must be set for: ", get_full_name(), ".ifAes_inst"})
-        end
-        //
+	      begin
+           //`uvm_fatal(ID, MSG)
+           //ID: message tag
+           //MSG message text
+           //get_full_name returns the full hierarchical name of the driver object
+	        // kiem tra connection!!!
+           `uvm_fatal("NON-ifAes", {"A virtual interface must be set for: ", get_full_name(), ".ifAes_inst"})
+          end
+          //
         `uvm_info(get_full_name(), "Build phase completed.", UVM_LOW)
   endfunction
   //5. Run phase
