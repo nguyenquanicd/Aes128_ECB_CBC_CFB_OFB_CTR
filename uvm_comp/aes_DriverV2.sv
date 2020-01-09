@@ -18,7 +18,7 @@ class aes_Driver extends uvm_driver #(aes_Transaction);
   // - Configure the component before creating it
   // - Create the UVM component
   function void build_phase(uvm_phase phase);
-      / super.build_phase(phase);
+      super.build_phase(phase);
       //All of the functions in uvm_config_db are static, using :: to call them
       //If the call "get" is unsuccessful, the fatal is triggered
       if (!uvm_config_db#(virtual interface ifAes)::get(.cntxt(this),
@@ -31,10 +31,10 @@ class aes_Driver extends uvm_driver #(aes_Transaction);
            //MSG message text
            //get_full_name returns the full hierarchical name of the driver object
 	        // kiem tra connection!!!
-           `uvm_fatal("NON-ifAes", {"A virtual interface must be set for: ", get_full_name(), ".ifAes_inst"})
+           `uvm_fatal("NON-ifAes", {"A virtual interface must be set for: ", get_full_name(), ".ifAes_inst"});
           end
           //
-        `uvm_info(get_full_name(), "Build phase completed.", UVM_LOW)
+      `uvm_info(get_full_name(), "Build phase completed.", UVM_LOW);
   endfunction
   //5. Run phase
   //Execute methods of Driver in run_phase
