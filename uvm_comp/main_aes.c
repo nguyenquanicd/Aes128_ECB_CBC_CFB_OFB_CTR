@@ -9,7 +9,7 @@ uint8_t* Xcrypt_ctr(uint8_t xcrypt, uint8_t* key, uint8_t* in, uint8_t* out, uin
 uint8_t* Xcrypt_ofb(uint8_t xcrypt, uint8_t* key, uint8_t* in, uint8_t* out, uint8_t* iv)
 uint8_t* Xcrypt_cfb(uint8_t xcrypt, uint8_t* key, uint8_t* in, uint8_t* out, uint8_t* iv, uint8_t sbit)
 
-uint8_t* main(uint8_t mode, uint8_t xcrypt, uint8_t* key, uint8_t* in, uint8_t* iv, uint8_t* out, uint8_t sbit)
+extern "C" uint8_t* main_aes(uint8_t mode, uint8_t xcrypt, uint8_t* key, uint8_t* in, uint8_t* iv, uint8_t* out, uint8_t sbit)
 {
     switch (mode) {
 		case 0:
