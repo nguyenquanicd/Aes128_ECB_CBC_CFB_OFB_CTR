@@ -3,7 +3,7 @@
 // Website: http://nguyenquanicd.blogspot.com/
 //-----------------------------------------------------------
 //`include "aes128_sbox.sv"
-`include "aes128_mul_inv.sv"
+//`include "aes128_mul_inv.sv"
 module aes128_cipher_core_inv (
   //input
   input clk_sys,

@@ -4,7 +4,7 @@
 //-----------------------------------------------------------
 
 //`include "aes128_sbox.sv"
-`include "aes128_rcon.sv"
+//`include "aes128_rcon.sv"
 module	aes128_key_expansion (
   //input
   input	 clk_sys,

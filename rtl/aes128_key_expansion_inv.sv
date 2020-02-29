@@ -2,8 +2,8 @@
 // Author: Nguyen Hung Quan
 // Website: http://nguyenquanicd.blogspot.com/
 //-----------------------------------------------------------
-`include "aes128_sbox.sv"
-`include "aes128_rcon_inv.sv"
+//`include "aes128_sbox.sv"
+//`include "aes128_rcon_inv.sv"
 module	aes128_key_expansion_inv (
   //input
   input clk_sys,

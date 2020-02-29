@@ -1,6 +1,19 @@
-vlog -work work -sv  \
+vlog -work work  \
             +incdir+C:/questasim64_10.2c/uvm-1.2/src \
-            ../uvm_comp/aes_Testbench.sv \
+            -sv \
+            ../rtl/aes128_mul.sv \
+            ../rtl/aes128_mul_inv.sv \
+            ../rtl/aes128_rcon.sv \
+            ../rtl/aes128_rcon_inv.sv \
+            ../rtl/aes128_sbox.sv \
+            ../rtl/aes128_sbox_inv.sv \
+            ../rtl/aes128_cipher_core.sv \
+            ../rtl/aes128_cipher_core_inv.sv \
+            ../rtl/aes128_cipher_inv_top.sv \
+            ../rtl/aes128_cipher_top.sv \
+            ../rtl/aes128_key_expansion.sv \
+            ../rtl/aes128_key_expansion_inv.sv \
+            ../rtl/aes128.sv \
             ../uvm_comp/aes_Agent.sv \
             ../uvm_comp/aes_Driver.sv \
             ../uvm_comp/aes_Env.sv \
@@ -10,18 +23,5 @@ vlog -work work -sv  \
             ../uvm_comp/aes_Sequence.sv \
             ../uvm_comp/aes_Sequencer.sv \
             ../uvm_comp/aes_Test.sv \
-            ../uvm_comp/aes_Testbench.sv \
             ../uvm_comp/aes_Transaction.sv \
-            ../rtl/aes128.sv \
-            ../rtl/aes128_cipher_core.sv \
-            ../rtl/aes128_cipher_core_inv.sv \
-            ../rtl/aes128_cipher_inv_top.sv \
-            ../rtl/aes128_cipher_top.sv \
-            ../rtl/aes128_key_expansion.sv \
-            ../rtl/aes128_key_expansion_inv.sv \
-            ../rtl/aes128_mul.sv \
-            ../rtl/aes128_mul_inv.sv \
-            ../rtl/aes128_rcon.sv \
-            ../rtl/aes128_rcon_inv.sv \
-            ../rtl/aes128_sbox.sv \
-            ../rtl/aes128_sbox_inv.sv
+            ../uvm_comp/aes_Testbench.sv
