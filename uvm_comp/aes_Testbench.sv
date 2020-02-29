@@ -4,54 +4,25 @@
 //Author   :  Nguyễn Hùng Quân, Phan Văn Thành, Nguyễn Thành Công, Trần Hữu Toàn
 //Page     :  VLSI Technology
 //--------------------------------------
-`include "uvm_pkg.sv"
-`include "uvm_macros.svh"
-`include "uMacro.svh"
-`include "uvm.sv"
-
-
+//`include "uvm_macros.svh"
+//`include "uMacro.svh"
 module aes_Testbench;
-
-    import uvm_pkg::*;
-	  //`include "aes.h"
-    //`include "aes.c"
-	  //`include "main_aes.c"
-	  `include "aes_Transaction.sv"
-	  `include "aes_Sequencer.sv"
-	  `include "aes_Sequence.sv"
-	  
-	  `include "aes_Interface.sv"
-	  `include "aes_Driver.sv"
-
-    `include "aes_Monitor.sv"
-
-	  `include "aes_Agent.sv"
-	  `include "aes_Scoreboard.sv"
-	  `include "aes_Env.sv"
-	  `include "aes_Test.sv"
-
-
-
-
-    //`include "aes128.sv"
-    //`include "aes128_cipher_core.sv"
-    //`include "aes128_cipher_core_inv.sv"
-    //`include "aes128_cipher_inv_top.sv"
-    //`include "aes128_cipher_top.sv"
-    //`include "aes128_key_expansion.sv"
-    //`include "aes128_key_expansion_inv.sv"
-    //`include "aes128_mul.sv"
-    //`include "aes128_mul_inv.sv"
-    //`include "aes128_rcon.sv"
-    //`include "aes128_rcon_inv.sv"
-    //`include "aes128_sbox.sv"
-    //`include "aes128_sbox_inv.sv"
-
-
-    //Clock and reset signal declaration
+  import uvm_pkg::*;
+	//`include "aes.h"
+  //`include "aes.c"
+	//`include "main_aes.c"
+	`include "../uvm_comp/aes_Transaction.sv"
+  `include "../uvm_comp/aes_Driver.sv"
+  `include "../uvm_comp/aes_Scoreboard.sv"
+  `include "../uvm_comp/aes_Monitor.sv"
+	`include "../uvm_comp/aes_Sequencer.sv"
+	`include "../uvm_comp/aes_Agent.sv"
+  `include "../uvm_comp/aes_Sequence.sv"
+	`include "../uvm_comp/aes_Env.sv"
+	`include "../uvm_comp/aes_Test.sv"
+  //Clock and reset signal declaration
 	bit clk;
 	bit reset;
-	
 	//Clock generation
 	always #5 clk = ~clk;
 	

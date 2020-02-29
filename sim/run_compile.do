@@ -14,14 +14,5 @@ vlog -work work  \
             ../rtl/aes128_key_expansion.sv \
             ../rtl/aes128_key_expansion_inv.sv \
             ../rtl/aes128.sv \
-            ../uvm_comp/aes_Agent.sv \
-            ../uvm_comp/aes_Driver.sv \
-            ../uvm_comp/aes_Env.sv \
             ../uvm_comp/aes_Interface.sv \
-            ../uvm_comp/aes_Monitor.sv \
-            ../uvm_comp/aes_Scoreboard.sv \
-            ../uvm_comp/aes_Sequence.sv \
-            ../uvm_comp/aes_Sequencer.sv \
-            ../uvm_comp/aes_Test.sv \
-            ../uvm_comp/aes_Transaction.sv \
             ../uvm_comp/aes_Testbench.sv
