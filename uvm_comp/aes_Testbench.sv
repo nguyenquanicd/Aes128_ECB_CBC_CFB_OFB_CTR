@@ -4,8 +4,9 @@
 //Author   :  Nguyễn Hùng Quân, Phan Văn Thành, Nguyễn Thành Công, Trần Hữu Toàn
 //Page     :  VLSI Technology
 //--------------------------------------
-//`include "uvm_macros.svh"
-//`include "uMacro.svh"
+`include "uvm_pkg.sv"
+`include "uvm_macros.svh"
+`include "../uvm_comp/uMacro.svh"
 module aes_Testbench;
   import uvm_pkg::*;
 	//`include "aes.h"
