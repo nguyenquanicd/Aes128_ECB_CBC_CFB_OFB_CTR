@@ -1,20 +1,16 @@
 //--------------------------------------
 //Project  :  The UVM environemnt for AES128
-//File name:  aes_Sequencer.sv
-//Author   :  Phan Van Thanh
+//File name:  aes_Sequence.sv
+//Author   :  Nguyễn Hùng Quân, Phan Văn Thành, Nguyễn Thành Công, Trần Hữu Toàn
 //Page     :  VLSI Technology
-//Version  :  ver1.0: New create - 
-//            ver1.1: Add header - ThanhVP
 //--------------------------------------
 integer int_delay;
 class aes_Driver extends uvm_driver #(aes_Transaction);
+         // Makes this scoreboard more re-usable
+	`uvm_component_utils(aes_Driver)
      //1. Declare the virtual interface
      virtual ifAes ifAes_inst;
      aes_Transaction aesPacket;
-
-	 //2. Register to the factory
-     //`uvm_component_utils is for non-parameterized classes
-     `uvm_component_utils(aes_Driver)
   
      //3. Class constructor with two arguments
      function new (string name = "aes_Driver", uvm_component parent = null);

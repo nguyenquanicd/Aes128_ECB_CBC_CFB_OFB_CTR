@@ -5,7 +5,7 @@
 //Page     :  VLSI Technology
 //--------------------------------------
 
-class aes_Env extends uvm_env
+class aes_Env extends uvm_env;
     `uvm_component_utils(aes_Env)
 	
 	aes_Agent        aes_Agent_inst;

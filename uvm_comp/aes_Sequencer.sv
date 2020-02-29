@@ -12,4 +12,4 @@ class aes_Sequencer extends uvm_sequencer#(aes_Transaction);
 	 function new (string name = "aes_Sequencer", uvm_component parent = null);
 		 super.new(name,parent);
 	 endfunction
-endclass: aes_Sequencer
+endclass

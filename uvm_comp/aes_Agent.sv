@@ -5,8 +5,10 @@
 //Page     :  VLSI Technology
 //--------------------------------------
 class aes_Agent extends uvm_agent;
+
     //Register to Factory
     `uvm_component_utils(aes_Agent)
+    
     
     //Declare Sequencer and Driver
     aes_Driver      aes_Driver_inst;
@@ -34,4 +36,4 @@ class aes_Agent extends uvm_agent;
         aes_Driver_inst.seq_item_port.connect(aes_Sequencer_inst.seq_item_export);
     endfunction
   
-endclass: aes_Agent
+endclass

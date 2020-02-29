@@ -35,7 +35,7 @@ class aes_Monitor extends uvm_monitor;
         // Get virtual interface handle from the configuration DB
         if(!uvm_config_db#(virtual interface ifAes)::get(this,"","vifAes",vifAes)) begin
 	  		`uvm_error("cAesDriver","Can NOT get vifAes!!!")
-	    end
+	      end
 	  
         coAesTransaction = aes_Transaction::type_id::create("coAesTransaction",this);
     endfunction 
@@ -69,7 +69,7 @@ class aes_Monitor extends uvm_monitor;
     //Collect and send valid data to scoreboard when ready equal 1 and cipher_en or decipher_en equal 1
     virtual task collect_send_data();
 	    while(1) begin
-	        wait@(vifAes.rst_n=1);
+	        wait(vifAes.rst_n==1);
             @(posedge vifAes.clk);
 	        if(vifAes.ready==1) begin
 	            if(vifAes.cipher_en==1 || vifAes.decipher_en==1) begin
@@ -82,18 +82,18 @@ class aes_Monitor extends uvm_monitor;
 	    	        end
 	    	        coAesTransaction.aes_chain_en <= vifAes.aes_chain_en;
 	    	        coAesTransaction.aes_data_in[127:0] <= vifAes.aes_data_in[127:0];
-                    coAesTransaction.aes_key[127:0] <= vifAes.aes_key[127:0];
+               coAesTransaction.aes_key[127:0] <= vifAes.aes_key[127:0];
 	    	        coAesTransaction.aes_mode[3:0] <= vifAes.aes_mode[3:0];
 	    	        coAesTransaction.aes_init_vector[127:0] <= vifAes.aes_init_vector[127:0];
 	    	        coAesTransaction.aes_segment_len[3:0] <= vifAes.aes_segment_len[3:0];
                     
-	    	        (posedge vifAes.clk);
-	    	        wait@(posedge vifAes.ready);
+	    	        @(posedge vifAes.clk);
+	    	        wait(vifAes.ready == 1);
 	    	        //Get transaction on interface
 	    	        coAesTransaction.aes_data_out[127:0] <= vifAes.aes_data_out[127:0];
 	    	         
                     //Send the ouput valid data to analysis port which is connected to Scoreboard
-                    ap_toScoreboard.write(coApbTransaction);
+                    ap_toScoreboard.write(coAesTransaction);
 	    	    end
 	        end
 	    end
@@ -103,7 +103,7 @@ class aes_Monitor extends uvm_monitor;
     bit count;
     virtual task check_busy_cycle();
         while(1) begin
-            wait@(vifAes.rst_n=1);
+          wait(vifAes.rst_n==1);
 	        @(posedge vifAes.clk);
 	        count<=0;
 	      
@@ -111,15 +111,16 @@ class aes_Monitor extends uvm_monitor;
 	            while(count<11) begin
 	                @(posedge vifAes.clk);
 	                if(vifAes.cipher_en==0) begin
-	                    if(vifAes.ready==0) begin
+	                   if(vifAes.ready==0) begin
 	  	                    count=count+1;
 	  	                end
 	  	                else begin
 	  	                    `uvm_error("aes_Monitor", "Total number of busy cycles cipher_en is less than number of cycles to perform");
 	  	                end
-	  	            else begin
+	  	             end
+	  	             else begin
 	  	                `uvm_error("aes_Monitor", "Cipher_en shouldn't equal 1 when ready equal 0");
-	  	            end
+	  	             end
 	            end
 				
 	            if(vifAes.ready==0) begin
@@ -131,13 +132,14 @@ class aes_Monitor extends uvm_monitor;
 	                if(vifAes.decipher_en==0) begin
 	                    if(vifAes.ready==0) begin
 	  	                    count=count+1;
-	  	                end
-	  	                else begin
+	  	                 end
+	  	                 else begin
 	  	                    `uvm_error("aes_Monitor", "Total number of busy cycles decipher_en is less than number of cycles to perform");
-	  	                end
-	  	            else begin
+	  	                 end
+	  	             end
+	  	             else begin
 	  	                `uvm_error("aes_Monitor", "Decipher_en shouldn't equal 1 when ready equal 0");
-	  	            end
+	  	             end
 	            end
 				
 	            if(vifAes.ready==0) begin
@@ -152,7 +154,7 @@ class aes_Monitor extends uvm_monitor;
     //check ready=1 immediately after reset 	  
     virtual task check_ready1();
         while(1) begin
-            wait@(vifAes.rst_n=0);
+            wait(vifAes.rst_n==0);
             if (vifAes.ready == 0) begin
                 `uvm_error("aes_Monitor", "Ready signal doesn't equal 1 when starting simulation");
             end
@@ -162,10 +164,10 @@ class aes_Monitor extends uvm_monitor;
     //check ready != {x,z}
     virtual task check_ready2();
         while(1) begin
-            wait@(vifAes.rst_n=1);
+            wait(vifAes.rst_n==1);
             case(vifAes.ready)
-                1'bx:`uvm_error("aes_Monitor", "Valid of ready shouldn't equal x");
-                1'bz:`uvm_error("aes_Monitor", "Valid of ready shouldn't equal z");
+                1'bx : `uvm_error("aes_Monitor", "Valid of ready shouldn't equal x")
+                1'bz : `uvm_error("aes_Monitor", "Valid of ready shouldn't equal z")
             endcase
         end
     endtask
@@ -173,13 +175,11 @@ class aes_Monitor extends uvm_monitor;
     //check ready signal holds the least one clock cycle before starting the next cipher or decipher process
     virtual task check_ready3();
         while(1) begin
-            wait@(vifAes.rst_n=1);
-            wait@(posedge vifAes.clk);
-            wait@(posedge vifAes.ready);
-            wait@(posedge vifAes.clk);
-            if (vifAes.ready==0) begin
-                `uvm_error("aes_Monitor", "Ready signal holds one level less than 1 clock cycle");
-            end
+            wait(vifAes.rst_n==1);
+            @(posedge vifAes.clk);
+                if (vifAes.ready==0) begin
+                    `uvm_error("aes_Monitor", "Ready signal holds one level less than 1 clock cycle");
+                end
         end
     endtask
   
@@ -187,10 +187,10 @@ class aes_Monitor extends uvm_monitor;
     //check chain_en != {x,z}
     virtual task check_chain_en1();
         while(1) begin
-            wait@(vifAes.rst_n=1);
+            wait(vifAes.rst_n==1);
             case(vifAes.chain_en)
-                1'bx:`uvm_error("aes_Monitor", "Valid of chain_en shouldn't equal x");
-                1'bz:`uvm_error("aes_Monitor", "Valid of chain_en shouldn't equal z");
+                1'bx:`uvm_error("aes_Monitor", "Valid of chain_en shouldn't equal x")
+                1'bz:`uvm_error("aes_Monitor", "Valid of chain_en shouldn't equal z")
             endcase
         end
     endtask
@@ -198,11 +198,8 @@ class aes_Monitor extends uvm_monitor;
     //check chain_en signal holds the least one clock cycle before starting the next cipher or decipher process		
     virtual task check_chain_en2();  
         while(1) begin
-            wait@(vifAes.rst_n=1);
-            wait@(posedge vifAes.clk);
-            wait@(posedge vifAes.chain_en);
-            wait@(posedge vifAes.clk);
-      
+            wait(vifAes.rst_n==1);
+            @(posedge vifAes.clk);      
             if (vifAes.chain_en==1) begin
                 `uvm_error("aes_Monitor", "Chain_en signal holds zero level less than 1 clock cycle");
             end
@@ -214,14 +211,14 @@ class aes_Monitor extends uvm_monitor;
     //check: cipher_en != {x,z} and check: decipher_en != {x,z}  
     virtual task check_cipher_decipher_en1();
         while(1) begin
-            wait@(vifAes.rst_n=1);
-            case@(vifAes.cipher_en)
-                1'bx:`uvm_error("aes_Monitor", "Valid of cipher_en shouldn't equal x");
-    	        1'bz:`uvm_error("aes_Monitor", "Valid of cipher_en shouldn't equal z");
+            wait(vifAes.rst_n==1);
+            case(vifAes.cipher_en)
+                1'bx:`uvm_error("aes_Monitor", "Valid of cipher_en shouldn't equal x")
+    	           1'bz:`uvm_error("aes_Monitor", "Valid of cipher_en shouldn't equal z")
             endcase
-            case@(vifAes.decipher_en)
-                1'bx:`uvm_error("aes_Monitor", "Valid of decipher_en shouldn't equal x");
-    	        1'bz:`uvm_error("aes_Monitor", "Valid of decipher_en shouldn't equal z");
+            case(vifAes.decipher_en)
+                1'bx:`uvm_error("aes_Monitor", "Valid of decipher_en shouldn't equal x")
+    	           1'bz:`uvm_error("aes_Monitor", "Valid of decipher_en shouldn't equal z")
             endcase 
         end
     endtask
@@ -229,19 +226,17 @@ class aes_Monitor extends uvm_monitor;
     //check: cipher_en and decipher_en signals are just positive in one clock cycle.	
     virtual task check_cipher_decipher_en2();
         while(1) begin
-            wait@(vifAes.rst_n=1);
-            wait@(posedge vifAes.clk);
+            wait(vifAes.rst_n==1);
+            @(posedge vifAes.clk);
             fork
                 begin
-                    wait@(posedge vifAes.cipher_en);
-        	    end
-        	    begin
-                    wait@(posedge vifAes.decipher_en);
+                    wait(vifAes.cipher_en ==1);
+        	       end
+        	       begin
+                    wait(vifAes.decipher_en ==1);
                 end
             join
-        	
-            wait@(posedge vifAes.clk);
-          
+        	          
             if (vifAes.cipher_en==0) begin
                 `uvm_error("aes_Monitor", "Cipher_en signal didn't equal 0 after 1 clock cycle");
             end
@@ -254,8 +249,8 @@ class aes_Monitor extends uvm_monitor;
     //check: cipher_en and decipher_en signal didn’t equal 1 at the same time.
     virtual task check_cipher_decipher_mode();
         while(1) begin
-            wait@(vifAes.rst_n=1);
-            wait@(posedge vifAes.clk);
+            wait(vifAes.rst_n==1);
+            @(posedge vifAes.clk);
             if (vifAes.cipher_en==1 && vifAes.decipher_en==1) begin
                 `uvm_error("aes_Monitor", "Cipher_en and decipher_en equal 1 at the same time");
             end

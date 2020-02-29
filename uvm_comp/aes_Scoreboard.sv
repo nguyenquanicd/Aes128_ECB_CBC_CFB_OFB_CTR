@@ -5,7 +5,7 @@
 //Page     :  VLSI Technology
 //--------------------------------------
 
-import "DPI-C" context function main_aes(uint8_t mode, uint8_t xcrypt, uint8_t* key, uint8_t* in, uint8_t* iv, uint8_t* out, uint8_t sbit)
+//import "DPI-C" context function main_aes(uint8_t mode, uint8_t xcrypt, uint8_t* key, uint8_t* in, uint8_t* iv, uint8_t* out, uint8_t sbit)
 
 class aes_Scoreboard extends uvm_scoreboard;
 
@@ -14,7 +14,7 @@ class aes_Scoreboard extends uvm_scoreboard;
 	
 	// This is standard code for all components
 	function new (string name = "aes_Scoreboard", uvm_component parent = null);
-	    supper.new(name, parent);
+	    super.new(name, parent);
 	endfunction
 	
 	// Declare analysis port
@@ -26,8 +26,8 @@ class aes_Scoreboard extends uvm_scoreboard;
 	endfunction
 	
 	// Define action to be taken when a packer is received via the declare analysis port
-	virtual function void write (ip_fromMonitor aesTransaction);
-	    `uvm_infor("write","Scoreboard get AES-transaction");
+	virtual function void write (aesTransaction);
+	    `uvm_info("write","Scoreboard get AES-transaction", UVM_LOW);
 	endfunction
 	
 	virtual task run_phase(uvm_phase phase);
