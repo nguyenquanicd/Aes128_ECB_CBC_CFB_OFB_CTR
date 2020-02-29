@@ -14,6 +14,7 @@ class aes_Transaction extends uvm_sequence_item;
      rand  bit [127:0]       aes_init_vector;
      rand  bit [3:0]         aes_segment_len;
      rand  bit [7:0]         aes_blockDelay; // delay signal
+	 constraint limit_blockDelay { aes_blockDelay !(inside {0});} // them constraint de blockDelay ko random ra 0
      rand  bit               aes_new_chain;
      logic [127:0]           aes_data_out;
 	 
