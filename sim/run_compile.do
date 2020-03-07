@@ -15,7 +15,10 @@ vlog -work work  \
             ../rtl/aes128_key_expansion.sv \
             ../rtl/aes128_key_expansion_inv.sv \
             ../rtl/aes128.sv \
-            ../uvm_comp/aes_Testbench.sv
+            ../uvm_comp/aes_Testbench.sv \
+            -timescale 1ns/1ns \
+            -l vlog.log \
+            +cover
 
 #---------------------------------------------
 #Simulation
@@ -25,3 +28,8 @@ vsim -novopt work.aes_Testbench \
   +UVM_VERBOSITY=UVM_LOW \
   -coverage \
   -l vsim.log
+
+#---------------------------------------------
+#Run
+#---------------------------------------------
+run 10ns
