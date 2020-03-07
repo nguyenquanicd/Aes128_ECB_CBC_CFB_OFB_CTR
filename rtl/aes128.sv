@@ -23,7 +23,7 @@ module aes128 (
   input [127:0] key,
   input [3:0]   mode,
   input [127:0] init_vector,
-  input [15:0]  segment_len,
+  input [3:0]  segment_len,
   //output
   output logic [127:0] data_out,
   output logic ready

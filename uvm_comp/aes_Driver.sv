@@ -4,14 +4,14 @@
 //Author   :  Nguyễn Hùng Quân, Phan Văn Thành, Nguyễn Thành Công, Trần Hữu Toàn
 //Page     :  VLSI Technology
 //--------------------------------------
-integer int_delay;
 class aes_Driver extends uvm_driver #(aes_Transaction);
          // Makes this scoreboard more re-usable
 	`uvm_component_utils(aes_Driver)
      //1. Declare the virtual interface
-     virtual ifAes ifAes_inst;
+     virtual aes_Interface ifAes_inst;
      aes_Transaction aesPacket;
-  
+     bit [7:0] int_delay;
+     
      //3. Class constructor with two arguments
      function new (string name = "aes_Driver", uvm_component parent = null);
          super.new(name, parent);
@@ -25,13 +25,13 @@ class aes_Driver extends uvm_driver #(aes_Transaction);
          super.build_phase(phase);
          //All of the functions in uvm_config_db are static, using :: to call them
          //If the call "get" is unsuccessful, the fatal is triggered
-         if (!uvm_config_db#(virtual ifAes)::get(this,"","ifAes_inst",ifAes_inst)) begin
+         if (!uvm_config_db#(virtual aes_Interface)::get(this,"","ifAes_inst",ifAes_inst)) begin
              //`uvm_fatal(ID, MSG)
              //ID: message tag
              //MSG message text
              //get_full_name returns the full hierarchical name of the driver object
 	         // kiem tra connection!!!
-             `uvm_fatal("NON-ifAes", {"A virtual interface must be set for: ", get_full_name(), ".ifAes_inst"})
+             `uvm_fatal("NON-aes_Interface", {"A virtual interface must be set for: ", get_full_name(), ".ifAes_inst"})
          end
          `uvm_info(get_full_name(), "Build phase completed.", UVM_LOW)
      endfunction
@@ -49,24 +49,24 @@ class aes_Driver extends uvm_driver #(aes_Transaction);
 				 ifAes_inst.aes_decipher_en <=1'b0;
 				 
 	   	         // Task get_seq_and_drive
-                 get_seq_and_drive ();
+                 get_seq_and_drive (aesPacket);
 	         end
          end
      endtask
   
      //Get a transaction -> convert to signal level (Drive DUT) -> wait for completing
-     virtual task get_seq_and_drive();
+     virtual task get_seq_and_drive(aes_Transaction userTransaction);
          forever begin
              @ (posedge ifAes_inst.aes_clk);
 	             //check ready
 	             if (ifAes_inst.aes_ready == 1) begin
                          //The seq_item_port.get_next_item is used to get items from the sequencer
-                         seq_item_port.get_next_item(aesPacket);
+                         seq_item_port.get_next_item(userTransaction);
                         
 	   		             if (userTransaction.aes_chain_en == 1)
 	   		  	     	 if (userTransaction.aes_new_chain ==1)
 	   		  	     			ifAes_inst.aes_chain_en <= 0;
-	   		             convert_seq2signal(aesPacket);
+	   		             convert_seq2signal(userTransaction);
                          // Report the done execution
                          seq_item_port.item_done();
 	   	         end

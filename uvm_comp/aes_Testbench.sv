@@ -1,7 +1,7 @@
 //--------------------------------------
 //Project  :  The UVM environemnt for AES128
 //File name:  aes_Test.sv
-//Author   :  Nguyễn Hùng Quân, Phan Văn Thành, Nguyễn Thành Công, Trần Hữu Toàn
+//Author   :  Phan Văn Thành, Nguyễn Thành Công, Trần Hữu Toàn
 //Page     :  VLSI Technology
 //--------------------------------------
 `include "uvm_pkg.sv"
@@ -12,6 +12,11 @@ module aes_Testbench;
 	//`include "aes.h"
   //`include "aes.c"
 	//`include "main_aes.c"
+  `include "../rtl/aes128_sbox.sv"
+  `include "../rtl/aes128_mul.sv"
+  `include "../rtl/aes128_mul_inv.sv"
+  `include "../rtl/aes128_rcon.sv"
+  `include "../rtl/aes128_rcon_inv.sv"
 	`include "../uvm_comp/aes_Transaction.sv"
   `include "../uvm_comp/aes_Driver.sv"
   `include "../uvm_comp/aes_Scoreboard.sv"

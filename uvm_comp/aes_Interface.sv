@@ -4,7 +4,7 @@
 //Author   :  Nguyễn Hùng Quân, Phan Văn Thành, Nguyễn Thành Công, Trần Hữu Toàn
 //Page     :  VLSI Technology
 //--------------------------------------
-interface ifAes();
+interface aes_Interface();
 //input DUT
   logic           aes_clk;
   logic           aes_rst_n;

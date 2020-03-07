@@ -2,8 +2,6 @@
 // Author: Nguyen Hung Quan
 // Website: http://nguyenquanicd.blogspot.com/
 //-----------------------------------------------------------
-//`include "aes128_sbox.sv"
-//`include "aes128_mul.sv"
 module aes128_cipher_core(
   //input
   input clk_sys,
@@ -18,7 +16,6 @@ module aes128_cipher_core(
   output logic [3:0] round_num,
   output logic rkey_en 
   );
-
   //All internal signals
   logic	[127:0]	after_mixColumns;
   logic	[127:0]	subbytes_sel;

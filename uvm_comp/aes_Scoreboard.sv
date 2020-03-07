@@ -26,7 +26,7 @@ class aes_Scoreboard extends uvm_scoreboard;
 	endfunction
 	
 	// Define action to be taken when a packer is received via the declare analysis port
-	virtual function void write (aesTransaction);
+	virtual function void write (aes_Transaction aesTransaction_inst);
 	    `uvm_info("write","Scoreboard get AES-transaction", UVM_LOW);
 	endfunction
 	
