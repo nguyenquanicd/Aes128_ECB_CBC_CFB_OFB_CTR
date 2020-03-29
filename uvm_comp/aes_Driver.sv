@@ -5,10 +5,11 @@
 //Page     :  VLSI Technology
 //--------------------------------------
 class aes_Driver extends uvm_driver #(aes_Transaction);
-         // Makes this scoreboard more re-usable
+     // Makes this scoreboard more re-usable
 	`uvm_component_utils(aes_Driver)
+	
      //1. Declare the virtual interface
-     virtual aes_Interface ifAes_inst;
+     virtual interface aes_Interface ifAes_inst;
      aes_Transaction aesPacket;
      bit [7:0] int_delay;
      
@@ -21,17 +22,19 @@ class aes_Driver extends uvm_driver #(aes_Transaction);
      // - super.build_phase is called and executed first
      // - Configure the component before creating it
      // - Create the UVM component
-     function void build_phase(uvm_phase phase);
+     virtual function void build_phase(uvm_phase phase);
          super.build_phase(phase);
          //All of the functions in uvm_config_db are static, using :: to call them
          //If the call "get" is unsuccessful, the fatal is triggered
-         if (!uvm_config_db#(virtual aes_Interface)::get(this,"","ifAes_inst",ifAes_inst)) begin
+         if (!uvm_config_db#(virtual interface aes_Interface)::get(this,"","aes_Interface",ifAes_inst)) begin
              //`uvm_fatal(ID, MSG)
              //ID: message tag
              //MSG message text
              //get_full_name returns the full hierarchical name of the driver object
 	         // kiem tra connection!!!
-             `uvm_fatal("NON-aes_Interface", {"A virtual interface must be set for: ", get_full_name(), ".ifAes_inst"})
+             //`uvm_fatal("NON-aes_Interface", {"A virtual interface must be set for: ", get_full_name(), ".ifAes_inst"})
+			 //`uvm_fatal("....", $psprintf("... %s ...", get_full_name()));
+			 `uvm_fatal (get_type_name(), "Didnt get handle to virtual interface if_name")
          end
          `uvm_info(get_full_name(), "Build phase completed.", UVM_LOW)
      endfunction

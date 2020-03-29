@@ -33,8 +33,8 @@ class aes_Monitor extends uvm_monitor;
         ap_toScoreboard = new("ap_toScoreboard", this);	
     
         // Get virtual interface handle from the configuration DB
-        if(!uvm_config_db#(virtual interface aes_Interface)::get(this,"","vifAes",vifAes)) begin
-	  		`uvm_error("cAesDriver","Can NOT get vifAes!!!")
+        if(!uvm_config_db#(virtual interface aes_Interface)::get(this,"","aes_Interface",vifAes)) begin
+	  		//`uvm_error("cAesDriver","Can NOT get vifAes!!!")
 	      end
 	  
         coAesTransaction = aes_Transaction::type_id::create("coAesTransaction",this);

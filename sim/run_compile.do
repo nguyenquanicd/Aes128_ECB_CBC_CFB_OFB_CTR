@@ -5,7 +5,7 @@ vlog -work work  \
             +define+UVM_CMDLINE_NO_DPI \
             +define+UVM_REGEX_NO_DPI \
             +define+UVM_NO_DPI \
-            +incdir+C:/questasim64_10.2c/uvm-1.2/src \
+			+incdir+E:/MY_PROJECT/02_TOOL/UVM_package/uvm-1.2/uvm-1.2/src \
             -sv \
             ../uvm_comp/aes_Interface.sv \
             ../rtl/aes128_cipher_core.sv \
@@ -24,7 +24,7 @@ vlog -work work  \
 #Simulation
 #---------------------------------------------
 vsim -novopt work.aes_Testbench \
-  +UVM_TESTNAME=cTest \
+  +UVM_TESTNAME=aes_Test \
   +UVM_VERBOSITY=UVM_LOW \
   -coverage \
   -l vsim.log

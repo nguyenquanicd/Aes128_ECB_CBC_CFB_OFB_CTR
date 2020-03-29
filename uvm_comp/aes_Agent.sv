@@ -25,7 +25,7 @@ class aes_Agent extends uvm_agent;
         super.build_phase(phase);
         aes_Driver_inst    = aes_Driver::type_id::create("aes_Driver_inst",this);
         aes_Sequencer_inst = aes_Sequencer::type_id::create("aes_Sequencer_inst",this);
-		aes_Monitor_inst   = aes_Monitor::type_id::create("aes_Sequencer_inst",this);
+		aes_Monitor_inst   = aes_Monitor::type_id::create("aes_Monitor_inst",this);
     endfunction
   
     //Connect phase

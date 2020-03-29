@@ -1,0 +1,57 @@
+# vsim +UVM_TESTNAME=aes_Test +UVM_VERBOSITY=UVM_LOW -coverage -l vsim.log -novopt work.aes_Testbench 
+# Loading C:\Users\ADMINI~1\AppData\Local\Temp\Administrator@KV7XLIEMBGSRJCR_dpi_13684\win64_gcc-4.5.0\export_tramp.dll
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes_Testbench
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.uvm_pkg
+# Loading sv_std.std
+# Loading work.uvm_pkg
+# Loading work.aes_Testbench
+# ** Note: (vsim-8785) UVM-aware debugging capabilities will be disabled since no compiled "questa_uvm_pkg" can be found.
+# 
+# This also means that later if you turn on UVM-aware debugging your debug simulations may have
+# 
+# different random seeds from your non-debug simulations.
+# 
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes_Interface
+# Loading work.aes_Interface
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes128
+# Loading work.aes128
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes128_cipher_top
+# Loading work.aes128_cipher_top
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes128_cipher_core
+# Loading work.aes128_cipher_core
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes128_key_expansion
+# Loading work.aes128_key_expansion
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes128_cipher_inv_top
+# Loading work.aes128_cipher_inv_top
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes128_cipher_core_inv
+# Loading work.aes128_cipher_core_inv
+# Refreshing E:/MY_PROJECT/01_REPO/Aes128_ECB_CBC_CFB_OFB_CTR/sim/work.aes128_key_expansion_inv
+# Loading work.aes128_key_expansion_inv
+# Compiling C:\Users\ADMINI~1\AppData\Local\Temp\Administrator@KV7XLIEMBGSRJCR_dpi_13684\win64_gcc-4.5.0\exportwrapper.c
+# Loading C:\Users\ADMINI~1\AppData\Local\Temp\Administrator@KV7XLIEMBGSRJCR_dpi_13684\win64_gcc-4.5.0\dpi_auto_compile.dll
+# UVM_INFO E:/MY_PROJECT/02_TOOL/UVM_package/uvm-1.2/uvm-1.2/src/base/uvm_root.svh(392) @ 0: reporter [UVM/RELNOTES] 
+# ----------------------------------------------------------------
+# UVM-1.2
+# (C) 2007-2014 Mentor Graphics Corporation
+# (C) 2007-2014 Cadence Design Systems, Inc.
+# (C) 2006-2014 Synopsys, Inc.
+# (C) 2011-2013 Cypress Semiconductor Corp.
+# (C) 2013-2014 NVIDIA Corporation
+# ----------------------------------------------------------------
+# 
+#   ***********       IMPORTANT RELEASE NOTES         ************
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_NO_DEPRECATED undefined.
+#   See http://www.eda.org/svdb/view.php?id=3313 for more details.
+# 
+#   You are using a version of the UVM library that has been compiled
+#   with `UVM_OBJECT_DO_NOT_NEED_CONSTRUCTOR undefined.
+#   See http://www.eda.org/svdb/view.php?id=3770 for more details.
+# 
+#       (Specify +UVM_NO_RELNOTES to turn off this notice)
+# 
+# UVM_INFO E:/MY_PROJECT/02_TOOL/UVM_package/uvm-1.2/uvm-1.2/src/base/uvm_root.svh(453) @ 0: reporter [NO_DPI_TSTNAME] UVM_NO_DPI defined--getting UVM_TESTNAME directly, without DPI
+# UVM_INFO @ 0: reporter [RNTST] Running test aes_Test...
+# UVM_INFO ../uvm_comp/aes_Driver.sv(39) @ 0: uvm_test_top.aes_Env_inst.aes_Agent_inst.aes_Driver_inst [uvm_test_top.aes_Env_inst.aes_Agent_inst.aes_Driver_inst] Build phase completed.
+# UVM_INFO E:/MY_PROJECT/02_TOOL/UVM_package/uvm-1.2/uvm-1.2/src/base/uvm_traversal.svh(279) @ 0: reporter [UVM/COMP/NAMECHECK] This implementation of the component name checks requires DPI to be enabled

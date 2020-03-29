@@ -56,7 +56,9 @@ module aes_Testbench;
 		.data_out(aes_Interface_inst.aes_data_out),
 		.ready(aes_Interface_inst.aes_ready));
 	
-	initial begin uvm_config_db#(virtual aes_Interface)::set(uvm_root::get(),"*","vif",aes_Interface_inst);
+	initial begin
+	   uvm_config_db#(virtual interface aes_Interface)::set(uvm_root::get(),"*","aes_Interface",aes_Interface_inst);
+	   //uvm_config_db #(virtual aes_Interface)::set (null, "uvm_test", "aes_Interface", aes_Interface_inst);
 	    //Enable wave dump
 	   $dumpfile("dump.vcd");
 	   $dumpvars;

@@ -1,0 +1,6 @@
+  CREATE_STREAM @0 {NAME:aes_Sequence_inst T:Transactions SCOPE:uvm_test_top.aes_Env_inst.aes_Agent_inst.aes_Sequencer_inst STREAM:603}
+  CREATE_STREAM @0 {NAME:aes_Sequence_inst T:Transactions SCOPE:uvm_test_top.aes_Env_inst.aes_Agent_inst.aes_Sequencer_inst STREAM:603}
+  CREATE_STREAM @0 {NAME:aes_Sequence_inst T:Transactions SCOPE:uvm_test_top.aes_Env_inst.aes_Agent_inst.aes_Sequencer_inst STREAM:603}
+  CREATE_STREAM @0 {NAME:aes_Sequence_inst T:Transactions SCOPE:uvm_test_top.aes_Env_inst.aes_Agent_inst.aes_Sequencer_inst STREAM:603}
+  CREATE_STREAM @0 {NAME:aes_Sequence_inst T:Transactions SCOPE:uvm_test_top.aes_Env_inst.aes_Agent_inst.aes_Sequencer_inst STREAM:603}
+  CREATE_STREAM @0 {NAME:aes_Sequence_inst T:Transactions SCOPE:uvm_test_top.aes_Env_inst.aes_Agent_inst.aes_Sequencer_inst STREAM:603}
