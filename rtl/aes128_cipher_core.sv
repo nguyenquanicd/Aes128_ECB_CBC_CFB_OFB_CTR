@@ -16,6 +16,7 @@ module aes128_cipher_core(
   output logic [3:0] round_num,
   output logic rkey_en 
   );
+  import aes128_pkg::*;
   //All internal signals
   logic	[127:0]	after_mixColumns;
   logic	[127:0]	subbytes_sel;

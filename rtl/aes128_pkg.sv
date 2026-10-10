@@ -1,4 +1,36 @@
 //-----------------------------------------------------------
+// Package: aes128_pkg
+// Function: all AES-128 primitive functions used by the RTL
+//   - S-box / inverse S-box (composite field GF((2^4)^2))
+//   - MixColumns / InvMixColumns (GF(2^8) multiplications)
+//   - Round constants for the forward / inverse key expansion
+//-----------------------------------------------------------
+// Author: Nguyen Hung Quan
+// Website: http://nguyenquanicd.blogspot.com/
+//-----------------------------------------------------------
+// History:
+//   2026.10.10 - Merged aes128_sbox.sv, aes128_mul.sv, aes128_mul_inv.sv,
+//                aes128_rcon.sv and aes128_rcon_inv.sv into one package.
+//                The functions used to live in the compilation-unit scope
+//                ($unit), so the RTL compiled only when a tool merged all
+//                files into one unit. A package makes the RTL self-contained
+//                and portable (IEEE 1800 tools, formal tools).
+//                Functions are now "automatic"; the InvMixColumns selector
+//                constants are package-level localparams.
+//-----------------------------------------------------------
+package aes128_pkg;
+
+  //-----------------------------------------------------------
+  // InvMixColumns multiplier selectors (used by mulInv/mixcolInv)
+  //-----------------------------------------------------------
+  localparam logic [1:0] MIX0E = 2'b00;
+  localparam logic [1:0] MIX0B = 2'b01;
+  localparam logic [1:0] MIX0D = 2'b10;
+  localparam logic [1:0] MIX09 = 2'b11;
+
+
+// ======================= S-box =======================
+//-----------------------------------------------------------
 // Author: Nguyen Hung Quan
 // Website: http://nguyenquanicd.blogspot.com/
 //-----------------------------------------------------------
@@ -8,7 +40,7 @@
 //-----------------------------------------------------
 // Multiple 2 operands in GF(2^2)
 //-----------------------------------------------------
-function logic [1:0] mulGf22;
+function automatic logic [1:0] mulGf22;
   input [1:0] mulGf22_in0;
   input [1:0] mulGf22_in1;
   //
@@ -23,7 +55,7 @@ endfunction
 //-----------------------------------------------------
 // Multiple 2 operands in GF(2^4)
 //-----------------------------------------------------
-function logic [3:0] mulGf24;
+function automatic logic [3:0] mulGf24;
   input [3:0] operand0;
   input [3:0] operand1;
   //
@@ -59,7 +91,7 @@ endfunction
 //-----------------------------------------------------
 // Affine transformation
 //-----------------------------------------------------
-function logic [7:0] affine;
+function automatic logic [7:0] affine;
   input [7:0] after_mulInv;
   //
   affine[0] = after_mulInv[0]
@@ -117,7 +149,7 @@ endfunction
 //-----------------------------------------------------
 // Inverse Affine transformation
 //-----------------------------------------------------
-function logic [7:0] affineInv;
+function automatic logic [7:0] affineInv;
   input [7:0] before_mulInv;
   //
   affineInv[0] = before_mulInv[2]
@@ -155,7 +187,7 @@ function logic [7:0] affineInv;
             ^ before_mulInv[6];
 endfunction
 
-function logic [7:0] mulGf28Inv;
+function automatic logic [7:0] mulGf28Inv;
   input [7:0] invInput;
   logic [7:0] after_imp;
   logic [3:0] imp_msb;
@@ -306,7 +338,7 @@ function logic [7:0] mulGf28Inv;
             ^ imp_inv_in[0];
 endfunction
 
-function logic [7:0] aes128_sbox;
+function automatic logic [7:0] aes128_sbox;
   input [7:0] sbox_in;
   input encrypt_en;
   //
@@ -324,3 +356,152 @@ function logic [7:0] aes128_sbox;
                      affine(mulInvResult[7:0])
                    : mulInvResult[7:0];
 endfunction
+// ======================= MixColumns =======================
+//-----------------------------------------------------------
+// Author: Nguyen Hung Quan
+// Website: http://nguyenquanicd.blogspot.com/
+//-----------------------------------------------------------
+//===================================================================
+// Function:	Multiplication in GF(2^8)
+//            1) Multiplication
+//            2) modulo m(x) = x^8 + x^4 + x^3 + x + 1
+//===================================================================
+function automatic logic [7:0] mul2;
+  input [7:0] mul2_in;
+  mul2[7:0] = (mul2_in[7] == 1'b1)?
+              ({mul2_in[6:0], 1'b0} ^ 8'b0001_1011)
+  				    : {mul2_in[6:0], 1'b0};
+endfunction
+//
+function automatic logic [7:0] mul3;
+  input [7:0] mul3_in;
+  mul3[7:0] = mul2(mul3_in[7:0]) ^ mul3_in[7:0];
+endfunction
+//Multiplication of the MixColumns matrix and a column of state matrix
+function automatic logic [31:0] mixcol;
+  input [31:0] mixcol_in;
+  mixcol[31:24] = mul2(mixcol_in[31:24]) ^ mul3(mixcol_in[23:16]) ^ mixcol_in[15:8]       ^ mixcol_in[7:0];
+  mixcol[23:16] = mixcol_in[31:24]       ^ mul2(mixcol_in[23:16]) ^ mul3(mixcol_in[15:8]) ^ mixcol_in[7:0];
+  mixcol[15:8]  = mixcol_in[31:24]       ^ mixcol_in[23:16]       ^ mul2(mixcol_in[15:8]) ^ mul3(mixcol_in[7:0]);
+  mixcol[7:0]   = mul3(mixcol_in[31:24]) ^ mixcol_in[23:16]       ^ mixcol_in[15:8]       ^ mul2(mixcol_in[7:0]);
+endfunction
+// ======================= InvMixColumns =======================
+//-----------------------------------------------------------
+// Author: Nguyen Hung Quan
+// Website: http://nguyenquanicd.blogspot.com/
+//-----------------------------------------------------------
+//===================================================================
+// Function:	Multiplication in GF(2^8)
+//            1) Multiplication
+//            2) modulo m(x) = x^8 + x^4 + x^3 + x + 1
+//===================================================================
+function automatic logic [7:0] mul2Inv;
+  input [7:0] mul2_in;
+  mul2Inv[7:0] = (mul2_in[7] == 1'b1)?
+              ({mul2_in[6:0], 1'b0} ^ 8'b0001_1011)
+  				    : {mul2_in[6:0], 1'b0};
+endfunction
+//
+function automatic logic [7:0] mulInv;
+  input [7:0] mul_in;
+  input [1:0] mul_sel;
+  //
+  logic [7:0] mul2_result;
+  logic [7:0] mul4_result;
+  logic [7:0] mul8_result;
+  logic [7:0] mul0e;
+  logic [7:0] mul0b;
+  logic [7:0] mul0d;
+  logic [7:0] mul09;
+  //
+  mul2_result[7:0] = mul2Inv(mul_in[7:0]);
+  mul4_result[7:0] = mul2Inv(mul2_result[7:0]);
+  mul8_result[7:0] = mul2Inv(mul4_result[7:0]);
+  mul0e[7:0] = mul2_result ^ mul4_result ^ mul8_result;
+  mul0b[7:0] = mul2_result ^               mul8_result ^ mul_in[7:0];
+  mul0d[7:0] =               mul4_result ^ mul8_result ^ mul_in[7:0];
+  mul09[7:0] =                             mul8_result ^ mul_in[7:0];
+  case (mul_sel[1:0])
+    2'b00: mulInv[7:0] = mul0e[7:0];
+    2'b01: mulInv[7:0] = mul0b[7:0];
+    2'b10: mulInv[7:0] = mul0d[7:0];
+    2'b11: mulInv[7:0] = mul09[7:0];
+    default: mulInv[7:0] = mul0e[7:0];
+  endcase
+endfunction
+//Multiplication of the InvMixColumns matrix and a column of state matrix
+function automatic logic [31:0] mixcolInv;
+  //
+  input [31:0] mixcolInv_in;
+  mixcolInv[31:24] = mulInv(mixcolInv_in[31:24],  MIX0E) 
+                     ^ mulInv(mixcolInv_in[23:16],MIX0B) 
+                     ^ mulInv(mixcolInv_in[15:8], MIX0D) 
+                     ^ mulInv(mixcolInv_in[7:0],  MIX09);
+                     
+  mixcolInv[23:16] = mulInv(mixcolInv_in[31:24],  MIX09) 
+                     ^ mulInv(mixcolInv_in[23:16],MIX0E) 
+                     ^ mulInv(mixcolInv_in[15:8], MIX0B) 
+                     ^ mulInv(mixcolInv_in[7:0],  MIX0D);
+                     
+  mixcolInv[15:8]  = mulInv(mixcolInv_in[31:24],  MIX0D) 
+                     ^ mulInv(mixcolInv_in[23:16],MIX09) 
+                     ^ mulInv(mixcolInv_in[15:8], MIX0E) 
+                     ^ mulInv(mixcolInv_in[7:0],  MIX0B);
+                     
+  mixcolInv[7:0]   = mulInv(mixcolInv_in[31:24],  MIX0B) 
+                     ^ mulInv(mixcolInv_in[23:16],MIX0D) 
+                     ^ mulInv(mixcolInv_in[15:8], MIX09) 
+                     ^ mulInv(mixcolInv_in[7:0],  MIX0E);
+endfunction
+// ======================= Round constants =======================
+//-----------------------------------------------------------
+// Author: Nguyen Hung Quan
+// Website: http://nguyenquanicd.blogspot.com/
+//-----------------------------------------------------------
+//-----------------------------------------------------------
+// Function: Rcon of AES-128 used in Key Expansion
+//-----------------------------------------------------------
+
+function automatic logic [31:0] aes128_rcon;
+  input [3:0] rkey_sel;
+	case (rkey_sel)
+		4'd0:	aes128_rcon[31:0] = 32'h0100_0000;
+		4'd1:	aes128_rcon[31:0] = 32'h0200_0000;
+		4'd2:	aes128_rcon[31:0] = 32'h0400_0000;
+		4'd3:	aes128_rcon[31:0] = 32'h0800_0000;
+		4'd4:	aes128_rcon[31:0] = 32'h1000_0000;
+		4'd5:	aes128_rcon[31:0] = 32'h2000_0000;
+		4'd6:	aes128_rcon[31:0] = 32'h4000_0000;
+		4'd7:	aes128_rcon[31:0] = 32'h8000_0000;
+		4'd8:	aes128_rcon[31:0] = 32'h1b00_0000;
+		4'd9:	aes128_rcon[31:0] = 32'h3600_0000;
+		default: aes128_rcon[31:0] = 32'h3600_0000;
+	endcase
+endfunction
+
+//-----------------------------------------------------------
+// Author: Nguyen Hung Quan
+// Website: http://nguyenquanicd.blogspot.com/
+//-----------------------------------------------------------
+//-----------------------------------------------------------
+// Function: Inverse Rcon of AES-128 used in Inverse Key Expansion
+//-----------------------------------------------------------
+
+function automatic logic [31:0] aes128_rcon_inv;
+  input [3:0] rkey_sel;
+	case (rkey_sel)
+		4'd9:	aes128_rcon_inv = 32'h0100_0000;
+  	4'd8:	aes128_rcon_inv = 32'h0200_0000;
+  	4'd7:	aes128_rcon_inv = 32'h0400_0000;
+  	4'd6:	aes128_rcon_inv = 32'h0800_0000;
+  	4'd5:	aes128_rcon_inv = 32'h1000_0000;
+  	4'd4:	aes128_rcon_inv = 32'h2000_0000;
+  	4'd3:	aes128_rcon_inv = 32'h4000_0000;
+  	4'd2:	aes128_rcon_inv = 32'h8000_0000;
+  	4'd1:	aes128_rcon_inv = 32'h1b00_0000;
+  	4'd0:	aes128_rcon_inv = 32'h3600_0000;
+  	default: aes128_rcon_inv = 32'h0100_0000;
+	endcase
+endfunction
+
+endpackage : aes128_pkg

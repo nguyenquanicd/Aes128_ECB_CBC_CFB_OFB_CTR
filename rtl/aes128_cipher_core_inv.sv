@@ -16,6 +16,7 @@ module aes128_cipher_core_inv (
   output logic [3:0] round_num,
   output logic rkey_en 
   );
+  import aes128_pkg::*;
   //
   //Internal signals
   //

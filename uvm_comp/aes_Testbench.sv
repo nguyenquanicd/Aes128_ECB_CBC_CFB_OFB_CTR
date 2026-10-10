@@ -9,14 +9,11 @@
 `include "../uvm_comp/uMacro.svh"
 module aes_Testbench;
   import uvm_pkg::*;
+  //The AES primitive functions are in rtl/aes128_pkg.sv, which must be compiled before this file
+  //(see sim/run_compile.do). They are not used by the UVM components.
 	//`include "aes.h"
   //`include "aes.c"
 	//`include "main_aes.c"
-  `include "../rtl/aes128_sbox.sv"
-  `include "../rtl/aes128_mul.sv"
-  `include "../rtl/aes128_mul_inv.sv"
-  `include "../rtl/aes128_rcon.sv"
-  `include "../rtl/aes128_rcon_inv.sv"
 	`include "../uvm_comp/aes_Transaction.sv"
   `include "../uvm_comp/aes_Driver.sv"
   `include "../uvm_comp/aes_Scoreboard.sv"

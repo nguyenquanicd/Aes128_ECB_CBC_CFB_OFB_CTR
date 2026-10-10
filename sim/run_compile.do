@@ -8,6 +8,7 @@ vlog -work work  \
 			+incdir+E:/MY_PROJECT/02_TOOL/UVM_package/uvm-1.2/uvm-1.2/src \
             -sv \
             ../uvm_comp/aes_Interface.sv \
+            ../rtl/aes128_pkg.sv \
             ../rtl/aes128_cipher_core.sv \
             ../rtl/aes128_cipher_core_inv.sv \
             ../rtl/aes128_cipher_inv_top.sv \

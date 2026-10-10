@@ -3,8 +3,6 @@
 // Website: http://nguyenquanicd.blogspot.com/
 //-----------------------------------------------------------
 
-//`include "aes128_sbox.sv"
-//`include "aes128_rcon.sv"
 module	aes128_key_expansion (
   //input
   input	 clk_sys,
@@ -16,6 +14,7 @@ module	aes128_key_expansion (
   //output
   output	logic	[127:0]	round_key_out
   );
+  import aes128_pkg::*;
   //
   //Internal signals
   //

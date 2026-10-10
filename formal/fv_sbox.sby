@@ -1,0 +1,26 @@
+[tasks]
+run
+
+[options]
+mode bmc
+depth 1
+
+[engines]
+smtbmc boolector
+
+[script]
+plugin -i slang
+read_slang  --top fv_sbox aes128_pkg.sv aes128_cipher_core.sv aes128_cipher_core_inv.sv aes128_key_expansion.sv aes128_key_expansion_inv.sv aes128_cipher_top.sv aes128_cipher_inv_top.sv aes128.sv fv_sbox.sv
+prep -top fv_sbox
+
+[files]
+../rtl/aes128_pkg.sv
+../rtl/aes128_cipher_core.sv
+../rtl/aes128_cipher_core_inv.sv
+../rtl/aes128_key_expansion.sv
+../rtl/aes128_key_expansion_inv.sv
+../rtl/aes128_cipher_top.sv
+../rtl/aes128_cipher_inv_top.sv
+../rtl/aes128.sv
+../checker/aes128_protocol_checker.sv
+fv_sbox.sv
