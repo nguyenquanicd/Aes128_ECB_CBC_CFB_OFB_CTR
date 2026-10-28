@@ -14,6 +14,8 @@
 #   make vec VEC=rand_s1 ARGS="+JUNK=1 +SCR=31"      any scenario with any plusargs
 #   make formal               formal proofs (SymbiYosys)
 #   make mutation             prove that the testbenches catch 18 deliberate RTL bugs
+#   make vlsit-verification   build and simulate the generated batch RTL (LANES=1 and 4),
+#                             then create and check its specification waveform evidence
 #
 # REQUIREMENTS
 #   * GNU make >= 3.82 and a POSIX shell with mkdir/rm/cat/grep/tail
@@ -187,6 +189,7 @@ help:
 	@echo "  make gen-vectors         regenerate vectors/*.hex (python reference model)"
 	@echo "  make gen-simple          regenerate simpleTestcase/*.sv"
 	@echo "  make ref-selftest        self-test of the python AES model"
+	@echo "  make vlsit-verification  simulate generated batch RTL (LANES=1/4) and check waveform evidence"
 	@echo "  make info | check-tools  show / verify the tool installation"
 	@echo "  make clean               delete generated files"
 	@echo "Variables: OSSCAD=<oss-cad-suite folder> PYTHON=<python> IVERILOG VVP SBY N SEED VEC ARGS"
@@ -342,3 +345,64 @@ ref-selftest:
 # rm -rf: sim/build (binaries, logs, mutants) and the SymbiYosys result directories / logs.
 clean:
 	rm -rf $(BUILD) formal/fv_*_run formal/*.log formal/*.err formal/*.out
+
+# -----------------------------------------------------------------------------
+# 13. VLSIT-generated batch RTL: independent vectors, simulation and waveforms
+# -----------------------------------------------------------------------------
+# The testbench is kept outside rtl_vlsit_generated/filelist.f. Golden data comes
+# from tools/aes_ref.py through verification/gen_batch_vectors.py, never from RTL.
+VLSIT_BUILD       := verification/build
+VLSIT_LOG         := verification/logs
+VLSIT_TB          := verification/tb_aes128_batch.sv
+VLSIT_RTL         := $(wildcard rtl_vlsit_generated/*.sv)
+VLSIT_PYTHON      ?= $(PYTHON)
+VLSIT_VVP         ?= $(VVP)
+CODEX_SKILLS      ?= C:/Users/PC/.codex/skills
+WAVEDROM_CONVERTER ?= $(CODEX_SKILLS)/vlsit-wavedrom-waveform/scripts/vlsit_wavedrom_waveform.py
+WAVEDROM_SVG      ?= $(CODEX_SKILLS)/vlsit-asic-ip-microspec/scripts/vlsit_waveform_svg.py
+SIM_EVIDENCE      ?= $(CODEX_SKILLS)/vlsit-rtl-generator/scripts/vlsit_sim_evidence.py
+VLSIT_WAVES       := WF-001_config_success WF-001_config_error WF-002_ecb_batches \
+	WF-003_ctr_allocation WF-004_ctr_wrap_rejection WF-005_cbc_decryption \
+	WF-006_cbc_encrypt WF-006_cfb WF-006_ofb WF-007_backpressure WF-008_reset_zeroize
+
+.PHONY: vlsit-gen-vectors vlsit-sim vlsit-waveforms vlsit-evidence vlsit-verification
+
+$(VLSIT_BUILD) $(VLSIT_LOG) verification/waveforms_sim:
+	mkdir -p $@
+
+vlsit-gen-vectors: | $(VLSIT_BUILD)
+	$(VLSIT_PYTHON) verification/gen_batch_vectors.py
+
+$(VLSIT_BUILD)/aes128_batch_lanes4.vvp: $(VLSIT_RTL) rtl_vlsit_generated/filelist.f $(VLSIT_TB) | $(VLSIT_BUILD) $(VLSIT_LOG)
+	cd rtl_vlsit_generated && rm -f ../$(VLSIT_BUILD)/aes128_batch_lanes4.vvp && $(IVERILOG) -g2012 -s tb_aes128_batch -o ../$(VLSIT_BUILD)/aes128_batch_lanes4.vvp -c filelist.f ../$(VLSIT_TB) > ../$(VLSIT_LOG)/compile_lanes4.log 2>&1; status=$$?; cd ..; \
+	  if [ ! -s $(VLSIT_BUILD)/aes128_batch_lanes4.vvp ]; then cat $(VLSIT_LOG)/compile_lanes4.log; echo "*** VLSIT COMPILE FAILED: LANES=4 (no output binary)"; exit 1; fi; \
+	  if [ $$status -ne 0 ]; then echo "WARNING: Icarus returned $$status after writing the VVP; the following regression simulation validates this binary." | tee -a $(VLSIT_LOG)/compile_lanes4.log; fi
+
+$(VLSIT_BUILD)/aes128_batch_lanes1.vvp: $(VLSIT_RTL) rtl_vlsit_generated/filelist.f $(VLSIT_TB) | $(VLSIT_BUILD) $(VLSIT_LOG)
+	cd rtl_vlsit_generated && rm -f ../$(VLSIT_BUILD)/aes128_batch_lanes1.vvp && $(IVERILOG) -g2012 -D TB_LANES=1 -s tb_aes128_batch -o ../$(VLSIT_BUILD)/aes128_batch_lanes1.vvp -c filelist.f ../$(VLSIT_TB) > ../$(VLSIT_LOG)/compile_lanes1.log 2>&1; status=$$?; cd ..; \
+	  if [ ! -s $(VLSIT_BUILD)/aes128_batch_lanes1.vvp ]; then cat $(VLSIT_LOG)/compile_lanes1.log; echo "*** VLSIT COMPILE FAILED: LANES=1 (no output binary)"; exit 1; fi; \
+	  if [ $$status -ne 0 ]; then echo "WARNING: Icarus returned $$status after writing the VVP; the following regression simulation validates this binary." | tee -a $(VLSIT_LOG)/compile_lanes1.log; fi
+
+vlsit-sim: vlsit-gen-vectors $(VLSIT_BUILD)/aes128_batch_lanes1.vvp $(VLSIT_BUILD)/aes128_batch_lanes4.vvp | $(VLSIT_LOG)
+	$(VLSIT_VVP) $(VLSIT_BUILD)/aes128_batch_lanes1.vvp +MODE=regression > $(VLSIT_LOG)/run_lanes1.log 2>&1 \
+	  || { cat $(VLSIT_LOG)/run_lanes1.log; echo "*** VLSIT SIMULATION FAILED: LANES=1"; exit 1; }
+	$(VLSIT_VVP) $(VLSIT_BUILD)/aes128_batch_lanes4.vvp +MODE=regression > $(VLSIT_LOG)/run_lanes4.log 2>&1 \
+	  || { cat $(VLSIT_LOG)/run_lanes4.log; echo "*** VLSIT SIMULATION FAILED: LANES=4"; exit 1; }
+	@grep '^SUMMARY' $(VLSIT_LOG)/run_lanes1.log | tail -n 1
+	@grep '^SUMMARY' $(VLSIT_LOG)/run_lanes4.log | tail -n 1
+	@grep -F 'assertion failures: 0, assertions never exercised: 0' $(VLSIT_LOG)/run_lanes1.log | tail -n 1
+	@grep -F 'assertion failures: 0, assertions never exercised: 0' $(VLSIT_LOG)/run_lanes4.log | tail -n 1
+
+vlsit-waveforms: vlsit-gen-vectors $(VLSIT_BUILD)/aes128_batch_lanes4.vvp | $(VLSIT_LOG) verification/waveforms_sim
+	@set -e; for wf in $(VLSIT_WAVES); do \
+	  $(VLSIT_VVP) $(VLSIT_BUILD)/aes128_batch_lanes4.vvp +MODE=wave +WF=$$wf +DUMP=verification/waveforms_sim/$$wf.vcd > $(VLSIT_LOG)/$$wf.log 2>&1 || { cat $(VLSIT_LOG)/$$wf.log; exit 1; }; \
+	  grep '^SUMMARY' $(VLSIT_LOG)/$$wf.log | tail -n 1; \
+	done
+	$(VLSIT_PYTHON) verification/render_waveforms.py --converter "$(WAVEDROM_CONVERTER)" --renderer "$(WAVEDROM_SVG)"
+
+vlsit-evidence: vlsit-waveforms
+	$(VLSIT_PYTHON) "$(SIM_EVIDENCE)" check doc/AES128_ECB_CBC_CFB_OFB_CTR_Design_Specification.md verification/waveforms_sim --cdc no
+
+vlsit-verification: ref-selftest vlsit-sim vlsit-evidence
+
+# =============================================================================================

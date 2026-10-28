@@ -1,0 +1,47 @@
+{
+  "head": {
+    "text": "WF-008 — Reset and accepted zeroize abort pending output and error",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p........."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "01........"
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0..110...."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "0..00....."
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "0..110...."
+    },
+    {
+      "name": "i_err_ready",
+      "wave": "0........."
+    },
+    {
+      "name": "i_zeroize_req",
+      "wave": "000010...."
+    },
+    {
+      "name": "o_zeroize_done",
+      "wave": "0000010..."
+    }
+  ],
+  "foot": {
+    "text": "The example starts with an output/error record already valid. At E0, i_zeroize_req is sampled high; the same edge aborts work, clears sensitive state and output/error valid bits, and discards the pending error record. No error code is emitted; o_zeroize_done is high for the one-cycle interval immediately after E0. AES no-stall latency is L_PIPE=10.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

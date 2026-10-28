@@ -1,0 +1,25 @@
+SIM-BRANCH: synchronous single-clock IP (CDC wrapper outside this RTL)
+CONFIG: LANES=1 CTR_WIDTH=32 SEED=41256 MODE=regression
+--- assertion hit/fail table ---
+ASSERT 00 hits=4 failures=0 | REQ-IF-001 config stable until handshake
+ASSERT 01 hits=2391 failures=0 | REQ-IF-002 batch stable until handshake
+ASSERT 02 hits=152 failures=0 | REQ-IF-003 output stable while stalled
+ASSERT 03 hits=19 failures=0 | REQ-ERR-003 error record stable while stalled
+ASSERT 04 hits=60 failures=0 | REQ-IF-001 config and batch are not accepted together
+ASSERT 05 hits=428 failures=0 | REQ-IF-004 accepted lane mask is a nonzero prefix
+ASSERT 06 hits=427 failures=0 | REQ-IF-004 output lane mask matches accepted batch
+ASSERT 07 hits=427 failures=0 | REQ-IF-005 last marker is preserved
+ASSERT 08 hits=427 failures=0 | REQ-FUNC-003 ordered independent golden scoreboard
+ASSERT 09 hits=1 failures=0 | REQ-PERF-004 no-stall latency is L_PIPE=10
+ASSERT 10 hits=10 failures=0 | REQ-PERF-001 independent input/output II=1
+ASSERT 11 hits=1 failures=0 | REQ-PERF-003 feedback interval is 11 cycles
+ASSERT 12 hits=1 failures=0 | REQ-ERR-001 illegal configuration reports code 1
+ASSERT 13 hits=1 failures=0 | REQ-ERR-001 illegal lane mask reports code 2
+ASSERT 14 hits=1 failures=0 | REQ-FUNC-007 CTR wrap rejects a whole batch
+ASSERT 15 hits=3 failures=0 | REQ-SEC-001 zeroize clears output and error valid
+ASSERT 16 hits=5 failures=0 | REQ-SEC-001 zeroize done is one cycle
+ASSERT 17 hits=3 failures=0 | REQ-RESET-002 reset clears pending valid state
+ASSERT 18 hits=3 failures=0 | REQ-IF-001 reconfiguration blocked while context active
+ASSERT 19 hits=3611 failures=0 | REQ-IF-006 control outputs are known values
+SUMMARY PASS: streams=55 input_batches=431 output_batches=427 LANES=1
+assertion failures: 0, assertions never exercised: 0

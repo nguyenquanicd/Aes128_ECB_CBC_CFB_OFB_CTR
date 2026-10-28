@@ -1,0 +1,436 @@
+{
+  "page_name": "AES128_BATCH",
+  "out_name": "aes128_batch_architecture.drawio",
+  "table_suffix": "",
+  "layout": {
+    "gap_h": 150,
+    "gap_v": 300,
+    "margin": 50,
+    "block_h": 60
+  },
+  "top": {
+    "frame_label": [
+      "AES128 BATCH ENGINE",
+      "(m_aes128_batch_top)"
+    ],
+    "block_label": [
+      "AES128 BATCH ENGINE",
+      "(m_aes128_batch_top)"
+    ],
+    "block_row": [
+      "AES128 BATCH ENGINE (m_aes128_batch_top)",
+      "One-message N-block AES-128 batch accelerator.",
+      "Sections 5 and 14.2"
+    ]
+  },
+  "frame_row": [
+    "AES128 BATCH ENGINE frame",
+    "One message context feeds a parameterized N-lane AES pipeline. Feedback modes serialize dependent blocks.",
+    "Sections 5 and 10"
+  ],
+  "frame_interfaces": [
+    "CFG",
+    "CFGR",
+    "DIN",
+    "DACK",
+    "DOUT",
+    "BACK",
+    "ERR",
+    "EACK",
+    "ZERO",
+    "ZDONE",
+    "CLK"
+  ],
+  "blocks": [
+    {
+      "key": "CTRL",
+      "label": [
+        "u_aes128_batch_ctrl",
+        "(m_aes128_batch_ctrl)"
+      ],
+      "width": 260,
+      "row": 0,
+      "col": 0,
+      "row_name": "u_aes128_batch_ctrl (m_aes128_batch_ctrl)",
+      "function": "Stores one message context; checks batch masks and message boundaries; manages handshakes.",
+      "source": "Sections 5.1, 6, 10"
+    },
+    {
+      "key": "MODE",
+      "label": [
+        "u_aes128_mode_ctrl",
+        "(m_aes128_mode_ctrl)"
+      ],
+      "width": 260,
+      "row": 0,
+      "col": 1,
+      "row_name": "u_aes128_mode_ctrl (m_aes128_mode_ctrl)",
+      "function": "Applies mode input/output transforms and updates feedback state.",
+      "source": "Sections 5.1, 10.2"
+    },
+    {
+      "key": "CTR",
+      "label": [
+        "u_aes128_ctr_ctrl",
+        "(m_aes128_ctr_ctrl)"
+      ],
+      "width": 260,
+      "row": 0,
+      "col": 2,
+      "row_name": "u_aes128_ctr_ctrl (m_aes128_ctr_ctrl)",
+      "function": "Assigns consecutive CTR values to active lanes and detects field exhaustion.",
+      "source": "Sections 5.1, 10.2"
+    },
+    {
+      "key": "ARRAY",
+      "label": [
+        "u_aes128_lane_array",
+        "(m_aes128_lane_array)"
+      ],
+      "width": 300,
+      "row": 1,
+      "col": 1,
+      "row_name": "u_aes128_lane_array (m_aes128_lane_array)",
+      "function": "Contains PARA_AES_LANE_NUM statically generated AES-128 pipeline lanes.",
+      "source": "Sections 5.1, 8, 14.2"
+    },
+    {
+      "key": "OUT",
+      "label": [
+        "u_aes128_output_ctrl",
+        "(m_aes128_output_ctrl)"
+      ],
+      "width": 260,
+      "row": 1,
+      "col": 2,
+      "row_name": "u_aes128_output_ctrl (m_aes128_output_ctrl)",
+      "function": "Preserves result order and holds an output batch under backpressure.",
+      "source": "Sections 5.1, 6.3"
+    },
+    {
+      "key": "ZERO",
+      "label": [
+        "u_aes128_zeroize_ctrl",
+        "(m_aes128_zeroize_ctrl)"
+      ],
+      "width": 260,
+      "row": 1,
+      "col": 3,
+      "row_name": "u_aes128_zeroize_ctrl (m_aes128_zeroize_ctrl)",
+      "function": "Aborts outstanding work, flushes valid state, and clears sensitive registers.",
+      "source": "Sections 5.1, 10.2, 18"
+    }
+  ],
+  "connectors": [
+    {
+      "id": "CTX",
+      "src": "CTRL",
+      "src_side": "R",
+      "dst": "MODE",
+      "dst_side": "L"
+    },
+    {
+      "id": "CSEL",
+      "src": "CTR",
+      "src_side": "L",
+      "dst": "MODE",
+      "dst_side": "R"
+    },
+    {
+      "id": "MDIN",
+      "src": "MODE",
+      "src_side": "B",
+      "dst": "ARRAY",
+      "dst_side": "T"
+    },
+    {
+      "id": "RES",
+      "src": "MODE",
+      "src_side": "B",
+      "dst": "OUT",
+      "dst_side": "T"
+    },
+    {
+      "id": "AES",
+      "src": "ARRAY",
+      "src_side": "R",
+      "dst": "OUT",
+      "dst_side": "L"
+    }
+  ],
+  "externals": [
+    {
+      "id": "CFG",
+      "block": "CTRL",
+      "side": "L",
+      "dir": "in",
+      "pos": -20,
+      "text": [
+        "CFG",
+        "config"
+      ]
+    },
+    {
+      "id": "CFGR",
+      "block": "CTRL",
+      "side": "T",
+      "dir": "out",
+      "pos": -80,
+      "text": [
+        "CFGR",
+        "ready"
+      ]
+    },
+    {
+      "id": "DIN",
+      "block": "CTRL",
+      "side": "L",
+      "dir": "in",
+      "pos": 20,
+      "text": [
+        "DIN",
+        "batch input"
+      ]
+    },
+    {
+      "id": "DACK",
+      "block": "CTRL",
+      "side": "B",
+      "dir": "out",
+      "pos": 0,
+      "text": [
+        "DACK",
+        "ready"
+      ]
+    },
+    {
+      "id": "DOUT",
+      "block": "OUT",
+      "side": "B",
+      "dir": "out",
+      "pos": -40,
+      "text": [
+        "DOUT",
+        "data"
+      ]
+    },
+    {
+      "id": "BACK",
+      "block": "OUT",
+      "side": "B",
+      "dir": "in",
+      "pos": 40,
+      "text": [
+        "BACK",
+        "ready"
+      ]
+    },
+    {
+      "id": "ERR",
+      "block": "CTRL",
+      "side": "T",
+      "dir": "out",
+      "pos": 0,
+      "text": [
+        "ERR",
+        "valid"
+      ]
+    },
+    {
+      "id": "EACK",
+      "block": "CTRL",
+      "side": "T",
+      "dir": "in",
+      "pos": 80,
+      "text": [
+        "EACK",
+        "ready"
+      ]
+    },
+    {
+      "id": "ZERO",
+      "block": "ZERO",
+      "side": "B",
+      "dir": "in",
+      "pos": -40,
+      "text": [
+        "ZERO",
+        "req"
+      ]
+    },
+    {
+      "id": "ZDONE",
+      "block": "ZERO",
+      "side": "B",
+      "dir": "out",
+      "pos": 40,
+      "text": [
+        "ZDONE",
+        "done"
+      ]
+    },
+    {
+      "id": "CLK",
+      "block": "MODE",
+      "side": "T",
+      "dir": "in",
+      "pos": 0,
+      "text": [
+        "CLK",
+        "clock + reset"
+      ]
+    }
+  ],
+  "nets": [
+    {
+      "entry": "CLK",
+      "sinks": [
+        {
+          "id": "CK0",
+          "block": "CTRL",
+          "side": "T",
+          "pos": 0
+        },
+        {
+          "id": "CK1",
+          "block": "CTR",
+          "side": "T",
+          "pos": 0
+        },
+        {
+          "id": "CK2",
+          "block": "ARRAY",
+          "side": "B",
+          "pos": 0
+        },
+        {
+          "id": "CK3",
+          "block": "OUT",
+          "side": "B",
+          "pos": 0
+        },
+        {
+          "id": "CK4",
+          "block": "ZERO",
+          "side": "B",
+          "pos": 0
+        }
+      ]
+    }
+  ],
+  "interfaces": [
+    {
+      "id": "CFG",
+      "name": "Message configuration input",
+      "category": "custom valid/ready",
+      "active": "external host -> TOP",
+      "signals": "external -> TOP: i_cfg_valid, i_cfg_key, i_cfg_mode, i_cfg_decipher, i_cfg_iv, i_cfg_cfb_segment_size"
+    },
+    {
+      "id": "CFGR",
+      "name": "Configuration acceptance",
+      "category": "custom ready",
+      "active": "TOP -> external host",
+      "signals": "TOP -> external: o_cfg_ready"
+    },
+    {
+      "id": "DIN",
+      "name": "N-wide input batch",
+      "category": "custom valid/ready",
+      "active": "external host -> TOP",
+      "signals": "external -> TOP: i_batch_valid, i_batch_data, i_batch_lane_valid, i_batch_last"
+    },
+    {
+      "id": "DACK",
+      "name": "Input batch acceptance",
+      "category": "custom ready",
+      "active": "TOP -> external host",
+      "signals": "TOP -> external: o_batch_ready"
+    },
+    {
+      "id": "DOUT",
+      "name": "N-wide result batch",
+      "category": "custom valid/ready",
+      "active": "TOP -> external host",
+      "signals": "TOP -> external: o_batch_valid, o_batch_data, o_batch_lane_valid, o_batch_last"
+    },
+    {
+      "id": "BACK",
+      "name": "Result backpressure",
+      "category": "custom ready",
+      "active": "external host -> TOP",
+      "signals": "external -> TOP: i_batch_ready"
+    },
+    {
+      "id": "ERR",
+      "name": "Error record",
+      "category": "custom valid/ready",
+      "active": "TOP -> external host",
+      "signals": "TOP -> external: o_err_valid, o_err_code"
+    },
+    {
+      "id": "EACK",
+      "name": "Error acceptance",
+      "category": "custom ready",
+      "active": "external host -> TOP",
+      "signals": "external -> TOP: i_err_ready"
+    },
+    {
+      "id": "ZERO",
+      "name": "Zeroize request",
+      "category": "custom pulse",
+      "active": "external host -> TOP",
+      "signals": "external -> TOP: i_zeroize_req"
+    },
+    {
+      "id": "ZDONE",
+      "name": "Zeroize completion",
+      "category": "custom pulse",
+      "active": "TOP -> external host",
+      "signals": "TOP -> external: o_zeroize_done"
+    },
+    {
+      "id": "CLK",
+      "name": "Core clock and reset",
+      "category": "custom clock/reset",
+      "active": "SoC controller -> TOP",
+      "signals": "i_clk_core, i_rst_n_core"
+    },
+    {
+      "id": "CTX",
+      "name": "Context and mode metadata",
+      "category": "custom internal",
+      "active": "u_aes128_batch_ctrl -> u_aes128_mode_ctrl",
+      "signals": "message mode, direction, key, IV, segment size, last/mask metadata"
+    },
+    {
+      "id": "CSEL",
+      "name": "CTR lane counters",
+      "category": "custom internal",
+      "active": "u_aes128_ctr_ctrl -> u_aes128_mode_ctrl",
+      "signals": "u_aes128_ctr_ctrl -> u_aes128_mode_ctrl: one counter block per active CTR lane"
+    },
+    {
+      "id": "MDIN",
+      "name": "Mode-prepared AES inputs",
+      "category": "custom internal",
+      "active": "u_aes128_mode_ctrl -> u_aes128_lane_array",
+      "signals": "N mode-adjusted 128-bit AES inputs"
+    },
+    {
+      "id": "AES",
+      "name": "AES lane results",
+      "category": "custom internal",
+      "active": "u_aes128_lane_array -> u_aes128_output_ctrl",
+      "signals": "N ordered AES-128 pipeline results"
+    },
+    {
+      "id": "RES",
+      "name": "Mode result and feedback",
+      "category": "custom internal",
+      "active": "u_aes128_mode_ctrl -> u_aes128_output_ctrl",
+      "signals": "N final mode results and updated chaining state"
+    }
+  ],
+  "legend_note": "The enclosing frame is m_aes128_batch_top. All internal blocks use CLK-CORE. N is PARA_AES_LANE_NUM. Only ECB, CTR, and CBC decipher use N independent blocks of one message; feedback modes serialize."
+}

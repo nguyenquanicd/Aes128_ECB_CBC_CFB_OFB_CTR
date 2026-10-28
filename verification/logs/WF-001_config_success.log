@@ -1,0 +1,8 @@
+SIM-BRANCH: synchronous single-clock IP (CDC wrapper outside this RTL)
+CONFIG: LANES=4 CTR_WIDTH=32 SEED=41256 MODE=wave
+VCD info: dumpfile verification/waveforms_sim/WF-001_config_success.vcd opened for output.
+--- assertion hit/fail table ---
+ASSERT 04 hits=1 failures=0 | REQ-IF-001 config and batch are not accepted together
+ASSERT 19 hits=7 failures=0 | REQ-IF-006 control outputs are known values
+SUMMARY PASS: streams=0 input_batches=0 output_batches=0 LANES=4
+assertion failures: 0, assertions never exercised: 0

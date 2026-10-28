@@ -1,0 +1,10 @@
+SIM-BRANCH: synchronous single-clock IP (CDC wrapper outside this RTL)
+CONFIG: LANES=4 CTR_WIDTH=32 SEED=41256 MODE=wave
+VCD info: dumpfile verification/waveforms_sim/WF-002_ecb_batches.vcd opened for output.
+--- assertion hit/fail table ---
+ASSERT 05 hits=2 failures=0 | REQ-IF-004 accepted lane mask is a nonzero prefix
+ASSERT 06 hits=2 failures=0 | REQ-IF-004 output lane mask matches accepted batch
+ASSERT 07 hits=2 failures=0 | REQ-IF-005 last marker is preserved
+ASSERT 08 hits=2 failures=0 | REQ-FUNC-003 ordered independent golden scoreboard
+SUMMARY PASS: streams=1 input_batches=2 output_batches=2 LANES=4
+assertion failures: 0, assertions never exercised: 0

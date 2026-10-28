@@ -1,0 +1,96 @@
+{
+  "head": {
+    "text": "WF-005 — Four consecutive CBC ciphertext blocks",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p................."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "01................"
+    },
+    {
+      "name": "i_cfg_valid",
+      "wave": "010..............."
+    },
+    {
+      "name": "o_cfg_ready",
+      "wave": "010..............."
+    },
+    {
+      "name": "i_cfg_mode",
+      "wave": "x=................",
+      "data": [
+        "CBC (1)"
+      ]
+    },
+    {
+      "name": "i_cfg_decipher",
+      "wave": "x=................",
+      "data": [
+        "decipher (1)"
+      ]
+    },
+    {
+      "name": "i_cfg_iv",
+      "wave": "x=................",
+      "data": [
+        "IV"
+      ]
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "0...10............"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "0...1............."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "x...=.............",
+      "data": [
+        "C0,C1,C2,C3"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "x...=.............",
+      "data": [
+        "1111"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.............10.."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.............=...",
+      "data": [
+        "P0,P1,P2,P3"
+      ]
+    },
+    {
+      "name": "o_batch_lane_valid",
+      "wave": "x.............=...",
+      "data": [
+        "1111"
+      ]
+    },
+    {
+      "name": "o_batch_last",
+      "wave": "0.............1..."
+    }
+  ],
+  "foot": {
+    "text": "The batch is accepted at C4 and the ordered plaintext batch becomes valid after C14, exactly 10 cycles later. P0 = AES_D(C0) XOR IV; Pj = AES_D(Cj) XOR C(j-1) for j > 0. The final-batch marker follows the accepted batch.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

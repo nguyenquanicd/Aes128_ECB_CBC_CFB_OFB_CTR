@@ -1,0 +1,89 @@
+{
+  "signal": [
+    [
+      "tb_aes128_batch",
+      {
+        "name": "o_batch_valid",
+        "wave": "x....0...........10.........10."
+      },
+      {
+        "name": "o_batch_ready",
+        "wave": "x....010.........1............."
+      },
+      {
+        "name": "o_batch_data",
+        "wave": "x....=...........=..........=..",
+        "data": [
+          "0",
+          "50FE67CC996D32B6DA0937E99BAFEC6050FE67CC996D32B6DA0937E99BAFEC6050FE67CC996D32B6DA0937E99BAFEC607649ABAC8119B246CEE98E9B12E9197D",
+          "F6F577CAD4E5BF29752D73B9F19AAD2CF6F577CAD4E5BF29752D73B9F19AAD2CF6F577CAD4E5BF29752D73B9F19AAD2C5086CB9B507219EE95DB113A917678B2"
+        ]
+      },
+      {
+        "name": "i_batch_data",
+        "wave": "x....===..........=............",
+        "data": [
+          "0",
+          "6BC1BEE22E409F96E93D7E117393172A",
+          "AE2D8A571E03AC9C9EB76FAC45AF8E51",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_lane_valid",
+        "wave": "x....==...........=............",
+        "data": [
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_ready",
+        "wave": "x....1........................."
+      },
+      {
+        "name": "i_batch_valid",
+        "wave": "x....01...........0............"
+      },
+      {
+        "name": "i_clk_core",
+        "wave": "p.............................."
+      },
+      {
+        "name": "i_rst_n_core",
+        "wave": "x....1........................."
+      },
+      [
+        "dut",
+        [
+          "u_aes128_batch_core",
+          {
+            "name": "reg_feedback",
+            "wave": "x....==...........=..........=.",
+            "data": [
+              "0",
+              "102030405060708090A0B0C0D0E0F",
+              "7649ABAC8119B246CEE98E9B12E9197D",
+              "0"
+            ]
+          },
+          {
+            "name": "w_feedback_for_input",
+            "wave": "x....==..........=..........==.",
+            "data": [
+              "0",
+              "102030405060708090A0B0C0D0E0F",
+              "7649ABAC8119B246CEE98E9B12E9197D",
+              "5086CB9B507219EE95DB113A917678B2",
+              "0"
+            ]
+          }
+        ]
+      ]
+    ]
+  ],
+  "head": {
+    "text": "WF-006_cbc_encrypt.vcd: t=0..306000 (1ps units), 10000 per cycle"
+  }
+}

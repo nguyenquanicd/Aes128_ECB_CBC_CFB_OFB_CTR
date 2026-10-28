@@ -1,0 +1,117 @@
+{
+  "signal": [
+    [
+      "tb_aes128_batch",
+      {
+        "name": "o_cfg_ready",
+        "wave": "x....10...........1."
+      },
+      {
+        "name": "o_batch_valid",
+        "wave": "x....0...........10."
+      },
+      {
+        "name": "o_batch_ready",
+        "wave": "x....01............."
+      },
+      {
+        "name": "o_batch_lane_valid",
+        "wave": "x....=...........=..",
+        "data": [
+          "0",
+          "F"
+        ]
+      },
+      {
+        "name": "o_batch_data",
+        "wave": "x....=...........==.",
+        "data": [
+          "0",
+          "9B4143104960182D75A08A5E914FF982A76A3C00990E0F35061BDBE38BA042C14A0A513405BBD81B140C8FEFADE2410FC43F1A7693798EF5E66DF189C609C2F0",
+          "E89C399FF0F198C6D40A31DB156CABFE6A2CC3787889374FBEB4C81B17BA6C44362B7C3C6773516318A077D7FC5073AEEC8CDF7398607CB0F2D21675EA9EA1E4"
+        ]
+      },
+      {
+        "name": "i_batch_data",
+        "wave": "x....===............",
+        "data": [
+          "0",
+          "73DD7A8FB99180EBA1AABB858423527CCD46FF78E187387AB8AF13F89C1A2E857C212D0862C889780CACF83851B232A128B3C5050B19F24514BFE7FC2C976314",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_lane_valid",
+        "wave": "x....===............",
+        "data": [
+          "0",
+          "F",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_ready",
+        "wave": "x....1.............."
+      },
+      {
+        "name": "i_batch_valid",
+        "wave": "x....010............"
+      },
+      {
+        "name": "i_cfg_iv",
+        "wave": "x....=..............",
+        "data": [
+          "F0F1F2F3F4F5F6F7F8F9FAFBFCFDFEFF"
+        ]
+      },
+      {
+        "name": "i_cfg_mode",
+        "wave": "x....=..............",
+        "data": [
+          "4"
+        ]
+      },
+      {
+        "name": "i_cfg_valid",
+        "wave": "x....10............."
+      },
+      {
+        "name": "i_clk_core",
+        "wave": "p..................."
+      },
+      {
+        "name": "i_rst_n_core",
+        "wave": "x....1.............."
+      },
+      [
+        "dut",
+        [
+          "u_aes128_batch_core",
+          {
+            "name": "reg_ctr_base",
+            "wave": "x....===..........=.",
+            "data": [
+              "0",
+              "F0F1F2F3F4F5F6F7F8F9FAFBFCFDFEFF",
+              "F0F1F2F3F4F5F6F7F8F9FAFBFCFDFF03",
+              "0"
+            ]
+          },
+          {
+            "name": "w_array_input_data",
+            "wave": "x....===..........=.",
+            "data": [
+              "0",
+              "F0F1F2F3F4F5F6F7F8F9FAFBFCFDFF02F0F1F2F3F4F5F6F7F8F9FAFBFCFDFF01F0F1F2F3F4F5F6F7F8F9FAFBFCFDFF00F0F1F2F3F4F5F6F7F8F9FAFBFCFDFEFF",
+              "F0F1F2F3F4F5F6F7F8F9FAFBFCFDFF06F0F1F2F3F4F5F6F7F8F9FAFBFCFDFF05F0F1F2F3F4F5F6F7F8F9FAFBFCFDFF04F0F1F2F3F4F5F6F7F8F9FAFBFCFDFF03",
+              "0"
+            ]
+          }
+        ]
+      ]
+    ]
+  ],
+  "head": {
+    "text": "WF-003_ctr_allocation.vcd: t=0..196000 (1ps units), 10000 per cycle"
+  }
+}

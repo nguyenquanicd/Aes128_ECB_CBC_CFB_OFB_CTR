@@ -1,0 +1,1 @@
+aes_ref self-test PASS (FIPS-197, SP 800-38A ECB/CBC/CFB128/CFB8/CFB1/OFB/CTR, AESAVS VarTxt/VarKey)

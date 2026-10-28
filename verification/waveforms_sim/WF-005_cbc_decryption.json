@@ -1,0 +1,111 @@
+{
+  "signal": [
+    [
+      "tb_aes128_batch",
+      {
+        "name": "o_cfg_ready",
+        "wave": "x....10...........1."
+      },
+      {
+        "name": "o_batch_valid",
+        "wave": "x....0...........10."
+      },
+      {
+        "name": "o_batch_ready",
+        "wave": "x....01............."
+      },
+      {
+        "name": "o_batch_last",
+        "wave": "x....0...........1.."
+      },
+      {
+        "name": "o_batch_lane_valid",
+        "wave": "x....=...........=..",
+        "data": [
+          "0",
+          "F"
+        ]
+      },
+      {
+        "name": "o_batch_data",
+        "wave": "x....=...........==.",
+        "data": [
+          "0",
+          "F69F2445DF4F9B17AD2B417BE66C371030C81C46A35CE411E5FBC1191A0A52EFAE2D8A571E03AC9C9EB76FAC45AF8E516BC1BEE22E409F96E93D7E117393172A",
+          "8521F2FD3C8EEF2CDC3DA7E5C44EA206604ED7DDF32EFDFF7020D0238B7C2A5DD86421FB9F1A1EDA505EE1375746972C6BC0BCE12A459991E134741A7F9E1925"
+        ]
+      },
+      {
+        "name": "i_batch_data",
+        "wave": "x....===............",
+        "data": [
+          "0",
+          "3FF1CAA1681FAC09120ECA307586E1A773BED6B8E3C1743B7116E69E222295165086CB9B507219EE95DB113A917678B27649ABAC8119B246CEE98E9B12E9197D",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_lane_valid",
+        "wave": "x....===............",
+        "data": [
+          "0",
+          "F",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_valid",
+        "wave": "x....010............"
+      },
+      {
+        "name": "i_cfg_decipher",
+        "wave": "x....1.............."
+      },
+      {
+        "name": "i_cfg_iv",
+        "wave": "x....=..............",
+        "data": [
+          "102030405060708090A0B0C0D0E0F"
+        ]
+      },
+      {
+        "name": "i_cfg_mode",
+        "wave": "x....=..............",
+        "data": [
+          "1"
+        ]
+      },
+      {
+        "name": "i_cfg_valid",
+        "wave": "x....10............."
+      },
+      {
+        "name": "i_clk_core",
+        "wave": "p..................."
+      },
+      {
+        "name": "i_rst_n_core",
+        "wave": "x....1.............."
+      },
+      [
+        "dut",
+        [
+          "u_aes128_batch_core",
+          {
+            "name": "w_array_input_sideband",
+            "wave": "x....===..........=.",
+            "data": [
+              "0",
+              "73BED6B8E3C1743B7116E69E222295165086CB9B507219EE95DB113A917678B27649ABAC8119B246CEE98E9B12E9197D000102030405060708090A0B0C0D0E0F",
+              "3FF1CAA1681FAC09120ECA307586E1A7",
+              "0"
+            ]
+          }
+        ]
+      ]
+    ]
+  ],
+  "head": {
+    "text": "WF-005_cbc_decryption.vcd: t=0..196000 (1ps units), 10000 per cycle"
+  }
+}

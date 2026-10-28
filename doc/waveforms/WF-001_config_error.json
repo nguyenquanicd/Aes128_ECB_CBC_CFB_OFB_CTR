@@ -1,0 +1,53 @@
+{
+  "head": {
+    "text": "WF-001b — Illegal mode rejected",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p......."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "01......"
+    },
+    {
+      "name": "i_cfg_valid",
+      "wave": "010....."
+    },
+    {
+      "name": "o_cfg_ready",
+      "wave": "010....."
+    },
+    {
+      "name": "i_cfg_mode",
+      "wave": "x=......",
+      "data": [
+        "5 (illegal)"
+      ]
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "0.110..."
+    },
+    {
+      "name": "o_err_code",
+      "wave": "xx=.....",
+      "data": [
+        "1"
+      ]
+    },
+    {
+      "name": "i_err_ready",
+      "wave": "0001...."
+    }
+  ],
+  "foot": {
+    "text": "Mode 5 is consumed on the configuration handshake. Error code 1 asserts the next cycle and holds until accepted.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

@@ -1,0 +1,89 @@
+{
+  "head": {
+    "text": "WF-003 — CTR counter allocation across lanes",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p................."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "01................"
+    },
+    {
+      "name": "i_cfg_valid",
+      "wave": "010..............."
+    },
+    {
+      "name": "o_cfg_ready",
+      "wave": "010..............."
+    },
+    {
+      "name": "i_cfg_mode",
+      "wave": "x=................",
+      "data": [
+        "CTR (4)"
+      ]
+    },
+    {
+      "name": "i_cfg_iv",
+      "wave": "x=................",
+      "data": [
+        "CTR_BASE"
+      ]
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "0...10............"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "0...1............."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "x...=.............",
+      "data": [
+        "X0,X1,X2,X3"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "x...=.............",
+      "data": [
+        "1111"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.............10.."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "0.............10.."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.............=...",
+      "data": [
+        "Y0,Y1,Y2,Y3"
+      ]
+    },
+    {
+      "name": "o_batch_lane_valid",
+      "wave": "x.............=...",
+      "data": [
+        "1111"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "The batch is accepted at C4 and the result becomes valid after C14, exactly 10 cycles later. For active lane j: Cj = base + j in the low PARA_CTR_WIDTH field; Yj = Xj XOR AES_K(Cj). Upper counter bits stay fixed.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

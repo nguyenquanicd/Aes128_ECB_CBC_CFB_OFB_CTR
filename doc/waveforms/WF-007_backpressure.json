@@ -1,0 +1,52 @@
+{
+  "head": {
+    "text": "WF-007 — Output remains stable during backpressure",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p......."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "01......"
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "00.110..."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "00001..."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "xxx=.....",
+      "data": [
+        "R0"
+      ]
+    },
+    {
+      "name": "o_batch_lane_valid",
+      "wave": "xxx=.....",
+      "data": [
+        "0011"
+      ]
+    },
+    {
+      "name": "o_batch_last",
+      "wave": "xxx=.....",
+      "data": [
+        "1"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "One illustrative stalled cycle only. R0 and its metadata remain stable until the valid/ready transfer.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

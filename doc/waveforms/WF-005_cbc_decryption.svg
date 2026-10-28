@@ -1,0 +1,247 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2046" height="508" viewBox="0 0 2046 508" font-family="Helvetica,Arial,sans-serif">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="12" y="20" font-size="14" font-weight="bold">WF-005 — Four consecutive CBC ciphertext blocks</text>
+<line x1="162" y1="30" x2="162" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="266" y1="30" x2="266" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="370" y1="30" x2="370" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="474" y1="30" x2="474" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="578" y1="30" x2="578" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="682" y1="30" x2="682" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="786" y1="30" x2="786" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="890" y1="30" x2="890" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="994" y1="30" x2="994" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1098" y1="30" x2="1098" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1202" y1="30" x2="1202" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1306" y1="30" x2="1306" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1410" y1="30" x2="1410" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1514" y1="30" x2="1514" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1618" y1="30" x2="1618" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1722" y1="30" x2="1722" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1826" y1="30" x2="1826" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="1930" y1="30" x2="1930" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="2034" y1="30" x2="2034" y2="480" stroke="#ccc" stroke-dasharray="2,3"/>
+<text x="154" y="49" font-size="12" text-anchor="end">i_clk_core</text>
+<polyline points="162.0,51.0 162.0,33.0 214.0,33.0 214.0,51.0 266.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,51.0 266.0,33.0 318.0,33.0 318.0,51.0 370.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,51.0 370.0,33.0 422.0,33.0 422.0,51.0 474.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="474.0,51.0 474.0,33.0 526.0,33.0 526.0,51.0 578.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,51.0 578.0,33.0 630.0,33.0 630.0,51.0 682.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,51.0 682.0,33.0 734.0,33.0 734.0,51.0 786.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="786.0,51.0 786.0,33.0 838.0,33.0 838.0,51.0 890.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="890.0,51.0 890.0,33.0 942.0,33.0 942.0,51.0 994.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="994.0,51.0 994.0,33.0 1046.0,33.0 1046.0,51.0 1098.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1098.0,51.0 1098.0,33.0 1150.0,33.0 1150.0,51.0 1202.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1202.0,51.0 1202.0,33.0 1254.0,33.0 1254.0,51.0 1306.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1306.0,51.0 1306.0,33.0 1358.0,33.0 1358.0,51.0 1410.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1410.0,51.0 1410.0,33.0 1462.0,33.0 1462.0,51.0 1514.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1514.0,51.0 1514.0,33.0 1566.0,33.0 1566.0,51.0 1618.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,51.0 1618.0,33.0 1670.0,33.0 1670.0,51.0 1722.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,51.0 1722.0,33.0 1774.0,33.0 1774.0,51.0 1826.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1826.0,51.0 1826.0,33.0 1878.0,33.0 1878.0,51.0 1930.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1930.0,51.0 1930.0,33.0 1982.0,33.0 1982.0,51.0 2034.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="79" font-size="12" text-anchor="end">i_rst_n_core</text>
+<polyline points="162.0,81.0 266.0,81.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,81.0 266.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,63.0 370.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,63.0 474.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="474.0,63.0 578.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,63.0 682.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,63.0 786.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="786.0,63.0 890.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="890.0,63.0 994.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="994.0,63.0 1098.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1098.0,63.0 1202.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1202.0,63.0 1306.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1306.0,63.0 1410.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1410.0,63.0 1514.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1514.0,63.0 1618.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,63.0 1722.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,63.0 1826.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1826.0,63.0 1930.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1930.0,63.0 2034.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="109" font-size="12" text-anchor="end">i_cfg_valid</text>
+<polyline points="162.0,111.0 266.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,111.0 266.0,93.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,93.0 370.0,93.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,93.0 370.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,111.0 474.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="474.0,111.0 578.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,111.0 682.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,111.0 786.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="786.0,111.0 890.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="890.0,111.0 994.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="994.0,111.0 1098.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1098.0,111.0 1202.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1202.0,111.0 1306.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1306.0,111.0 1410.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1410.0,111.0 1514.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1514.0,111.0 1618.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,111.0 1722.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,111.0 1826.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1826.0,111.0 1930.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1930.0,111.0 2034.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="139" font-size="12" text-anchor="end">o_cfg_ready</text>
+<polyline points="162.0,141.0 266.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,141.0 266.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,123.0 370.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,123.0 370.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,141.0 474.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="474.0,141.0 578.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,141.0 682.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,141.0 786.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="786.0,141.0 890.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="890.0,141.0 994.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="994.0,141.0 1098.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1098.0,141.0 1202.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1202.0,141.0 1306.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1306.0,141.0 1410.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1410.0,141.0 1514.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1514.0,141.0 1618.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,141.0 1722.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,141.0 1826.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1826.0,141.0 1930.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1930.0,141.0 2034.0,141.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="169" font-size="12" text-anchor="end">i_cfg_mode</text>
+<rect x="162.0" y="153.0" width="104.0" height="18.0" fill="#ddd" stroke="#000"/>
+<polygon points="270.0,153.0 2030.0,153.0 2034.0,162.0 2030.0,171.0 270.0,171.0 266.0,162.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1150.0" y="166.0" text-anchor="middle" font-size="11">CBC (1)</text>
+<text x="154" y="199" font-size="12" text-anchor="end">i_cfg_decipher</text>
+<rect x="162.0" y="183.0" width="104.0" height="18.0" fill="#ddd" stroke="#000"/>
+<polygon points="270.0,183.0 2030.0,183.0 2034.0,192.0 2030.0,201.0 270.0,201.0 266.0,192.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1150.0" y="196.0" text-anchor="middle" font-size="11">decipher (1)</text>
+<text x="154" y="229" font-size="12" text-anchor="end">i_cfg_iv</text>
+<rect x="162.0" y="213.0" width="104.0" height="18.0" fill="#ddd" stroke="#000"/>
+<polygon points="270.0,213.0 2030.0,213.0 2034.0,222.0 2030.0,231.0 270.0,231.0 266.0,222.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1150.0" y="226.0" text-anchor="middle" font-size="11">IV</text>
+<text x="154" y="259" font-size="12" text-anchor="end">i_batch_valid</text>
+<polyline points="162.0,261.0 266.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,261.0 370.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,261.0 474.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="474.0,261.0 578.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,261.0 578.0,243.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,243.0 682.0,243.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,243.0 682.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,261.0 786.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="786.0,261.0 890.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="890.0,261.0 994.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="994.0,261.0 1098.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1098.0,261.0 1202.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1202.0,261.0 1306.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1306.0,261.0 1410.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1410.0,261.0 1514.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1514.0,261.0 1618.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,261.0 1722.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,261.0 1826.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1826.0,261.0 1930.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1930.0,261.0 2034.0,261.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="289" font-size="12" text-anchor="end">o_batch_ready</text>
+<polyline points="162.0,291.0 266.0,291.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,291.0 370.0,291.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,291.0 474.0,291.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="474.0,291.0 578.0,291.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,291.0 578.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,273.0 682.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,273.0 786.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="786.0,273.0 890.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="890.0,273.0 994.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="994.0,273.0 1098.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1098.0,273.0 1202.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1202.0,273.0 1306.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1306.0,273.0 1410.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1410.0,273.0 1514.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1514.0,273.0 1618.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,273.0 1722.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,273.0 1826.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1826.0,273.0 1930.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1930.0,273.0 2034.0,273.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="319" font-size="12" text-anchor="end">i_batch_data</text>
+<rect x="162.0" y="303.0" width="104.0" height="18.0" fill="#ddd" stroke="#000"/>
+<rect x="266.0" y="303.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="370.0" y="303.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="474.0" y="303.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<polygon points="582.0,303.0 2030.0,303.0 2034.0,312.0 2030.0,321.0 582.0,321.0 578.0,312.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1306.0" y="316.0" text-anchor="middle" font-size="11">C0,C1,C2,C3</text>
+<text x="154" y="349" font-size="12" text-anchor="end">i_batch_lane_valid</text>
+<rect x="162.0" y="333.0" width="104.0" height="18.0" fill="#ddd" stroke="#000"/>
+<rect x="266.0" y="333.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="370.0" y="333.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="474.0" y="333.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<polygon points="582.0,333.0 2030.0,333.0 2034.0,342.0 2030.0,351.0 582.0,351.0 578.0,342.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1306.0" y="346.0" text-anchor="middle" font-size="11">1111</text>
+<text x="154" y="379" font-size="12" text-anchor="end">o_batch_valid</text>
+<polyline points="162.0,381.0 266.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,381.0 370.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,381.0 474.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="474.0,381.0 578.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,381.0 682.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,381.0 786.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="786.0,381.0 890.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="890.0,381.0 994.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="994.0,381.0 1098.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1098.0,381.0 1202.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1202.0,381.0 1306.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1306.0,381.0 1410.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1410.0,381.0 1514.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1514.0,381.0 1618.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,381.0 1618.0,363.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,363.0 1722.0,363.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,363.0 1722.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,381.0 1826.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1826.0,381.0 1930.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1930.0,381.0 2034.0,381.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="409" font-size="12" text-anchor="end">o_batch_data</text>
+<rect x="162.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="#000"/>
+<rect x="266.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="370.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="474.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="578.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="682.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="786.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="890.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="994.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1098.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1202.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1306.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1410.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1514.0" y="393.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<polygon points="1622.0,393.0 2030.0,393.0 2034.0,402.0 2030.0,411.0 1622.0,411.0 1618.0,402.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1826.0" y="406.0" text-anchor="middle" font-size="11">P0,P1,P2,P3</text>
+<text x="154" y="439" font-size="12" text-anchor="end">o_batch_lane_valid</text>
+<rect x="162.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="#000"/>
+<rect x="266.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="370.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="474.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="578.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="682.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="786.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="890.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="994.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1098.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1202.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1306.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1410.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="1514.0" y="423.0" width="104.0" height="18.0" fill="#ddd" stroke="none"/>
+<polygon points="1622.0,423.0 2030.0,423.0 2034.0,432.0 2030.0,441.0 1622.0,441.0 1618.0,432.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="1826.0" y="436.0" text-anchor="middle" font-size="11">1111</text>
+<text x="154" y="469" font-size="12" text-anchor="end">o_batch_last</text>
+<polyline points="162.0,471.0 266.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="266.0,471.0 370.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="370.0,471.0 474.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="474.0,471.0 578.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="578.0,471.0 682.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="682.0,471.0 786.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="786.0,471.0 890.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="890.0,471.0 994.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="994.0,471.0 1098.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1098.0,471.0 1202.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1202.0,471.0 1306.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1306.0,471.0 1410.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1410.0,471.0 1514.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1514.0,471.0 1618.0,471.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,471.0 1618.0,453.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1618.0,453.0 1722.0,453.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1722.0,453.0 1826.0,453.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1826.0,453.0 1930.0,453.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="1930.0,453.0 2034.0,453.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="12" y="500" font-size="11" fill="#444">The batch is accepted at C4 and the ordered plaintext batch becomes valid after C14, exactly 10 cycles later. P0 = AES_D(C0) XOR IV; Pj = AES_D(Cj) XOR C(j-1) for j &gt; 0. The final-batch marker follows the accepted batch.</text>
+</svg>

@@ -1,0 +1,90 @@
+{
+  "signal": [
+    [
+      "tb_aes128_batch",
+      {
+        "name": "o_batch_valid",
+        "wave": "x....0...........10.........10."
+      },
+      {
+        "name": "o_batch_ready",
+        "wave": "x....010.........1............."
+      },
+      {
+        "name": "o_batch_data",
+        "wave": "x....=...........=..........==.",
+        "data": [
+          "0",
+          "50FE67CC996D32B6DA0937E99BAFEC6050FE67CC996D32B6DA0937E99BAFEC6050FE67CC996D32B6DA0937E99BAFEC603B3FD92EB72DAD20333449F8E83CFB4A",
+          "D9A4DADA0892239F6B8B3D7680E15674D9A4DADA0892239F6B8B3D7680E15674D9A4DADA0892239F6B8B3D7680E156747789508D16918F03F53C52DAC54ED825",
+          "D9A4DADA0892239F6B8B3D7680E15674D9A4DADA0892239F6B8B3D7680E15674D9A4DADA0892239F6B8B3D7680E15674D9A4DADA0892239F6B8B3D7680E15674"
+        ]
+      },
+      {
+        "name": "i_batch_data",
+        "wave": "x....===..........=............",
+        "data": [
+          "0",
+          "6BC1BEE22E409F96E93D7E117393172A",
+          "AE2D8A571E03AC9C9EB76FAC45AF8E51",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_lane_valid",
+        "wave": "x....==...........=............",
+        "data": [
+          "0",
+          "1",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_ready",
+        "wave": "x....1........................."
+      },
+      {
+        "name": "i_batch_valid",
+        "wave": "x....01...........0............"
+      },
+      {
+        "name": "i_clk_core",
+        "wave": "p.............................."
+      },
+      {
+        "name": "i_rst_n_core",
+        "wave": "x....1........................."
+      },
+      [
+        "dut",
+        [
+          "u_aes128_batch_core",
+          {
+            "name": "reg_feedback",
+            "wave": "x....==...........=..........=.",
+            "data": [
+              "0",
+              "102030405060708090A0B0C0D0E0F",
+              "50FE67CC996D32B6DA0937E99BAFEC60",
+              "0"
+            ]
+          },
+          {
+            "name": "w_feedback_for_input",
+            "wave": "x....==..........=..........==.",
+            "data": [
+              "0",
+              "102030405060708090A0B0C0D0E0F",
+              "50FE67CC996D32B6DA0937E99BAFEC60",
+              "D9A4DADA0892239F6B8B3D7680E15674",
+              "0"
+            ]
+          }
+        ]
+      ]
+    ]
+  ],
+  "head": {
+    "text": "WF-006_ofb.vcd: t=0..306000 (1ps units), 10000 per cycle"
+  }
+}

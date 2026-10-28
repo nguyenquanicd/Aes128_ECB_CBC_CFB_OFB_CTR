@@ -1,0 +1,47 @@
+{
+  "signal": [
+    {
+      "name": "o_err_valid",
+      "wave": "x....01...0."
+    },
+    {
+      "name": "o_err_code",
+      "wave": "x....==...=.",
+      "data": [
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "name": "o_cfg_ready",
+      "wave": "x....10...1."
+    },
+    {
+      "name": "i_cfg_mode",
+      "wave": "x....=......",
+      "data": [
+        "5"
+      ]
+    },
+    {
+      "name": "i_cfg_valid",
+      "wave": "x....10....."
+    },
+    {
+      "name": "i_clk_core",
+      "wave": "p..........."
+    },
+    {
+      "name": "i_err_ready",
+      "wave": "x....0...10."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "x....1......"
+    }
+  ],
+  "head": {
+    "text": "WF-001_config_error.vcd: t=0..116000 (1ps units), 10000 per cycle"
+  }
+}

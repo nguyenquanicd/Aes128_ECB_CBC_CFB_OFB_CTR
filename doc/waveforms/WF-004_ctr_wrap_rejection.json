@@ -1,0 +1,64 @@
+{
+  "head": {
+    "text": "WF-004 — CTR wrap rejects the whole batch",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p......."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "01......"
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "010....."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "010....."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "x=......",
+      "data": [
+        "X0,X1,X2,X3"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "x=......",
+      "data": [
+        "1111"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0......."
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "0.110..."
+    },
+    {
+      "name": "o_err_code",
+      "wave": "xx=.....",
+      "data": [
+        "3"
+      ]
+    },
+    {
+      "name": "i_err_ready",
+      "wave": "0001...."
+    }
+  ],
+  "foot": {
+    "text": "The batch handshake consumes the request; error code 3 asserts next cycle and holds until accepted. No result lane is produced. At least one active lane would wrap.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

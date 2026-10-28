@@ -1,0 +1,61 @@
+{
+  "head": {
+    "text": "WF-006a — CBC encryption feedback timing (L_PIPE=10, minimum interval=11)",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p..............."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "01.............."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "1...........0..."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "10.........1...."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "==..........x...",
+      "data": [
+        "M0",
+        "M1"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "=...........x...",
+      "data": [
+        "0001"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.........10...."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "1..............."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.........=.....",
+      "data": [
+        "R0"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "CBC-ENC: M0 is accepted at C0. R0 becomes valid after C10 and is transferred at C11; it updates the chaining value. M1 is held stable and is accepted at C11. No combinational feedback bypass is used; no stalls are shown.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "signal": [
+    [
+      "tb_aes128_batch",
+      {
+        "name": "o_err_valid",
+        "wave": "x....0..1..0."
+      },
+      {
+        "name": "o_err_code",
+        "wave": "x....=..=..=.",
+        "data": [
+          "0",
+          "3",
+          "0"
+        ]
+      },
+      {
+        "name": "o_batch_valid",
+        "wave": "x....0......."
+      },
+      {
+        "name": "o_batch_ready",
+        "wave": "x....01.0..1."
+      },
+      {
+        "name": "i_batch_data",
+        "wave": "x....=.......",
+        "data": [
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_lane_valid",
+        "wave": "x....=.==....",
+        "data": [
+          "0",
+          "7",
+          "0"
+        ]
+      },
+      {
+        "name": "i_batch_valid",
+        "wave": "x....0.10...."
+      },
+      {
+        "name": "i_clk_core",
+        "wave": "p............"
+      },
+      {
+        "name": "i_err_ready",
+        "wave": "x....0....10."
+      },
+      {
+        "name": "i_rst_n_core",
+        "wave": "x....1......."
+      },
+      [
+        "dut",
+        [
+          "u_aes128_batch_core",
+          {
+            "name": "w_batch_err_fire",
+            "wave": "x....0.10...."
+          },
+          {
+            "name": "w_ctr_wrap",
+            "wave": "x....0.10...."
+          }
+        ]
+      ]
+    ]
+  ],
+  "head": {
+    "text": "WF-004_ctr_wrap_rejection.vcd: t=0..126000 (1ps units), 10000 per cycle"
+  }
+}
