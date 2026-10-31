@@ -1,0 +1,9 @@
+ASSERT PASS cycle=1 [RESET_OUTPUTS_CLEAR]
+ASSERT PASS cycle=2 [CONFIG_HANDSHAKE]
+ASSERT PASS cycle=3 [BATCH_HANDSHAKE]
+ASSERT PASS cycle=3 [WF_CTR_WRAP_ERROR]
+SUMMARY lanes=4 assertions=4 failures=0 scenario=WF-005_ctr_wrap
+- verification\tb_aes128_256_batch.sv:803: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.053 devel
+- Verilator: $finish at 90ns; walltime 0.007 s; speed 12.861 us/s
+- Verilator: cpu 0.000 s on 1 threads; allocated 8 MB

@@ -1,0 +1,2 @@
+Generated 66 independent vector streams in C:\HQuan\102_MyGithub\Aes128_ECB_CBC_CFB_OFB_CTR\rtl_aes128_aes256_generated\verification\vectors
+Golden-data source: aes128_256_ref.py + FIPS 197 and NIST SP 800-38A semantics

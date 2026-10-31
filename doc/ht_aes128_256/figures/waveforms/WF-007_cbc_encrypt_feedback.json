@@ -1,0 +1,53 @@
+{
+  "head": {
+    "text": "WF-007 AES-128 CBC encryption feedback",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p.............."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10.........10.."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1.............."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "=..........=...",
+      "data": [
+        "P0",
+        "P1"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.........10..."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.........=....",
+      "data": [
+        "C0"
+      ]
+    },
+    {
+      "name": "feedback state",
+      "wave": "x.........=....",
+      "data": [
+        "C0"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "P0 accepted at C0 gives C0 after C10. Registered feedback permits next dependent input at C11; no bypass.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "head": {
+    "text": "WF-001 Configuration and key-size validation",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p........."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "01........"
+    },
+    {
+      "name": "i_cfg_valid",
+      "wave": "10..10...."
+    },
+    {
+      "name": "o_cfg_ready",
+      "wave": "1........."
+    },
+    {
+      "name": "i_cfg_key_size",
+      "wave": "=...=.....",
+      "data": [
+        "AES-128 (0)",
+        "AES-128 (0)"
+      ]
+    },
+    {
+      "name": "i_cfg_key[255:128]",
+      "wave": "=...=.....",
+      "data": [
+        "0",
+        "NONZERO"
+      ]
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "0....1.0.."
+    },
+    {
+      "name": "o_err_code",
+      "wave": "x....=....",
+      "data": [
+        "1: CFG"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "Config succeeds at C0. Invalid AES-128 upper key half is consumed at C4; error 1 asserts the next cycle and holds until accepted.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

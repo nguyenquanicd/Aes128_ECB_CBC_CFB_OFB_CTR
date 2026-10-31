@@ -1,0 +1,17 @@
+ASSERT PASS cycle=1 [RESET_OUTPUTS_CLEAR]
+ASSERT PASS cycle=2 [CONFIG_HANDSHAKE]
+ASSERT PASS cycle=3 [BATCH_HANDSHAKE]
+ASSERT PASS cycle=13 [OUTPUT_VALID_TIMEOUT]
+ASSERT PASS cycle=13 [LATENCY_AES128_C10]
+ASSERT PASS cycle=13 [OUTPUT_LANE_MASK]
+ASSERT PASS cycle=13 [OUTPUT_LAST_PRESERVED]
+ASSERT PASS cycle=13 [GOLDEN_AES_MODE_DATA]
+ASSERT PASS cycle=13 [GOLDEN_AES_MODE_DATA]
+ASSERT PASS cycle=13 [GOLDEN_AES_MODE_DATA]
+ASSERT PASS cycle=13 [GOLDEN_AES_MODE_DATA]
+VECTOR PASS verification/vectors/wf_mode_k128_cbc_dec.vec key_size=0 mode=1 decipher=1 blocks=4
+SUMMARY lanes=4 assertions=11 failures=0 scenario=WF-006a_cbc_decrypt
+- verification\tb_aes128_256_batch.sv:803: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.053 devel
+- Verilator: $finish at 190ns; walltime 0.011 s; speed 16.855 us/s
+- Verilator: cpu 0.000 s on 1 threads; allocated 9 MB

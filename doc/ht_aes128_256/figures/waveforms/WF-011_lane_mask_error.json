@@ -1,0 +1,53 @@
+{
+  "head": {
+    "text": "WF-011 Invalid lane-mask rejection",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p......."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10......"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1......."
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "=.......",
+      "data": [
+        "0101 (hole)"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0......."
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "01..0..."
+    },
+    {
+      "name": "o_err_code",
+      "wave": "x=......",
+      "data": [
+        "2: LANE"
+      ]
+    },
+    {
+      "name": "i_err_ready",
+      "wave": "0..1...."
+    }
+  ],
+  "foot": {
+    "text": "Invalid batch consumed at C0, no result. Error 2 asserts in the following cycle and holds until accepted.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

@@ -1,0 +1,26 @@
+[tasks]
+run
+
+[options]
+mode prove
+depth 60
+
+[engines]
+abc pdr
+
+[script]
+plugin -i slang
+read_slang -DFORMAL --top fv_ctrl aes128_pkg.sv aes128_cipher_core.sv aes128_cipher_core_inv.sv aes128_key_expansion.sv aes128_key_expansion_inv.sv aes128_cipher_top.sv aes128_cipher_inv_top.sv aes128.sv aes128_protocol_checker.sv fv_ctrl.sv
+prep -top fv_ctrl
+
+[files]
+../../../rtl/single_aes128/aes128_pkg.sv
+../../../rtl/single_aes128/aes128_cipher_core.sv
+../../../rtl/single_aes128/aes128_cipher_core_inv.sv
+../../../rtl/single_aes128/aes128_key_expansion.sv
+../../../rtl/single_aes128/aes128_key_expansion_inv.sv
+../../../rtl/single_aes128/aes128_cipher_top.sv
+../../../rtl/single_aes128/aes128_cipher_inv_top.sv
+../../../rtl/single_aes128/aes128.sv
+../checker/aes128_protocol_checker.sv
+fv_ctrl.sv

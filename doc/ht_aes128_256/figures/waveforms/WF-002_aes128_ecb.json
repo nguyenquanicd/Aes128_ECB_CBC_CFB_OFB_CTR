@@ -1,0 +1,59 @@
+{
+  "head": {
+    "text": "AES-128 ECB continuous batches",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p............."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "1.0..........."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1............."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "==............",
+      "data": [
+        "A0,A1,A2,A3",
+        "A4,A5,--,--"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "==............",
+      "data": [
+        "1111",
+        "0011"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.........1.0."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "1............."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.........==..",
+      "data": [
+        "Y0..Y3",
+        "Y4,Y5,--,--"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "Two independent batches handshake at C0 and C1. First result valid after C10; second follows one cycle later. II=1, no stall.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

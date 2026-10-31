@@ -1,0 +1,58 @@
+{
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "0......................"
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "0.....1..0............."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "0..1..................."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "=.....====.............",
+      "data": [
+        "0",
+        "D12BB05C981F4531D1B60026007B413C23F0897AF94777B6F046B4DD1BC8430A0C9F08A0292D6344B3178B6156D833032C39E56F7E1DB67187A65A58A288D585",
+        "22531B06E790955B524911F2BCBC390745E8776A81335D9EC391212EF0B100633028B802FF1916EB44EDB84D8A336F73CD8FE9547682039C1E303C0F89EA1AD7",
+        "8BEA58280D9F6425D3C7F61B76F9A4CED4AA399B600F03E536F7FAEE09910BF51BD3E302330EA94A6144A720388796CF75C25C0BC020EEEC39466FF215A86EB2",
+        "0"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "=.....=..=.............",
+      "data": [
+        "0",
+        "F",
+        "0"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0................1..0.."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "1......................"
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "=................====..",
+      "data": [
+        "0",
+        "45D21CA2EF36892A8E9EA11792362EF0E6D86C90AA549991869C9CB35E41D3527854B162266F10DDA30693F8E24960D461A5A90397BF8B025600F2EE52063C64",
+        "43917612487373B032E0C97550FE6F6FEC7CA0CBBDA2283AAB342DD19582F158689DD76BC8AF7026F3B81E75CD3641FE34DD34016EEEC31A29877ACDE10B3736",
+        "C2F79546459355E7429CFCF561550B7EA2C68E8E114A2B591D2D306B9D5C48003231FC881399461962A23F6D0B197DC6C350198814B7A2A2CE7CDB2889FF2F37",
+        "0"
+      ]
+    }
+  ],
+  "head": {
+    "text": "WF-002_aes128_ecb.vcd: t=0..220000 (1ps units), 10000 per cycle"
+  }
+}

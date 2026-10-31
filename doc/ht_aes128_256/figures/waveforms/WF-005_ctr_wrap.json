@@ -1,0 +1,67 @@
+{
+  "head": {
+    "text": "WF-005 Atomic CTR wrap rejection",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p......."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10......"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1......."
+    },
+    {
+      "name": "PARA_CTR_WIDTH",
+      "wave": "=.......",
+      "data": [
+        "4"
+      ]
+    },
+    {
+      "name": "i_cfg_iv",
+      "wave": "=.......",
+      "data": [
+        "...E"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "=.......",
+      "data": [
+        "0111"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0......."
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "01..0..."
+    },
+    {
+      "name": "i_err_ready",
+      "wave": "0..1...."
+    },
+    {
+      "name": "o_err_code",
+      "wave": "x=......",
+      "data": [
+        "3: CTR_WRAP"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "Width 4, base E and three lanes would wrap. Handshake at C0 is consumed and rejected atomically; error 3 asserts next cycle, no result.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

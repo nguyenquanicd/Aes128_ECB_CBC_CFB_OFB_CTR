@@ -1,0 +1,58 @@
+{
+  "head": {
+    "text": "WF-012 Zeroize aborts stalled output",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p.............."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "1.............."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "110............"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1.............."
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.........10..."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "0.............."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.........=....",
+      "data": [
+        "R0"
+      ]
+    },
+    {
+      "name": "i_zeroize_req",
+      "wave": "0...........10."
+    },
+    {
+      "name": "o_zeroize_done",
+      "wave": "0...........10."
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "001.........0.."
+    }
+  ],
+  "foot": {
+    "text": "A valid batch is accepted at C0; an invalid batch is accepted at C1 and raises a pending error at C2. The valid output is stalled at C10. Zeroize is sampled at C12 and clears both output/error valid on that edge; done is high immediately after C12 for one cycle.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

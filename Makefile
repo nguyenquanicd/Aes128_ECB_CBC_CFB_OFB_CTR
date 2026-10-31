@@ -14,14 +14,15 @@
 #   make vec VEC=rand_s1 ARGS="+JUNK=1 +SCR=31"      any scenario with any plusargs
 #   make formal               formal proofs (SymbiYosys)
 #   make mutation             prove that the testbenches catch 18 deliberate RTL bugs
-#   make vlsit-verification   build and simulate the generated batch RTL (LANES=1 and 4),
-#                             then create and check its specification waveform evidence
+#   make vlsit-verification       verify the high-throughput AES-128 design
+#   make aes128-256-verification  verify the high-throughput AES-128/AES-256 design
 #
 # REQUIREMENTS
 #   * GNU make >= 3.82 and a POSIX shell with mkdir/rm/cat/grep/tail
 #       Linux : the normal "make" of the distribution
 #       Windows: make from MSYS2 or Git Bash (cmd.exe-only make programs are NOT supported)
-#   * Icarus Verilog 12+ (iverilog, vvp): simulation. SymbiYosys (sby) + yosys-slang: formal.
+#   * Icarus Verilog 12+ (iverilog, vvp): simulation. Verilator/Yosys serve the dual-key flow.
+#     SymbiYosys (sby) + yosys-slang: formal for the single AES-128 design.
 #     The OSS CAD Suite (https://github.com/YosysHQ/oss-cad-suite-build) contains all of them.
 #   * Python 3 (no extra packages): vector generation and mutation check.
 #
@@ -86,23 +87,24 @@ endif
 # -----------------------------------------------------------------------------
 # (comments are on their own lines: a trailing comment would leave spaces in the variable value)
 # BUILD: all generated simulation files (git-ignored); LOG: one log file per executed test
-BUILD    := sim/build
+SINGLE_DIR := verification/single_aes128
+BUILD    := $(SINGLE_DIR)/sim/build
 LOG      := $(BUILD)/log
 # RTL compile order (package first), paths relative to the repository root
-RTL_LIST := rtl/filelist.f
-RTL_SRC  := $(wildcard rtl/*.sv)
-CHECKER  := checker/aes128_protocol_checker.sv
+RTL_LIST := rtl/single_aes128/filelist.f
+RTL_SRC  := $(wildcard rtl/single_aes128/*.sv)
+CHECKER  := $(SINGLE_DIR)/checker/aes128_protocol_checker.sv
 # Everything a testbench binary depends on: rebuild when any RTL / checker / testbench header changes.
-TB_DEPS  := $(RTL_SRC) $(RTL_LIST) $(CHECKER) $(wildcard tb/*.svh) $(wildcard tb/ref/*.sv)
+TB_DEPS  := $(RTL_SRC) $(RTL_LIST) $(CHECKER) $(wildcard $(SINGLE_DIR)/tb/*.svh) $(wildcard $(SINGLE_DIR)/tb/ref/*.sv)
 
 # iverilog flags:
 #   -g2012          SystemVerilog-2012 language (packages, always_ff, logic, tasks, $fatal ...)
 #   -Wall           enable all warnings (they are written to a compile log, see COMPILE below)
 #   -Wno-timescale  the RTL has no `timescale, the testbenches do; do not warn about the mix
-#   -Itb -Itb/ref   include directories: tb/aes128_tb_common.svh and tb/ref/aes128_sbox_inv_lut.sv
-IVFLAGS  := -g2012 -Wall -Wno-timescale -Itb -Itb/ref
+#   -I<SINGLE_DIR>/tb   common testbench headers and the independent S-box oracle
+IVFLAGS  := -g2012 -Wall -Wno-timescale -I$(SINGLE_DIR)/tb -I$(SINGLE_DIR)/tb/ref
 
-# Test lists. SIMPLE names map to simpleTestcase/tb_aes128_<name>.sv
+# Test lists. SIMPLE names map to the single-AES verification simpleTestcase folder.
 SIMPLE        := ecb cbc cfb_cipher cfb_decipher ofb ctr
 VEC_PLAIN     := nist walk patterns cfb_segments rand_s1 rand_s2 rand_s3 gap1 b2b chain0 multikey
 VEC_STRESS    := vec-nist-junk vec-rand_s1-scr vec-rand_s2-early vec-rand_s3-stray vec-b2b-junk
@@ -114,7 +116,7 @@ QUICK_TESTS   := $(UNIT_TESTS) $(RANDOM_TESTS) $(VEC_TESTS) $(VEC_STRESS) $(SIMP
 LONG_TESTS    := test-roundtrip-long vec-long vec-long-stress
 
 # Plusargs of the round-trip testbench: +N = number of random streams, +SEED = random seed.
-# Plusargs of the vector testbench (see the header of tb/tb_aes128_vec.sv):
+# Plusargs of the vector testbench (see verification/single_aes128/tb/tb_aes128_vec.sv):
 #   +VEC=<file>  vector file        +JUNK=1  random inputs while idle
 #   +SCR=<mask>  scramble inputs after the start pulse (31 = all five inputs)
 #   +EARLY=<n>   raise chain_en n clocks before the first start of a stream
@@ -133,7 +135,7 @@ LONG_TESTS    := test-roundtrip-long vec-long vec-long-stress
 # COMPILE(top, sources): build/<top>.vvp from the RTL list + checker + the given testbench source(s).
 #   iverilog -s <top>            elaborate <top> as the top-level module
 #   iverilog -o <file>           output file (a vvp program)
-#   iverilog -c rtl/filelist.f   read the RTL files in the right order from the list
+#   iverilog -c rtl/single_aes128/filelist.f   read the RTL files in the right order from the list
 # stderr is written to a compile log; the log is printed only if the compilation fails (iverilog
 # prints many harmless "sorry: constant selects in always_*" notes for the RTL).
 define COMPILE
@@ -186,10 +188,13 @@ help:
 	@echo "Other"
 	@echo "  make formal              sby proofs (formal-sbox formal-keysched formal-ctrl)"
 	@echo "  make mutation            18 mutants + original RTL must all be caught (mutation-fast: skip round trip)"
-	@echo "  make gen-vectors         regenerate vectors/*.hex (python reference model)"
-	@echo "  make gen-simple          regenerate simpleTestcase/*.sv"
+	@echo "  make gen-vectors         regenerate single-AES128 vectors"
+	@echo "  make gen-simple          regenerate single-AES128 simple testbenches"
 	@echo "  make ref-selftest        self-test of the python AES model"
-	@echo "  make vlsit-verification  simulate generated batch RTL (LANES=1/4) and check waveform evidence"
+	@echo "  make vlsit-verification  verify the high-throughput AES-128 design"
+	@echo "  make aes128-256-regression    dual-key simulation, 1 and 4 lanes"
+	@echo "  make aes128-256-synth         generic synthesis, 1 and 4 lanes"
+	@echo "  make aes128-256-verification  dual-key simulation, waveforms and synthesis"
 	@echo "  make info | check-tools  show / verify the tool installation"
 	@echo "  make clean               delete generated files"
 	@echo "Variables: OSSCAD=<oss-cad-suite folder> PYTHON=<python> IVERILOG VVP SBY N SEED VEC ARGS"
@@ -213,18 +218,18 @@ check-tools:
 	@echo "tools OK"
 
 # Create the build and log directories once (order-only prerequisite of every compile rule).
-# mkdir -p also creates sim/build itself and does not fail if the directory already exists.
+# mkdir -p also creates the single-AES build directory and is idempotent.
 $(LOG):
 	mkdir -p $(LOG)
 
 # -----------------------------------------------------------------------------
 # 5. Testbench binaries (one compile rule per testbench)
 # -----------------------------------------------------------------------------
-$(eval $(call COMPILE,tb_aes128_prim,tb/tb_aes128_prim.sv))
-$(eval $(call COMPILE,tb_aes128_protocol,tb/tb_aes128_protocol.sv))
-$(eval $(call COMPILE,tb_aes128_roundtrip,tb/tb_aes128_roundtrip.sv))
-$(eval $(call COMPILE,tb_aes128_vec,tb/tb_aes128_vec.sv))
-$(foreach m,$(SIMPLE),$(eval $(call COMPILE,tb_aes128_$(m),simpleTestcase/tb_aes128_$(m).sv)))
+$(eval $(call COMPILE,tb_aes128_prim,$(SINGLE_DIR)/tb/tb_aes128_prim.sv))
+$(eval $(call COMPILE,tb_aes128_protocol,$(SINGLE_DIR)/tb/tb_aes128_protocol.sv))
+$(eval $(call COMPILE,tb_aes128_roundtrip,$(SINGLE_DIR)/tb/tb_aes128_roundtrip.sv))
+$(eval $(call COMPILE,tb_aes128_vec,$(SINGLE_DIR)/tb/tb_aes128_vec.sv))
+$(foreach m,$(SIMPLE),$(eval $(call COMPILE,tb_aes128_$(m),$(SINGLE_DIR)/simpleTestcase/tb_aes128_$(m).sv)))
 
 # -----------------------------------------------------------------------------
 # 6. Unit / directed / random tests
@@ -252,44 +257,44 @@ test-roundtrip-long: $(BUILD)/tb_aes128_roundtrip.vvp
 	$(call RUN,$<,+N=1500 +SEED=3,roundtrip_seed3_long)
 
 # -----------------------------------------------------------------------------
-# 7. Golden-vector tests (expected data from tools/aes_ref.py, files in vectors/)
+# 7. Golden-vector tests (expected data from the shared AES reference model)
 # -----------------------------------------------------------------------------
-# vec-<name> runs vectors/<name>.hex exactly as generated (protocol-correct stimulus).
+# vec-<name> runs the matching file under verification/single_aes128/vectors/.
 $(VEC_TESTS): vec-%: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/$*.hex,vec_$*)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/$*.hex,vec_$*)
 
 # Generic form:  make vec VEC=rand_s1 ARGS="+JUNK=1 +SCR=31 +EARLY=3"
 VEC  ?= nist
 ARGS ?=
 vec: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/$(VEC).hex $(ARGS),vec_$(VEC)_custom)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/$(VEC).hex $(ARGS),vec_$(VEC)_custom)
 
 # Stress variants: the same golden data, but the stimulus is made hostile. The ORIGINAL design failed
 # every one of them; they prove that the inputs matter only on the start clock.
 # random junk on all inputs while the DUT is idle
 vec-nist-junk: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/nist.hex +JUNK=1,vec_nist_junk)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/nist.hex +JUNK=1,vec_nist_junk)
 # all five inputs overwritten with random values right after the start pulse, plus idle junk
 vec-rand_s1-scr: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/rand_s1.hex +SCR=31 +JUNK=1,vec_rand_s1_scr_all)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/rand_s1.hex +SCR=31 +JUNK=1,vec_rand_s1_scr_all)
 # chain_en raised 3 clocks before the first start of every stream
 vec-rand_s2-early: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/rand_s2.hex +EARLY=3,vec_rand_s2_early_chain)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/rand_s2.hex +EARLY=3,vec_rand_s2_early_chain)
 # a stray start 5 clocks after every start: must be rejected (err_busy) and not disturb the result
 vec-rand_s3-stray: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/rand_s3.hex +MID=5,vec_rand_s3_stray_start)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/rand_s3.hex +MID=5,vec_rand_s3_stray_start)
 # back-to-back operations with junk on the inputs between them
 vec-b2b-junk: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/b2b.hex +JUNK=1,vec_b2b_junk)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/b2b.hex +JUNK=1,vec_b2b_junk)
 
 # Long run (2000+ operations) with coverage-hole check, plain and with all stress options together.
 vec-long: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/long.hex +COVCHK=1,vec_long)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/long.hex +COVCHK=1,vec_long)
 vec-long-stress: $(BUILD)/tb_aes128_vec.vvp
-	$(call RUN,$<,+VEC=vectors/long.hex +JUNK=1 +SCR=31 +EARLY=2 +COVCHK=1,vec_long_all_stress)
+$(call RUN,$<,+VEC=$(SINGLE_DIR)/vectors/long.hex +JUNK=1 +SCR=31 +EARLY=2 +COVCHK=1,vec_long_all_stress)
 
 # -----------------------------------------------------------------------------
-# 8. Readable per-mode NIST testbenches (simpleTestcase/)
+# 8. Readable per-mode NIST testbenches (verification/single_aes128/simpleTestcase/)
 # -----------------------------------------------------------------------------
 $(SIMPLE_TESTS): simple-%: $(BUILD)/tb_aes128_%.vvp
 	$(call RUN,$<,,simple_$*)
@@ -309,16 +314,16 @@ regress: check-tools
 	$(call RUN_GROUP,$(QUICK_TESTS) $(LONG_TESTS),full regression)
 
 # -----------------------------------------------------------------------------
-# 10. Formal verification (SymbiYosys + yosys-slang, see formal/)
+# 10. Formal verification (SymbiYosys + yosys-slang, see verification/single_aes128/formal/)
 # -----------------------------------------------------------------------------
-#   cd formal            the .sby files use paths relative to formal/
+#   cd verification/single_aes128/formal    the .sby files use paths relative to formal/
 #   sby -f <file>.sby    -f = overwrite the previous result directory
 # fv_sbox     S-box and inverse S-box are exact inverses (all 256 values)    ~1 s
 # fv_keysched inverse key expansion regenerates the forward round keys, ANY key   ~1-3 min
 # fv_ctrl     control FSMs of the whole top: ready/latency/err flags, unbounded (PDR)
 formal: ; $(call RUN_GROUP,formal-sbox formal-keysched formal-ctrl,formal)
 formal-sbox formal-keysched formal-ctrl: formal-%:
-	cd formal && $(SBY) -f fv_$*.sby
+	cd $(SINGLE_DIR)/formal && $(SBY) -f fv_$*.sby
 
 # -----------------------------------------------------------------------------
 # 11. Mutation check and vector / testbench generation (Python)
@@ -326,35 +331,38 @@ formal-sbox formal-keysched formal-ctrl: formal-%:
 # Each mutant is the RTL with ONE injected defect (plus the original pre-fix RTL from git); the
 # testbenches must fail for every one of them. Exit status 1 means a mutant survived.
 mutation: check-tools
-	$(PYTHON) tools/mutation_check.py
+	$(PYTHON) $(SINGLE_DIR)/tools/mutation_check.py
 mutation-fast: check-tools
-	$(PYTHON) tools/mutation_check.py --fast
+	$(PYTHON) $(SINGLE_DIR)/tools/mutation_check.py --fast
 
 # Regenerate the golden vector files (deterministic, fixed seeds) and the readable testbenches.
 gen-vectors:
-	cd tools && $(PYTHON) gen_vectors.py
+	cd $(SINGLE_DIR)/tools && $(PYTHON) gen_vectors.py
 gen-simple:
-	cd tools && $(PYTHON) gen_simple_tbs.py
+	cd $(SINGLE_DIR)/tools && $(PYTHON) gen_simple_tbs.py
 # Self-test of the python reference model against FIPS-197 / SP 800-38A / AESAVS vectors.
 ref-selftest:
-	$(PYTHON) tools/aes_ref.py
+	$(PYTHON) verification/shared/aes_ref.py
 
 # -----------------------------------------------------------------------------
 # 12. Clean
 # -----------------------------------------------------------------------------
-# rm -rf: sim/build (binaries, logs, mutants) and the SymbiYosys result directories / logs.
+# rm -rf: single-AES simulation products and SymbiYosys result directories / logs.
 clean:
-	rm -rf $(BUILD) formal/fv_*_run formal/*.log formal/*.err formal/*.out
+	rm -rf $(BUILD) $(SINGLE_DIR)/formal/fv_*_run $(SINGLE_DIR)/formal/*.log $(SINGLE_DIR)/formal/*.err $(SINGLE_DIR)/formal/*.out
 
 # -----------------------------------------------------------------------------
 # 13. VLSIT-generated batch RTL: independent vectors, simulation and waveforms
 # -----------------------------------------------------------------------------
-# The testbench is kept outside rtl_vlsit_generated/filelist.f. Golden data comes
-# from tools/aes_ref.py through verification/gen_batch_vectors.py, never from RTL.
-VLSIT_BUILD       := verification/build
-VLSIT_LOG         := verification/logs
-VLSIT_TB          := verification/tb_aes128_batch.sv
-VLSIT_RTL         := $(wildcard rtl_vlsit_generated/*.sv)
+# The testbench, vectors and logs are separate from the RTL variant. Golden data
+# comes from the shared Python AES model, never from generated RTL.
+VLSIT_DIR         := verification/ht_aes128
+VLSIT_RTL_DIR     := rtl/ht_aes128
+VLSIT_BUILD       := $(VLSIT_DIR)/build
+VLSIT_LOG         := $(VLSIT_DIR)/logs
+VLSIT_WAVE_DIR    := $(VLSIT_DIR)/waveforms_sim
+VLSIT_TB          := $(VLSIT_DIR)/tb_aes128_batch.sv
+VLSIT_RTL         := $(wildcard $(VLSIT_RTL_DIR)/*.sv)
 VLSIT_PYTHON      ?= $(PYTHON)
 VLSIT_VVP         ?= $(VVP)
 CODEX_SKILLS      ?= C:/Users/PC/.codex/skills
@@ -365,21 +373,25 @@ VLSIT_WAVES       := WF-001_config_success WF-001_config_error WF-002_ecb_batche
 	WF-003_ctr_allocation WF-004_ctr_wrap_rejection WF-005_cbc_decryption \
 	WF-006_cbc_encrypt WF-006_cfb WF-006_ofb WF-007_backpressure WF-008_reset_zeroize
 
-.PHONY: vlsit-gen-vectors vlsit-sim vlsit-waveforms vlsit-evidence vlsit-verification
+.PHONY: vlsit-gen-vectors vlsit-sim vlsit-waveforms vlsit-evidence vlsit-verification \
+	aes128-256-prepare aes128-256-vectors aes128-256-build-n1 aes128-256-build-n4 \
+	aes128-256-sim-n1 aes128-256-sim-n4 aes128-256-regression aes128-256-waves \
+	aes128-256-evidence aes128-256-synth-n1 aes128-256-synth-n4 aes128-256-synth \
+	aes128-256-verification aes128-256-clean
 
-$(VLSIT_BUILD) $(VLSIT_LOG) verification/waveforms_sim:
+$(VLSIT_BUILD) $(VLSIT_LOG) $(VLSIT_WAVE_DIR):
 	mkdir -p $@
 
 vlsit-gen-vectors: | $(VLSIT_BUILD)
-	$(VLSIT_PYTHON) verification/gen_batch_vectors.py
+	$(VLSIT_PYTHON) $(VLSIT_DIR)/gen_batch_vectors.py
 
-$(VLSIT_BUILD)/aes128_batch_lanes4.vvp: $(VLSIT_RTL) rtl_vlsit_generated/filelist.f $(VLSIT_TB) | $(VLSIT_BUILD) $(VLSIT_LOG)
-	cd rtl_vlsit_generated && rm -f ../$(VLSIT_BUILD)/aes128_batch_lanes4.vvp && $(IVERILOG) -g2012 -s tb_aes128_batch -o ../$(VLSIT_BUILD)/aes128_batch_lanes4.vvp -c filelist.f ../$(VLSIT_TB) > ../$(VLSIT_LOG)/compile_lanes4.log 2>&1; status=$$?; cd ..; \
+$(VLSIT_BUILD)/aes128_batch_lanes4.vvp: $(VLSIT_RTL) $(VLSIT_RTL_DIR)/filelist.f $(VLSIT_TB) | $(VLSIT_BUILD) $(VLSIT_LOG)
+	cd $(VLSIT_RTL_DIR) && rm -f ../../$(VLSIT_BUILD)/aes128_batch_lanes4.vvp && $(IVERILOG) -g2012 -s tb_aes128_batch -o ../../$(VLSIT_BUILD)/aes128_batch_lanes4.vvp -c filelist.f ../../$(VLSIT_TB) > ../../$(VLSIT_LOG)/compile_lanes4.log 2>&1; status=$$?; cd ../..; \
 	  if [ ! -s $(VLSIT_BUILD)/aes128_batch_lanes4.vvp ]; then cat $(VLSIT_LOG)/compile_lanes4.log; echo "*** VLSIT COMPILE FAILED: LANES=4 (no output binary)"; exit 1; fi; \
 	  if [ $$status -ne 0 ]; then echo "WARNING: Icarus returned $$status after writing the VVP; the following regression simulation validates this binary." | tee -a $(VLSIT_LOG)/compile_lanes4.log; fi
 
-$(VLSIT_BUILD)/aes128_batch_lanes1.vvp: $(VLSIT_RTL) rtl_vlsit_generated/filelist.f $(VLSIT_TB) | $(VLSIT_BUILD) $(VLSIT_LOG)
-	cd rtl_vlsit_generated && rm -f ../$(VLSIT_BUILD)/aes128_batch_lanes1.vvp && $(IVERILOG) -g2012 -D TB_LANES=1 -s tb_aes128_batch -o ../$(VLSIT_BUILD)/aes128_batch_lanes1.vvp -c filelist.f ../$(VLSIT_TB) > ../$(VLSIT_LOG)/compile_lanes1.log 2>&1; status=$$?; cd ..; \
+$(VLSIT_BUILD)/aes128_batch_lanes1.vvp: $(VLSIT_RTL) $(VLSIT_RTL_DIR)/filelist.f $(VLSIT_TB) | $(VLSIT_BUILD) $(VLSIT_LOG)
+	cd $(VLSIT_RTL_DIR) && rm -f ../../$(VLSIT_BUILD)/aes128_batch_lanes1.vvp && $(IVERILOG) -g2012 -D TB_LANES=1 -s tb_aes128_batch -o ../../$(VLSIT_BUILD)/aes128_batch_lanes1.vvp -c filelist.f ../../$(VLSIT_TB) > ../../$(VLSIT_LOG)/compile_lanes1.log 2>&1; status=$$?; cd ../..; \
 	  if [ ! -s $(VLSIT_BUILD)/aes128_batch_lanes1.vvp ]; then cat $(VLSIT_LOG)/compile_lanes1.log; echo "*** VLSIT COMPILE FAILED: LANES=1 (no output binary)"; exit 1; fi; \
 	  if [ $$status -ne 0 ]; then echo "WARNING: Icarus returned $$status after writing the VVP; the following regression simulation validates this binary." | tee -a $(VLSIT_LOG)/compile_lanes1.log; fi
 
@@ -393,16 +405,79 @@ vlsit-sim: vlsit-gen-vectors $(VLSIT_BUILD)/aes128_batch_lanes1.vvp $(VLSIT_BUIL
 	@grep -F 'assertion failures: 0, assertions never exercised: 0' $(VLSIT_LOG)/run_lanes1.log | tail -n 1
 	@grep -F 'assertion failures: 0, assertions never exercised: 0' $(VLSIT_LOG)/run_lanes4.log | tail -n 1
 
-vlsit-waveforms: vlsit-gen-vectors $(VLSIT_BUILD)/aes128_batch_lanes4.vvp | $(VLSIT_LOG) verification/waveforms_sim
+vlsit-waveforms: vlsit-gen-vectors $(VLSIT_BUILD)/aes128_batch_lanes4.vvp | $(VLSIT_LOG) $(VLSIT_WAVE_DIR)
 	@set -e; for wf in $(VLSIT_WAVES); do \
-	  $(VLSIT_VVP) $(VLSIT_BUILD)/aes128_batch_lanes4.vvp +MODE=wave +WF=$$wf +DUMP=verification/waveforms_sim/$$wf.vcd > $(VLSIT_LOG)/$$wf.log 2>&1 || { cat $(VLSIT_LOG)/$$wf.log; exit 1; }; \
+	  $(VLSIT_VVP) $(VLSIT_BUILD)/aes128_batch_lanes4.vvp +MODE=wave +WF=$$wf +DUMP=$(VLSIT_WAVE_DIR)/$$wf.vcd > $(VLSIT_LOG)/$$wf.log 2>&1 || { cat $(VLSIT_LOG)/$$wf.log; exit 1; }; \
 	  grep '^SUMMARY' $(VLSIT_LOG)/$$wf.log | tail -n 1; \
 	done
-	$(VLSIT_PYTHON) verification/render_waveforms.py --converter "$(WAVEDROM_CONVERTER)" --renderer "$(WAVEDROM_SVG)"
+	$(VLSIT_PYTHON) $(VLSIT_DIR)/render_waveforms.py --converter "$(WAVEDROM_CONVERTER)" --renderer "$(WAVEDROM_SVG)"
 
 vlsit-evidence: vlsit-waveforms
-	$(VLSIT_PYTHON) "$(SIM_EVIDENCE)" check doc/AES128_ECB_CBC_CFB_OFB_CTR_Design_Specification.md verification/waveforms_sim --cdc no
+	$(VLSIT_PYTHON) "$(SIM_EVIDENCE)" check doc/ht_aes128/AES128_ECB_CBC_CFB_OFB_CTR_Design_Specification.md $(VLSIT_WAVE_DIR) --cdc no
 
 vlsit-verification: ref-selftest vlsit-sim vlsit-evidence
+
+# -----------------------------------------------------------------------------
+# 14. High-throughput AES-128/AES-256 batch core
+# All runnable project commands remain in this root Makefile. The design-local
+# testbench, reference model, vectors, logs and reports stay under verification/.
+AES256_DIR         := verification/ht_aes128_256
+AES256_RTL_DIR     := rtl/ht_aes128_256
+AES256_RTL_NAMES   := m_aes128_256_key_expand.sv m_aes128_256_aes_round.sv \
+	m_aes128_256_pipe_lane.sv m_aes128_256_lane_array.sv \
+	m_aes128_256_batch_core.sv m_aes128_256_batch_top.sv
+AES256_RTL_FILES   := $(addprefix $(AES256_RTL_DIR)/,$(AES256_RTL_NAMES))
+AES256_BUILD       := $(AES256_DIR)/build
+AES256_LOG         := $(AES256_DIR)/logs
+AES256_WAVE_DIR    := $(AES256_DIR)/waveforms_sim
+AES256_SIM_N1      := $(AES256_BUILD)/obj_n1/aes128_256_n1.exe
+AES256_SIM_N4      := $(AES256_BUILD)/obj_n4/aes128_256_n4.exe
+AES256_VERILATOR   ?= C:/Tools/oss-cad-suite/bin/verilator_bin.exe
+AES256_CXX         ?= g++
+AES256_YOSYS       ?= yosys
+
+aes128-256-prepare:
+	mkdir -p $(AES256_BUILD) $(AES256_LOG) $(AES256_WAVE_DIR) $(AES256_DIR)/synthesis
+
+aes128-256-vectors: aes128-256-prepare
+	$(PYTHON) $(AES256_DIR)/gen_vectors.py
+	$(PYTHON) $(AES256_DIR)/aes128_256_ref.py
+
+aes128-256-build-n4: aes128-256-vectors
+	$(PYTHON) $(AES256_DIR)/build_verilator.py --lanes 4 --verilator "$(AES256_VERILATOR)" --cxx "$(AES256_CXX)" --build-dir build/obj_n4 --output aes128_256_n4.exe
+
+aes128-256-build-n1: aes128-256-vectors
+	$(PYTHON) $(AES256_DIR)/build_verilator.py --lanes 1 --verilator "$(AES256_VERILATOR)" --cxx "$(AES256_CXX)" --build-dir build/obj_n1 --output aes128_256_n1.exe
+
+aes128-256-sim-n4: aes128-256-build-n4
+	$(AES256_SIM_N4) +VEC_DIR=$(AES256_DIR)/vectors/ > $(AES256_LOG)/simulation_regression_n4.log 2>&1
+	@grep '^SUMMARY' $(AES256_LOG)/simulation_regression_n4.log
+
+aes128-256-sim-n1: aes128-256-build-n1
+	$(AES256_SIM_N1) +VEC_DIR=$(AES256_DIR)/vectors/ > $(AES256_LOG)/simulation_regression_n1.log 2>&1
+	@grep '^SUMMARY' $(AES256_LOG)/simulation_regression_n1.log
+
+aes128-256-regression: aes128-256-sim-n1 aes128-256-sim-n4
+
+aes128-256-waves: aes128-256-build-n4
+	$(PYTHON) $(AES256_DIR)/render_waveforms.py --sim $(AES256_SIM_N4) --converter "$(WAVEDROM_CONVERTER)" --renderer "$(WAVEDROM_SVG)"
+
+aes128-256-evidence: aes128-256-waves
+	$(PYTHON) "$(SIM_EVIDENCE)" check $(AES256_DIR)/waveform_plan.md $(AES256_WAVE_DIR) --cdc no
+
+aes128-256-synth-n4: aes128-256-prepare $(AES256_RTL_FILES)
+	$(AES256_YOSYS) -Q -q -p 'read_verilog -sv $(AES256_RTL_FILES); hierarchy -check -top m_aes128_256_batch_top; synth -top m_aes128_256_batch_top; tee -q -o $(AES256_DIR)/synthesis/aes128_256_n4_stats.json stat -json -top m_aes128_256_batch_top -hierarchy' > $(AES256_LOG)/yosys_synth_n4.log 2>&1
+	@echo "PASS: generic synthesis, four lanes. See $(AES256_DIR)/synthesis/aes128_256_n4_stats.json."
+
+aes128-256-synth-n1: aes128-256-prepare $(AES256_RTL_FILES)
+	$(AES256_YOSYS) -Q -q -p 'read_verilog -sv $(AES256_RTL_FILES); chparam -set PARA_AES_LANE_NUM 1 m_aes128_256_batch_top; hierarchy -check -top m_aes128_256_batch_top; synth -top m_aes128_256_batch_top; tee -q -o $(AES256_DIR)/synthesis/aes128_256_n1_stats.json stat -json -top m_aes128_256_batch_top -hierarchy' > $(AES256_LOG)/yosys_synth_n1.log 2>&1
+	@echo "PASS: generic synthesis, one lane. See $(AES256_DIR)/synthesis/aes128_256_n1_stats.json."
+
+aes128-256-synth: aes128-256-synth-n1 aes128-256-synth-n4
+
+aes128-256-verification: aes128-256-regression aes128-256-evidence aes128-256-synth
+
+aes128-256-clean:
+	$(PYTHON) -c "from pathlib import Path; import shutil; root=Path('$(AES256_DIR)'); [shutil.rmtree(root/p, ignore_errors=True) for p in ('build','waveforms_sim','synthesis')]; print('Removed dual-key build, waveform and synthesis outputs.')"
 
 # =============================================================================================

@@ -1,0 +1,52 @@
+{
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "0................."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "0....10......10..."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "0..1..0.10.1..0..."
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "=....==......==...",
+      "data": [
+        "0",
+        "5",
+        "0",
+        "1",
+        "0"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0................."
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "0.....1.0.....1..."
+    },
+    {
+      "name": "i_err_ready",
+      "wave": "0......10........."
+    },
+    {
+      "name": "o_err_code",
+      "wave": "=.....=.=.....=...",
+      "data": [
+        "0",
+        "2",
+        "0",
+        "5"
+      ]
+    }
+  ],
+  "head": {
+    "text": "WF-011_lane_mask_error.vcd: t=0..170000 (1ps units), 10000 per cycle"
+  }
+}

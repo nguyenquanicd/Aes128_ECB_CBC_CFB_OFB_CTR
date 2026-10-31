@@ -1,0 +1,609 @@
+{
+   "creator": "Yosys 0.69+274 (git sha1 7513f8df8, Release, GNU /usr/bin/x86_64-w64-mingw32-g++ 15.2.1)",
+   "invocation": "stat -json -top m_aes128_256_batch_top -hierarchy ",
+   "modules": {
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000001": {
+         "num_wires":         { "count": "19453", "area": "0.000000", "local_count": "19453", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29418", "area": "0.000000", "local_count": "29418", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18919", "area": "0.000000", "local_count": "18919", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "718", "area": "0.000000", "local_count": "718", "local_area": "0.000000" },
+            "$_AND_": { "count": "4385", "area": "0.000000", "local_count": "4385", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1755", "area": "0.000000", "local_count": "1755", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7576", "area": "0.000000", "local_count": "7576", "local_area": "0.000000" },
+            "$_NOR_": { "count": "323", "area": "0.000000", "local_count": "323", "local_area": "0.000000" },
+            "$_NOT_": { "count": "110", "area": "0.000000", "local_count": "110", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "930", "area": "0.000000", "local_count": "930", "local_area": "0.000000" },
+            "$_OR_": { "count": "1405", "area": "0.000000", "local_count": "1405", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1272", "area": "0.000000", "local_count": "1272", "local_area": "0.000000" },
+            "$_XOR_": { "count": "445", "area": "0.000000", "local_count": "445", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000010": {
+         "num_wires":         { "count": "19372", "area": "0.000000", "local_count": "19372", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29337", "area": "0.000000", "local_count": "29337", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18838", "area": "0.000000", "local_count": "18838", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "767", "area": "0.000000", "local_count": "767", "local_area": "0.000000" },
+            "$_AND_": { "count": "4343", "area": "0.000000", "local_count": "4343", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1801", "area": "0.000000", "local_count": "1801", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7527", "area": "0.000000", "local_count": "7527", "local_area": "0.000000" },
+            "$_NOR_": { "count": "336", "area": "0.000000", "local_count": "336", "local_area": "0.000000" },
+            "$_NOT_": { "count": "99", "area": "0.000000", "local_count": "99", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "913", "area": "0.000000", "local_count": "913", "local_area": "0.000000" },
+            "$_OR_": { "count": "1340", "area": "0.000000", "local_count": "1340", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1255", "area": "0.000000", "local_count": "1255", "local_area": "0.000000" },
+            "$_XOR_": { "count": "457", "area": "0.000000", "local_count": "457", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000011": {
+         "num_wires":         { "count": "19410", "area": "0.000000", "local_count": "19410", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29375", "area": "0.000000", "local_count": "29375", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18876", "area": "0.000000", "local_count": "18876", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "782", "area": "0.000000", "local_count": "782", "local_area": "0.000000" },
+            "$_AND_": { "count": "4343", "area": "0.000000", "local_count": "4343", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1773", "area": "0.000000", "local_count": "1773", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7530", "area": "0.000000", "local_count": "7530", "local_area": "0.000000" },
+            "$_NOR_": { "count": "338", "area": "0.000000", "local_count": "338", "local_area": "0.000000" },
+            "$_NOT_": { "count": "92", "area": "0.000000", "local_count": "92", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "941", "area": "0.000000", "local_count": "941", "local_area": "0.000000" },
+            "$_OR_": { "count": "1386", "area": "0.000000", "local_count": "1386", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1257", "area": "0.000000", "local_count": "1257", "local_area": "0.000000" },
+            "$_XOR_": { "count": "434", "area": "0.000000", "local_count": "434", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000100": {
+         "num_wires":         { "count": "19453", "area": "0.000000", "local_count": "19453", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29418", "area": "0.000000", "local_count": "29418", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18919", "area": "0.000000", "local_count": "18919", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "718", "area": "0.000000", "local_count": "718", "local_area": "0.000000" },
+            "$_AND_": { "count": "4385", "area": "0.000000", "local_count": "4385", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1755", "area": "0.000000", "local_count": "1755", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7576", "area": "0.000000", "local_count": "7576", "local_area": "0.000000" },
+            "$_NOR_": { "count": "323", "area": "0.000000", "local_count": "323", "local_area": "0.000000" },
+            "$_NOT_": { "count": "110", "area": "0.000000", "local_count": "110", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "930", "area": "0.000000", "local_count": "930", "local_area": "0.000000" },
+            "$_OR_": { "count": "1405", "area": "0.000000", "local_count": "1405", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1272", "area": "0.000000", "local_count": "1272", "local_area": "0.000000" },
+            "$_XOR_": { "count": "445", "area": "0.000000", "local_count": "445", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000101": {
+         "num_wires":         { "count": "19453", "area": "0.000000", "local_count": "19453", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29418", "area": "0.000000", "local_count": "29418", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18919", "area": "0.000000", "local_count": "18919", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "718", "area": "0.000000", "local_count": "718", "local_area": "0.000000" },
+            "$_AND_": { "count": "4385", "area": "0.000000", "local_count": "4385", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1755", "area": "0.000000", "local_count": "1755", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7576", "area": "0.000000", "local_count": "7576", "local_area": "0.000000" },
+            "$_NOR_": { "count": "323", "area": "0.000000", "local_count": "323", "local_area": "0.000000" },
+            "$_NOT_": { "count": "110", "area": "0.000000", "local_count": "110", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "930", "area": "0.000000", "local_count": "930", "local_area": "0.000000" },
+            "$_OR_": { "count": "1405", "area": "0.000000", "local_count": "1405", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1272", "area": "0.000000", "local_count": "1272", "local_area": "0.000000" },
+            "$_XOR_": { "count": "445", "area": "0.000000", "local_count": "445", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000110": {
+         "num_wires":         { "count": "19453", "area": "0.000000", "local_count": "19453", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29418", "area": "0.000000", "local_count": "29418", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18919", "area": "0.000000", "local_count": "18919", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "718", "area": "0.000000", "local_count": "718", "local_area": "0.000000" },
+            "$_AND_": { "count": "4385", "area": "0.000000", "local_count": "4385", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1755", "area": "0.000000", "local_count": "1755", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7576", "area": "0.000000", "local_count": "7576", "local_area": "0.000000" },
+            "$_NOR_": { "count": "323", "area": "0.000000", "local_count": "323", "local_area": "0.000000" },
+            "$_NOT_": { "count": "110", "area": "0.000000", "local_count": "110", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "930", "area": "0.000000", "local_count": "930", "local_area": "0.000000" },
+            "$_OR_": { "count": "1405", "area": "0.000000", "local_count": "1405", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1272", "area": "0.000000", "local_count": "1272", "local_area": "0.000000" },
+            "$_XOR_": { "count": "445", "area": "0.000000", "local_count": "445", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000111": {
+         "num_wires":         { "count": "19446", "area": "0.000000", "local_count": "19446", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29411", "area": "0.000000", "local_count": "29411", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18912", "area": "0.000000", "local_count": "18912", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "761", "area": "0.000000", "local_count": "761", "local_area": "0.000000" },
+            "$_AND_": { "count": "4348", "area": "0.000000", "local_count": "4348", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1776", "area": "0.000000", "local_count": "1776", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7550", "area": "0.000000", "local_count": "7550", "local_area": "0.000000" },
+            "$_NOR_": { "count": "338", "area": "0.000000", "local_count": "338", "local_area": "0.000000" },
+            "$_NOT_": { "count": "106", "area": "0.000000", "local_count": "106", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "925", "area": "0.000000", "local_count": "925", "local_area": "0.000000" },
+            "$_OR_": { "count": "1399", "area": "0.000000", "local_count": "1399", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1268", "area": "0.000000", "local_count": "1268", "local_area": "0.000000" },
+            "$_XOR_": { "count": "441", "area": "0.000000", "local_count": "441", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001000": {
+         "num_wires":         { "count": "19312", "area": "0.000000", "local_count": "19312", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29277", "area": "0.000000", "local_count": "29277", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18778", "area": "0.000000", "local_count": "18778", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "754", "area": "0.000000", "local_count": "754", "local_area": "0.000000" },
+            "$_AND_": { "count": "4346", "area": "0.000000", "local_count": "4346", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1802", "area": "0.000000", "local_count": "1802", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7405", "area": "0.000000", "local_count": "7405", "local_area": "0.000000" },
+            "$_NOR_": { "count": "355", "area": "0.000000", "local_count": "355", "local_area": "0.000000" },
+            "$_NOT_": { "count": "99", "area": "0.000000", "local_count": "99", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "960", "area": "0.000000", "local_count": "960", "local_area": "0.000000" },
+            "$_OR_": { "count": "1363", "area": "0.000000", "local_count": "1363", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1236", "area": "0.000000", "local_count": "1236", "local_area": "0.000000" },
+            "$_XOR_": { "count": "458", "area": "0.000000", "local_count": "458", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001001": {
+         "num_wires":         { "count": "19950", "area": "0.000000", "local_count": "19950", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29915", "area": "0.000000", "local_count": "29915", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "661", "area": "0.000000", "local_count": "661", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10626", "area": "0.000000", "local_count": "10626", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "19417", "area": "0.000000", "local_count": "19417", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "747", "area": "0.000000", "local_count": "747", "local_area": "0.000000" },
+            "$_AND_": { "count": "4339", "area": "0.000000", "local_count": "4339", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1861", "area": "0.000000", "local_count": "1861", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7902", "area": "0.000000", "local_count": "7902", "local_area": "0.000000" },
+            "$_NOR_": { "count": "234", "area": "0.000000", "local_count": "234", "local_area": "0.000000" },
+            "$_NOT_": { "count": "110", "area": "0.000000", "local_count": "110", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "962", "area": "0.000000", "local_count": "962", "local_area": "0.000000" },
+            "$_OR_": { "count": "1541", "area": "0.000000", "local_count": "1541", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1258", "area": "0.000000", "local_count": "1258", "local_area": "0.000000" },
+            "$_XOR_": { "count": "463", "area": "0.000000", "local_count": "463", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001010": {
+         "num_wires":         { "count": "19312", "area": "0.000000", "local_count": "19312", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29277", "area": "0.000000", "local_count": "29277", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18778", "area": "0.000000", "local_count": "18778", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "754", "area": "0.000000", "local_count": "754", "local_area": "0.000000" },
+            "$_AND_": { "count": "4346", "area": "0.000000", "local_count": "4346", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1802", "area": "0.000000", "local_count": "1802", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7405", "area": "0.000000", "local_count": "7405", "local_area": "0.000000" },
+            "$_NOR_": { "count": "355", "area": "0.000000", "local_count": "355", "local_area": "0.000000" },
+            "$_NOT_": { "count": "99", "area": "0.000000", "local_count": "99", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "960", "area": "0.000000", "local_count": "960", "local_area": "0.000000" },
+            "$_OR_": { "count": "1363", "area": "0.000000", "local_count": "1363", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1236", "area": "0.000000", "local_count": "1236", "local_area": "0.000000" },
+            "$_XOR_": { "count": "458", "area": "0.000000", "local_count": "458", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001011": {
+         "num_wires":         { "count": "19312", "area": "0.000000", "local_count": "19312", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29277", "area": "0.000000", "local_count": "29277", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18778", "area": "0.000000", "local_count": "18778", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "754", "area": "0.000000", "local_count": "754", "local_area": "0.000000" },
+            "$_AND_": { "count": "4346", "area": "0.000000", "local_count": "4346", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1802", "area": "0.000000", "local_count": "1802", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7405", "area": "0.000000", "local_count": "7405", "local_area": "0.000000" },
+            "$_NOR_": { "count": "355", "area": "0.000000", "local_count": "355", "local_area": "0.000000" },
+            "$_NOT_": { "count": "99", "area": "0.000000", "local_count": "99", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "960", "area": "0.000000", "local_count": "960", "local_area": "0.000000" },
+            "$_OR_": { "count": "1363", "area": "0.000000", "local_count": "1363", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1236", "area": "0.000000", "local_count": "1236", "local_area": "0.000000" },
+            "$_XOR_": { "count": "458", "area": "0.000000", "local_count": "458", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001100": {
+         "num_wires":         { "count": "19361", "area": "0.000000", "local_count": "19361", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29326", "area": "0.000000", "local_count": "29326", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18827", "area": "0.000000", "local_count": "18827", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "771", "area": "0.000000", "local_count": "771", "local_area": "0.000000" },
+            "$_AND_": { "count": "4291", "area": "0.000000", "local_count": "4291", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1788", "area": "0.000000", "local_count": "1788", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7589", "area": "0.000000", "local_count": "7589", "local_area": "0.000000" },
+            "$_NOR_": { "count": "334", "area": "0.000000", "local_count": "334", "local_area": "0.000000" },
+            "$_NOT_": { "count": "92", "area": "0.000000", "local_count": "92", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "1008", "area": "0.000000", "local_count": "1008", "local_area": "0.000000" },
+            "$_OR_": { "count": "1272", "area": "0.000000", "local_count": "1272", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1234", "area": "0.000000", "local_count": "1234", "local_area": "0.000000" },
+            "$_XOR_": { "count": "448", "area": "0.000000", "local_count": "448", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001101": {
+         "num_wires":         { "count": "20039", "area": "0.000000", "local_count": "20039", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "30004", "area": "0.000000", "local_count": "30004", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "19505", "area": "0.000000", "local_count": "19505", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "862", "area": "0.000000", "local_count": "862", "local_area": "0.000000" },
+            "$_AND_": { "count": "4383", "area": "0.000000", "local_count": "4383", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1744", "area": "0.000000", "local_count": "1744", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7810", "area": "0.000000", "local_count": "7810", "local_area": "0.000000" },
+            "$_NOR_": { "count": "330", "area": "0.000000", "local_count": "330", "local_area": "0.000000" },
+            "$_NOT_": { "count": "94", "area": "0.000000", "local_count": "94", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "957", "area": "0.000000", "local_count": "957", "local_area": "0.000000" },
+            "$_OR_": { "count": "1582", "area": "0.000000", "local_count": "1582", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1314", "area": "0.000000", "local_count": "1314", "local_area": "0.000000" },
+            "$_XOR_": { "count": "429", "area": "0.000000", "local_count": "429", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "\\m_aes128_256_batch_top": {
+         "num_wires":         { "count": "1175261", "area": "0.000000", "local_count": "25", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "1850476", "area": "0.000000", "local_count": "1443", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "38022", "area": "0.000000", "local_count": "25", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "698585", "area": "0.000000", "local_count": "1443", "local_area": "0.000000" },
+         "num_ports":         { "count": "423", "area": "0.000000", "local_count": "25", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "40446", "area": "0.000000", "local_count": "1443", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "1192540", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_submodules":       { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "46302", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_AND_": { "count": "281911", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_DFFE_PN0P_": { "count": "17052", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_DFF_PN0_": { "count": "36", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_MUX_": { "count": "114921", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NAND_": { "count": "460057", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NOR_": { "count": "19595", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NOT_": { "count": "6945", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "60667", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_OR_": { "count": "85026", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "73107", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_XOR_": { "count": "26921", "area": "0.000000", "local_count": "0", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+            "$paramod$b053a8afa9363c22c7b5a8938861165e49c57850\\m_aes128_256_batch_core": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" }
+      }
+      },
+      "$paramod\\m_aes128_256_lane_array\\PARA_AES_LANE_NUM=32'00000000000000000000000000000100": {
+         "num_wires":         { "count": "1107620", "area": "0.000000", "local_count": "24", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "1752175", "area": "0.000000", "local_count": "5027", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "37640", "area": "0.000000", "local_count": "24", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "667767", "area": "0.000000", "local_count": "5027", "local_area": "0.000000" },
+         "num_ports":         { "count": "370", "area": "0.000000", "local_count": "18", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "35383", "area": "0.000000", "local_count": "3987", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "1116908", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_submodules":       { "count": "4", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "43252", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_AND_": { "count": "263876", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_DFFE_PN0P_": { "count": "14504", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_MUX_": { "count": "105852", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NAND_": { "count": "432508", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NOR_": { "count": "18360", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NOT_": { "count": "5760", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "57288", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_OR_": { "count": "79296", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "70616", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_XOR_": { "count": "25596", "area": "0.000000", "local_count": "0", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+            "m_aes128_256_pipe_lane": { "count": "4", "area": "0.000000", "local_count": "0", "local_area": "0.000000" }
+      }
+      },
+      "\\m_aes128_256_pipe_lane": {
+         "num_wires":         { "count": "276899", "area": "0.000000", "local_count": "4120", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "436787", "area": "0.000000", "local_count": "24498", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "9404", "area": "0.000000", "local_count": "137", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "165685", "area": "0.000000", "local_count": "16908", "local_area": "0.000000" },
+         "num_ports":         { "count": "88", "area": "0.000000", "local_count": "18", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "7849", "area": "0.000000", "local_count": "2445", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "279227", "area": "0.000000", "local_count": "13923", "local_area": "0.000000" },
+         "num_submodules":       { "count": "14", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "10813", "area": "0.000000", "local_count": "271", "local_area": "0.000000" },
+            "$_AND_": { "count": "65969", "area": "0.000000", "local_count": "4959", "local_area": "0.000000" },
+            "$_DFFE_PN0P_": { "count": "3626", "area": "0.000000", "local_count": "3626", "local_area": "0.000000" },
+            "$_MUX_": { "count": "26463", "area": "0.000000", "local_count": "1539", "local_area": "0.000000" },
+            "$_NAND_": { "count": "108127", "area": "0.000000", "local_count": "2124", "local_area": "0.000000" },
+            "$_NOR_": { "count": "4590", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NOT_": { "count": "1440", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "14322", "area": "0.000000", "local_count": "1086", "local_area": "0.000000" },
+            "$_OR_": { "count": "19824", "area": "0.000000", "local_count": "190", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "17654", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_XOR_": { "count": "6399", "area": "0.000000", "local_count": "128", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000000": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000001": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000010": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000011": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000100": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000101": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000110": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000111": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001000": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001001": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001010": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001011": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001100": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000001101": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" }
+      }
+      },
+      "$paramod\\m_aes128_256_aes_round\\PARA_AES_ROUND_IDX=s32'00000000000000000000000000000000": {
+         "num_wires":         { "count": "19453", "area": "0.000000", "local_count": "19453", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "29418", "area": "0.000000", "local_count": "29418", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "662", "area": "0.000000", "local_count": "662", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "10627", "area": "0.000000", "local_count": "10627", "local_area": "0.000000" },
+         "num_ports":         { "count": "5", "area": "0.000000", "local_count": "5", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "386", "area": "0.000000", "local_count": "386", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "18919", "area": "0.000000", "local_count": "18919", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "718", "area": "0.000000", "local_count": "718", "local_area": "0.000000" },
+            "$_AND_": { "count": "4385", "area": "0.000000", "local_count": "4385", "local_area": "0.000000" },
+            "$_MUX_": { "count": "1755", "area": "0.000000", "local_count": "1755", "local_area": "0.000000" },
+            "$_NAND_": { "count": "7576", "area": "0.000000", "local_count": "7576", "local_area": "0.000000" },
+            "$_NOR_": { "count": "323", "area": "0.000000", "local_count": "323", "local_area": "0.000000" },
+            "$_NOT_": { "count": "110", "area": "0.000000", "local_count": "110", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "930", "area": "0.000000", "local_count": "930", "local_area": "0.000000" },
+            "$_OR_": { "count": "1405", "area": "0.000000", "local_count": "1405", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "1272", "area": "0.000000", "local_count": "1272", "local_area": "0.000000" },
+            "$_XOR_": { "count": "445", "area": "0.000000", "local_count": "445", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      },
+      "$paramod$b053a8afa9363c22c7b5a8938861165e49c57850\\m_aes128_256_batch_core": {
+         "num_wires":         { "count": "1175236", "area": "0.000000", "local_count": "10902", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "1849033", "area": "0.000000", "local_count": "24283", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "37997", "area": "0.000000", "local_count": "113", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "697142", "area": "0.000000", "local_count": "13270", "local_area": "0.000000" },
+         "num_ports":         { "count": "398", "area": "0.000000", "local_count": "25", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "39003", "area": "0.000000", "local_count": "1443", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "1192540", "area": "0.000000", "local_count": "17242", "local_area": "0.000000" },
+         "num_submodules":       { "count": "2", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "46302", "area": "0.000000", "local_count": "162", "local_area": "0.000000" },
+            "$_AND_": { "count": "281911", "area": "0.000000", "local_count": "5630", "local_area": "0.000000" },
+            "$_DFFE_PN0P_": { "count": "17052", "area": "0.000000", "local_count": "2548", "local_area": "0.000000" },
+            "$_DFF_PN0_": { "count": "36", "area": "0.000000", "local_count": "36", "local_area": "0.000000" },
+            "$_MUX_": { "count": "114921", "area": "0.000000", "local_count": "2073", "local_area": "0.000000" },
+            "$_NAND_": { "count": "460057", "area": "0.000000", "local_count": "4711", "local_area": "0.000000" },
+            "$_NOR_": { "count": "19595", "area": "0.000000", "local_count": "461", "local_area": "0.000000" },
+            "$_NOT_": { "count": "6945", "area": "0.000000", "local_count": "56", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "60667", "area": "0.000000", "local_count": "266", "local_area": "0.000000" },
+            "$_OR_": { "count": "85026", "area": "0.000000", "local_count": "441", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "73107", "area": "0.000000", "local_count": "289", "local_area": "0.000000" },
+            "$_XOR_": { "count": "26921", "area": "0.000000", "local_count": "569", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+            "$paramod\\m_aes128_256_lane_array\\PARA_AES_LANE_NUM=32'00000000000000000000000000000100": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "m_aes128_256_key_expand": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" }
+      }
+      },
+      "\\m_aes128_256_key_expand": {
+         "num_wires":         { "count": "56714", "area": "0.000000", "local_count": "56714", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "72575", "area": "0.000000", "local_count": "72575", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "244", "area": "0.000000", "local_count": "244", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "16105", "area": "0.000000", "local_count": "16105", "local_area": "0.000000" },
+         "num_ports":         { "count": "3", "area": "0.000000", "local_count": "3", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "2177", "area": "0.000000", "local_count": "2177", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "58390", "area": "0.000000", "local_count": "58390", "local_area": "0.000000" },
+         "num_submodules":       { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "2888", "area": "0.000000", "local_count": "2888", "local_area": "0.000000" },
+            "$_AND_": { "count": "12405", "area": "0.000000", "local_count": "12405", "local_area": "0.000000" },
+            "$_MUX_": { "count": "6996", "area": "0.000000", "local_count": "6996", "local_area": "0.000000" },
+            "$_NAND_": { "count": "22838", "area": "0.000000", "local_count": "22838", "local_area": "0.000000" },
+            "$_NOR_": { "count": "774", "area": "0.000000", "local_count": "774", "local_area": "0.000000" },
+            "$_NOT_": { "count": "1129", "area": "0.000000", "local_count": "1129", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "3113", "area": "0.000000", "local_count": "3113", "local_area": "0.000000" },
+            "$_OR_": { "count": "5289", "area": "0.000000", "local_count": "5289", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "2202", "area": "0.000000", "local_count": "2202", "local_area": "0.000000" },
+            "$_XOR_": { "count": "756", "area": "0.000000", "local_count": "756", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+
+      }
+      }
+   },
+      "design": {
+         "num_wires":         { "count": "1175261", "area": "0.000000", "local_count": "25", "local_area": "0.000000" },
+         "num_wire_bits":     { "count": "1850476", "area": "0.000000", "local_count": "1443", "local_area": "0.000000" },
+         "num_pub_wires":     { "count": "38022", "area": "0.000000", "local_count": "25", "local_area": "0.000000" },
+         "num_pub_wire_bits": { "count": "698585", "area": "0.000000", "local_count": "1443", "local_area": "0.000000" },
+         "num_ports":         { "count": "423", "area": "0.000000", "local_count": "25", "local_area": "0.000000" },
+         "num_port_bits":     { "count": "40446", "area": "0.000000", "local_count": "1443", "local_area": "0.000000" },
+         "num_memories":      { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_memory_bits":   { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_processes":     { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells":         { "count": "1192540", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_submodules":       { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "sequential_area":    { "count": "0", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+         "num_cells_by_type": {
+            "$_ANDNOT_": { "count": "46302", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_AND_": { "count": "281911", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_DFFE_PN0P_": { "count": "17052", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_DFF_PN0_": { "count": "36", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_MUX_": { "count": "114921", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NAND_": { "count": "460057", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NOR_": { "count": "19595", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_NOT_": { "count": "6945", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_ORNOT_": { "count": "60667", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_OR_": { "count": "85026", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_XNOR_": { "count": "73107", "area": "0.000000", "local_count": "0", "local_area": "0.000000" },
+            "$_XOR_": { "count": "26921", "area": "0.000000", "local_count": "0", "local_area": "0.000000" }
+      },
+         "num_submodules_by_type": {
+            "$paramod$b053a8afa9363c22c7b5a8938861165e49c57850\\m_aes128_256_batch_core": { "count": "1", "area": "0.000000", "local_count": "0", "local_area": "0.000000" }
+      }
+      }
+}
+

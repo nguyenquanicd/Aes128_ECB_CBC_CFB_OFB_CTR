@@ -1,0 +1,20 @@
+$ C:\Tools\oss-cad-suite\bin\verilator_bin.exe --lint-only -Wall --top-module m_aes128_256_batch_top m_aes128_256_key_expand.sv m_aes128_256_aes_round.sv m_aes128_256_pipe_lane.sv m_aes128_256_lane_array.sv m_aes128_256_batch_core.sv m_aes128_256_batch_top.sv
+(cwd C:\HQuan\102_MyGithub\Aes128_ECB_CBC_CFB_OFB_CTR\rtl_aes128_aes256_generated)
+
+%Warning-UNUSEDSIGNAL: m_aes128_256_lane_array.sv:47:33: Bits of signal are not used: 'w_lane_ready'[3:1]
+                                                       : ... note: In instance 'm_aes128_256_batch_top.u_aes128_256_batch_core.u_aes128_256_lane_array'
+   47 |   logic [PARA_AES_LANE_NUM-1:0] w_lane_ready;
+      |                                 ^~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.053
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: m_aes128_256_lane_array.sv:48:33: Bits of signal are not used: 'w_lane_valid_out'[3:1]
+                                                       : ... note: In instance 'm_aes128_256_batch_top.u_aes128_256_batch_core.u_aes128_256_lane_array'
+   48 |   logic [PARA_AES_LANE_NUM-1:0] w_lane_valid_out;
+      |                                 ^~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: m_aes128_256_lane_array.sv:50:33: Bits of signal are not used: 'w_lane_last_out'[3:1]
+                                                       : ... note: In instance 'm_aes128_256_batch_top.u_aes128_256_batch_core.u_aes128_256_lane_array'
+   50 |   logic [PARA_AES_LANE_NUM-1:0] w_lane_last_out;
+      |                                 ^~~~~~~~~~~~~~~
+%Error: Exiting due to 3 warning(s)
+
+exit code 1

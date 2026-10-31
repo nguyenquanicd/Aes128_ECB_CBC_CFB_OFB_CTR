@@ -1,0 +1,17 @@
+%Warning-UNUSEDSIGNAL: m_aes128_256_lane_array.sv:47:33: Bits of signal are not used: 'w_lane_ready'[3:1]
+                                                       : ... note: In instance 'm_aes128_256_batch_top.u_aes128_256_batch_core.u_aes128_256_lane_array'
+   47 |   logic [PARA_AES_LANE_NUM-1:0] w_lane_ready;
+      |                                 ^~~~~~~~~~~~
+                       ... For warning description see https://verilator.org/warn/UNUSEDSIGNAL?v=5.053
+                       ... Use "/* verilator lint_off UNUSEDSIGNAL */" and lint_on around source to disable this message.
+%Warning-UNUSEDSIGNAL: m_aes128_256_lane_array.sv:48:33: Bits of signal are not used: 'w_lane_valid_out'[3:1]
+                                                       : ... note: In instance 'm_aes128_256_batch_top.u_aes128_256_batch_core.u_aes128_256_lane_array'
+   48 |   logic [PARA_AES_LANE_NUM-1:0] w_lane_valid_out;
+      |                                 ^~~~~~~~~~~~~~~~
+%Warning-UNUSEDSIGNAL: m_aes128_256_lane_array.sv:50:33: Bits of signal are not used: 'w_lane_last_out'[3:1]
+                                                       : ... note: In instance 'm_aes128_256_batch_top.u_aes128_256_batch_core.u_aes128_256_lane_array'
+   50 |   logic [PARA_AES_LANE_NUM-1:0] w_lane_last_out;
+      |                                 ^~~~~~~~~~~~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-352-gc265bd444 (mod)
+- Verilator: Built from 0.293 MB sources in 8 modules, into 14.928 MB in 15 C++ files needing 0.000 MB
+- Verilator: Walltime 3.921 s (elab=0.047, cvt=3.604, bld=0.000); cpu 0.000 s on 1 threads; allocated 327.660 MB

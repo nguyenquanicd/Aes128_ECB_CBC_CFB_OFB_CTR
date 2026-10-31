@@ -1,0 +1,169 @@
+{
+  "page_name": "AES128_AES256_BATCH",
+  "out_name": "aes128_aes256_batch_architecture.drawio",
+  "table_suffix": "",
+  "layout": {
+    "gap_h": 160,
+    "gap_v": 150,
+    "margin": 60,
+    "block_h": 80
+  },
+  "top": {
+    "frame_label": [
+      "AES-128 / AES-256 BATCH ENGINE",
+      "(m_aes128_256_batch_top)"
+    ],
+    "block_label": [
+      "AES-128 / AES-256 BATCH ENGINE",
+      "(m_aes128_256_batch_top)"
+    ],
+    "block_row": [
+      "AES-128 / AES-256 BATCH ENGINE (m_aes128_256_batch_top)",
+      "One message context, runtime key-size choice, N-block streaming batches.",
+      "Sections 1, 5, 14.2"
+    ]
+  },
+  "frame_row": [
+    "TOP FRAME",
+    "Maximum 14-round pipeline; AES-128 result tap at stage 10, AES-256 at stage 14.",
+    "Sections 5, 10, 14.2"
+  ],
+  "frame_interfaces": [
+    "CFG",
+    "DIN",
+    "DOUT",
+    "ERR",
+    "ZERO",
+    "CLK"
+  ],
+  "blocks": [
+    {
+      "key": "CORE",
+      "label": [
+        "u_aes128_256_batch_core",
+        "(m_aes128_256_batch_core)"
+      ],
+      "width": 260,
+      "row": 0,
+      "col": 0,
+      "row_name": "u_aes128_256_batch_core (m_aes128_256_batch_core)",
+      "function": "Stores the selected AES key schedule and message context; controls modes, CTR, lane pipeline, result tap, errors, and zeroize. AES-128 uses 10 rounds; AES-256 uses 14.",
+      "source": "Sections 5.1, 6.2, 14.2"
+    }
+  ],
+  "connectors": [],
+  "externals": [
+    {
+      "id": "CFG",
+      "block": "CORE",
+      "side": "L",
+      "dir": "in",
+      "pos": -15,
+      "text": [
+        "CFG",
+        "key/mode config"
+      ]
+    },
+    {
+      "id": "DIN",
+      "block": "CORE",
+      "side": "L",
+      "dir": "in",
+      "pos": 10,
+      "text": [
+        "DIN",
+        "N-block batch"
+      ]
+    },
+    {
+      "id": "ZERO",
+      "block": "CORE",
+      "side": "L",
+      "dir": "in",
+      "pos": 30,
+      "text": [
+        "ZERO",
+        "request / done"
+      ]
+    },
+    {
+      "id": "DOUT",
+      "block": "CORE",
+      "side": "R",
+      "dir": "out",
+      "pos": -10,
+      "text": [
+        "DOUT",
+        "N-block result"
+      ]
+    },
+    {
+      "id": "ERR",
+      "block": "CORE",
+      "side": "R",
+      "dir": "out",
+      "pos": 20,
+      "text": [
+        "ERR",
+        "error record"
+      ]
+    },
+    {
+      "id": "CLK",
+      "block": "CORE",
+      "side": "B",
+      "dir": "in",
+      "pos": 0,
+      "text": [
+        "CLK",
+        "clock / reset"
+      ]
+    }
+  ],
+  "nets": [],
+  "interfaces": [
+    {
+      "id": "CFG",
+      "name": "Message configuration",
+      "category": "custom valid/ready",
+      "active": "Host <-> IP",
+      "signals": "i_cfg_valid, i_cfg_key_size, i_cfg_key, i_cfg_mode, i_cfg_decipher, i_cfg_iv, i_cfg_cfb_segment_size, o_cfg_ready"
+    },
+    {
+      "id": "DIN",
+      "name": "N-wide input batch",
+      "category": "custom valid/ready",
+      "active": "Host <-> IP",
+      "signals": "i_batch_valid, i_batch_data, i_batch_lane_valid, i_batch_last, o_batch_ready"
+    },
+    {
+      "id": "DOUT",
+      "name": "N-wide result batch",
+      "category": "custom valid/ready",
+      "active": "IP <-> Host",
+      "signals": "o_batch_valid, o_batch_data, o_batch_lane_valid, o_batch_last, i_batch_ready"
+    },
+    {
+      "id": "ERR",
+      "name": "Error record",
+      "category": "custom valid/ready",
+      "active": "IP <-> Host",
+      "signals": "o_err_valid, o_err_code, i_err_ready"
+    },
+    {
+      "id": "ZERO",
+      "name": "Zeroize request/completion",
+      "category": "custom pulse",
+      "active": "Host <-> IP",
+      "signals": "i_zeroize_req, o_zeroize_done"
+    },
+    {
+      "id": "CLK",
+      "name": "Core clock/reset",
+      "category": "custom clock/reset",
+      "active": "SoC -> IP",
+      "signals": "i_clk_core, i_rst_n_core"
+    }
+  ],
+  "legend_note": "The top has one core instance. The core contains the selected key schedule, mode/counter control, N-lane pipeline, result tap, errors, and zeroize logic."
+}

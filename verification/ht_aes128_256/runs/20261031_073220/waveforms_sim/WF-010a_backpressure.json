@@ -1,0 +1,36 @@
+{
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "0...................."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "0....10.............."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "0..1................."
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0...............1.0.."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "1.....0..........1..."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "=...............=.=..",
+      "data": [
+        "0",
+        "69C4E0D86A7B0430D8CDB78070B4C55A",
+        "0"
+      ]
+    }
+  ],
+  "head": {
+    "text": "WF-010a_backpressure.vcd: t=0..200000 (1ps units), 10000 per cycle"
+  }
+}

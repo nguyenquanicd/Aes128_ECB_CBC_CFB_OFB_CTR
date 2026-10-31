@@ -1,0 +1,3 @@
+waveform plan: 12 waveform(s) checked in waveforms_sim
+no clock-domain crossing: R-034 does not apply
+RESULT: PASS (0 errors, 0 warning(s))

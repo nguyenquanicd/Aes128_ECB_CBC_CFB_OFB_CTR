@@ -1,0 +1,42 @@
+{
+  "head": {
+    "text": "WF-010 AES-256 output backpressure",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p.................."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10................."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1.................."
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.............1..0."
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "1............0..1.."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.............=....",
+      "data": [
+        "R0"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "Stage-14 result valid is held through the illustrative ready-low stall. Payload R0 stays stable until transferred.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

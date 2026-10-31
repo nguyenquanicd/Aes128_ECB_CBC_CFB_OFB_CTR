@@ -1,0 +1,60 @@
+{
+  "head": {
+    "text": "WF-009 AES-256 OFB feedback",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p.................."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10.............10.."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1.................."
+    },
+    {
+      "name": "i_cfg_iv",
+      "wave": "=..................",
+      "data": [
+        "IV0"
+      ]
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "=..............=...",
+      "data": [
+        "P0",
+        "P1"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.............10..."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.............=....",
+      "data": [
+        "P0 XOR AES_K(IV0)"
+      ]
+    },
+    {
+      "name": "feedback state",
+      "wave": "x.............=....",
+      "data": [
+        "AES_K(IV0)"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "AES output is registered as next OFB feedback. Result valid after C14; next dependent block may handshake at C15.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

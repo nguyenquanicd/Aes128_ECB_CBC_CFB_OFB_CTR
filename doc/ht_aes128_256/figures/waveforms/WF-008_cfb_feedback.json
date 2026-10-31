@@ -1,0 +1,60 @@
+{
+  "head": {
+    "text": "WF-008 AES-256 CFB-8 feedback",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p.................."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10.............10.."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1.................."
+    },
+    {
+      "name": "i_cfg_cfb_segment_size",
+      "wave": "=..................",
+      "data": [
+        "CFB-8"
+      ]
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "=..............=...",
+      "data": [
+        "P0[7:0]",
+        "P1[7:0]"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.............10..."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.............=....",
+      "data": [
+        "C0[7:0], low bits 0"
+      ]
+    },
+    {
+      "name": "feedback state",
+      "wave": "x.............=....",
+      "data": [
+        "shift(C0[7:0])"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "AES-256 CFB-8 uses AES encryption on feedback. P0 at C0 gives output valid after C14; next dependent segment may handshake at C15.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "0.............."
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "0..1.....0.1..."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "0....10........"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "0..1.....0.1..."
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.............."
+    }
+  ],
+  "head": {
+    "text": "WF-012a_reset_abort.vcd: t=0..140000 (1ps units), 10000 per cycle"
+  }
+}

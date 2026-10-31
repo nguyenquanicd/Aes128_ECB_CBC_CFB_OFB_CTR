@@ -1,0 +1,8 @@
+$ C:\Tools\oss-cad-suite\bin\verilator_bin.exe --lint-only -Wall --top-module m_aes128_batch_top m_aes128_aes_round.sv m_aes128_pipe_lane.sv m_aes128_lane_array.sv m_aes128_key_expand.sv m_aes128_batch_core.sv m_aes128_batch_top.sv
+(cwd C:\HQuan\102_MyGithub\Aes128_ECB_CBC_CFB_OFB_CTR\rtl_vlsit_generated)
+
+- V e r i l a t i o n   R e p o r t: Verilator 5.053 devel rev v5.052-352-gc265bd444 (mod)
+- Verilator: Built from 0.433 MB sources in 8 modules, into 7.363 MB in 11 C++ files needing 0.000 MB
+- Verilator: Walltime 1.240 s (elab=0.099, cvt=1.001, bld=0.000); cpu 0.000 s on 1 threads; allocated 85.059 MB
+
+exit code 0

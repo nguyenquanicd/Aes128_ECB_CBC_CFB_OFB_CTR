@@ -1,0 +1,25 @@
+$ C:\Tools\oss-cad-suite\bin\slang.exe --top m_aes128_batch_top -Wextra m_aes128_aes_round.sv m_aes128_pipe_lane.sv m_aes128_lane_array.sv m_aes128_key_expand.sv m_aes128_batch_core.sv m_aes128_batch_top.sv
+(cwd C:\HQuan\102_MyGithub\Aes128_ECB_CBC_CFB_OFB_CTR\rtl_vlsit_generated)
+
+Top level design units:
+    m_aes128_batch_top
+
+
+Build succeeded: 0 errors, 5 warnings
+m_aes128_batch_core.sv:217:57: warning: useless cast from 'logic[2:0]' to the same type [-Wuseless-cast]
+        w_active_lane_count = $bits(w_active_lane_count)'(
+                              ~~~~~~~~~~~~~~~~~~~~~~~~~~^
+m_aes128_batch_core.sv:223:33: warning: useless cast from 'logic[128:0]' to the same type [-Wuseless-cast]
+    w_ctr_sum = $bits(w_ctr_sum)'(
+                ~~~~~~~~~~~~~~~~^
+m_aes128_batch_core.sv:345:49: warning: useless cast from 'logic[127:0]' to the same type [-Wuseless-cast]
+          w_ctr_lane_sum = $bits(w_ctr_lane_sum)'(
+                           ~~~~~~~~~~~~~~~~~~~~~^
+m_aes128_batch_core.sv:468:68: warning: useless cast from 'logic[3:0]' to the same type [-Wuseless-cast]
+          reg_outstanding_batches <= $bits(reg_outstanding_batches)'(
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+m_aes128_batch_core.sv:471:68: warning: useless cast from 'logic[3:0]' to the same type [-Wuseless-cast]
+          reg_outstanding_batches <= $bits(reg_outstanding_batches)'(
+                                     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+
+exit code 0

@@ -1,0 +1,63 @@
+{
+  "head": {
+    "text": "WF-006 AES-256 CBC decryption",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p................."
+    },
+    {
+      "name": "i_cfg_decipher",
+      "wave": "1................."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10................"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1................."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "=.................",
+      "data": [
+        "C0,C1,C2,C3"
+      ]
+    },
+    {
+      "name": "CBC XOR history",
+      "wave": "=.................",
+      "data": [
+        "IV,C0,C1,C2"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "=.................",
+      "data": [
+        "1111"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0.............10.."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "x.............=...",
+      "data": [
+        "P0,P1,P2,P3"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "Four ciphertext blocks use independent lanes and XOR history IV/C0/C1/C2. AES-256 result valid after C14; order is preserved.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

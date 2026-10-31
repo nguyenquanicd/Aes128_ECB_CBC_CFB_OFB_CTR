@@ -1,0 +1,50 @@
+{
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "0............"
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "0..1........."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "0....10......"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "0..1....01..."
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0............"
+    },
+    {
+      "name": "i_batch_ready",
+      "wave": "1............"
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "=............",
+      "data": [
+        "0"
+      ]
+    },
+    {
+      "name": "o_err_valid",
+      "wave": "0............"
+    },
+    {
+      "name": "i_zeroize_req",
+      "wave": "0.......10..."
+    },
+    {
+      "name": "o_zeroize_done",
+      "wave": "0........10.."
+    }
+  ],
+  "head": {
+    "text": "WF-012b_zeroize_abort.vcd: t=0..120000 (1ps units), 10000 per cycle"
+  }
+}

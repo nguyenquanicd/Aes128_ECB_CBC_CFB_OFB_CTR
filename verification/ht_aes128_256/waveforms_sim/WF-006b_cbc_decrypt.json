@@ -1,0 +1,54 @@
+{
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "0......................."
+    },
+    {
+      "name": "i_cfg_decipher",
+      "wave": "0....1.................."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "0....10................."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "0..1...................."
+    },
+    {
+      "name": "i_batch_data",
+      "wave": "=....==.................",
+      "data": [
+        "0",
+        "77059044997E894FB75A2F88C15829408FAECF4669BD5AD2AA74ACE33A98C6FEDBD1665258971ABCA9F25CFD5BE51FE478E16B06817A4453ABEF8A235FA9FA51",
+        "0"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "=....==.................",
+      "data": [
+        "0",
+        "F",
+        "0"
+      ]
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0...................10.."
+    },
+    {
+      "name": "o_batch_data",
+      "wave": "=...................==..",
+      "data": [
+        "0",
+        "F0E0D0C0B0A090807060504030201000123456789ABCDEFFEDCBA9876543210FFEEDDCCBBAA9988776655443322110000112233445566778899AABBCCDDEEFF",
+        "0"
+      ]
+    }
+  ],
+  "head": {
+    "text": "WF-006b_cbc_decrypt.vcd: t=0..230000 (1ps units), 10000 per cycle"
+  }
+}

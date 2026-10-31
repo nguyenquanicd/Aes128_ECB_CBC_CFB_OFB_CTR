@@ -1,0 +1,9 @@
+ASSERT PASS cycle=1 [RESET_OUTPUTS_CLEAR]
+ASSERT PASS cycle=2 [CONFIG_HANDSHAKE]
+ASSERT PASS cycle=3 [BATCH_HANDSHAKE]
+ASSERT PASS cycle=6 [WF_ZEROIZE_DONE]
+SUMMARY lanes=4 assertions=4 failures=0 scenario=WF-012b_zeroize_abort
+- verification\tb_aes128_256_batch.sv:803: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.053 devel
+- Verilator: $finish at 120ns; walltime 0.008 s; speed 15.678 us/s
+- Verilator: cpu 0.000 s on 1 threads; allocated 9 MB

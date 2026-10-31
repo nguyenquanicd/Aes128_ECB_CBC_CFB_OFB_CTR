@@ -1,0 +1,8 @@
+Warning: Replacing memory \w_word with list of registers. See m_aes128_256_key_expand.sv:162, m_aes128_256_key_expand.sv:93
+Warning: Replacing memory \w_round_key with list of registers. See m_aes128_256_pipe_lane.sv:120
+Warning: Replacing memory \w_round_post_xor with list of registers. See m_aes128_256_pipe_lane.sv:108
+Warning: Replacing memory \w_round_last with list of registers. See m_aes128_256_pipe_lane.sv:107
+Warning: Replacing memory \w_round_active with list of registers. See m_aes128_256_pipe_lane.sv:106
+Warning: Replacing memory \w_round_valid with list of registers. See m_aes128_256_pipe_lane.sv:105
+Warning: Replacing memory \w_round_input with list of registers. See m_aes128_256_pipe_lane.sv:104
+Warning: Replacing memory \w_round_state with list of registers. See m_aes128_256_pipe_lane.sv:139

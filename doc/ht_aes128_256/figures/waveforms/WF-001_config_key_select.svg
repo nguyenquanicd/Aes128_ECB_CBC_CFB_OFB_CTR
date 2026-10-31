@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="894" height="298" viewBox="0 0 894 298" font-family="Helvetica,Arial,sans-serif">
+<rect width="100%" height="100%" fill="#fff"/>
+<text x="12" y="20" font-size="14" font-weight="bold">WF-001 Configuration and key-size validation</text>
+<line x1="162" y1="30" x2="162" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="234" y1="30" x2="234" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="306" y1="30" x2="306" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="378" y1="30" x2="378" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="450" y1="30" x2="450" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="522" y1="30" x2="522" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="594" y1="30" x2="594" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="666" y1="30" x2="666" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="738" y1="30" x2="738" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="810" y1="30" x2="810" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<line x1="882" y1="30" x2="882" y2="270" stroke="#ccc" stroke-dasharray="2,3"/>
+<text x="154" y="49" font-size="12" text-anchor="end">i_clk_core</text>
+<polyline points="162.0,51.0 162.0,33.0 198.0,33.0 198.0,51.0 234.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="234.0,51.0 234.0,33.0 270.0,33.0 270.0,51.0 306.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="306.0,51.0 306.0,33.0 342.0,33.0 342.0,51.0 378.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="378.0,51.0 378.0,33.0 414.0,33.0 414.0,51.0 450.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="450.0,51.0 450.0,33.0 486.0,33.0 486.0,51.0 522.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="522.0,51.0 522.0,33.0 558.0,33.0 558.0,51.0 594.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="594.0,51.0 594.0,33.0 630.0,33.0 630.0,51.0 666.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="666.0,51.0 666.0,33.0 702.0,33.0 702.0,51.0 738.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="738.0,51.0 738.0,33.0 774.0,33.0 774.0,51.0 810.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="810.0,51.0 810.0,33.0 846.0,33.0 846.0,51.0 882.0,51.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="79" font-size="12" text-anchor="end">i_rst_n_core</text>
+<polyline points="162.0,81.0 234.0,81.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="234.0,81.0 234.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="234.0,63.0 306.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="306.0,63.0 378.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="378.0,63.0 450.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="450.0,63.0 522.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="522.0,63.0 594.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="594.0,63.0 666.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="666.0,63.0 738.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="738.0,63.0 810.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="810.0,63.0 882.0,63.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="109" font-size="12" text-anchor="end">i_cfg_valid</text>
+<polyline points="162.0,93.0 234.0,93.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="234.0,93.0 234.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="234.0,111.0 306.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="306.0,111.0 378.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="378.0,111.0 450.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="450.0,111.0 450.0,93.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="450.0,93.0 522.0,93.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="522.0,93.0 522.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="522.0,111.0 594.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="594.0,111.0 666.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="666.0,111.0 738.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="738.0,111.0 810.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="810.0,111.0 882.0,111.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="139" font-size="12" text-anchor="end">o_cfg_ready</text>
+<polyline points="162.0,123.0 234.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="234.0,123.0 306.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="306.0,123.0 378.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="378.0,123.0 450.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="450.0,123.0 522.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="522.0,123.0 594.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="594.0,123.0 666.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="666.0,123.0 738.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="738.0,123.0 810.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="810.0,123.0 882.0,123.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="169" font-size="12" text-anchor="end">i_cfg_key_size</text>
+<polygon points="166.0,153.0 446.0,153.0 450.0,162.0 446.0,171.0 166.0,171.0 162.0,162.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="306.0" y="166.0" text-anchor="middle" font-size="11">AES-128 (0)</text>
+<polygon points="454.0,153.0 878.0,153.0 882.0,162.0 878.0,171.0 454.0,171.0 450.0,162.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="666.0" y="166.0" text-anchor="middle" font-size="11">AES-128 (0)</text>
+<text x="154" y="199" font-size="12" text-anchor="end">i_cfg_key[255:128]</text>
+<polygon points="166.0,183.0 446.0,183.0 450.0,192.0 446.0,201.0 166.0,201.0 162.0,192.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="306.0" y="196.0" text-anchor="middle" font-size="11">0</text>
+<polygon points="454.0,183.0 878.0,183.0 882.0,192.0 878.0,201.0 454.0,201.0 450.0,192.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="666.0" y="196.0" text-anchor="middle" font-size="11">NONZERO</text>
+<text x="154" y="229" font-size="12" text-anchor="end">o_err_valid</text>
+<polyline points="162.0,231.0 234.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="234.0,231.0 306.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="306.0,231.0 378.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="378.0,231.0 450.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="450.0,231.0 522.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="522.0,231.0 522.0,213.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="522.0,213.0 594.0,213.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="594.0,213.0 666.0,213.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="666.0,213.0 666.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="666.0,231.0 738.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="738.0,231.0 810.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<polyline points="810.0,231.0 882.0,231.0" stroke="#000" stroke-width="1.4" fill="none"/>
+<text x="154" y="259" font-size="12" text-anchor="end">o_err_code</text>
+<rect x="162.0" y="243.0" width="72.0" height="18.0" fill="#ddd" stroke="#000"/>
+<rect x="234.0" y="243.0" width="72.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="306.0" y="243.0" width="72.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="378.0" y="243.0" width="72.0" height="18.0" fill="#ddd" stroke="none"/>
+<rect x="450.0" y="243.0" width="72.0" height="18.0" fill="#ddd" stroke="none"/>
+<polygon points="526.0,243.0 878.0,243.0 882.0,252.0 878.0,261.0 526.0,261.0 522.0,252.0" fill="#ffffff" stroke="#000" stroke-width="1.2"/>
+<text x="702.0" y="256.0" text-anchor="middle" font-size="11">1: CFG</text>
+<text x="12" y="290" font-size="11" fill="#444">Config succeeds at C0. Invalid AES-128 upper key half is consumed at C4; error 1 asserts the next cycle and holds until accepted.</text>
+</svg>

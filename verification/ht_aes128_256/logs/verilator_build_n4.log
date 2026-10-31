@@ -1,0 +1,25 @@
+      0 [main] make (6332) C:\Users\PC\Tools\msys64\usr\bin\make.exe: *** fatal error - NtCreateDirectoryObject(\BaseNamedObjects\msys-2.0S5-d527a4bdeaaffbe7): 0xC0000022
+%Error: Internal Error: ../V3Os.cpp:515: system(make -C C:\HQuan\102_MyGithub\Aes128_ECB_CBC_CFB_OFB_CTR\rtl_aes128_aes256_generated\verification\build\obj_n4_script -f Vtb_aes128_256_batch.mk -j 1) returned unexpected value of -1073741502
+                        ... See the manual at https://verilator.org/verilator_doc.html?v=5.053 for more assistance.
+
+Direct C++ fallback after the Windows MSYS2 make sandbox error.
+C:\Tools\oss-cad-suite\share\verilator\include\verilated.cpp:78:10: warning: 'STDOUT_FILENO' redefined
+   78 | # define STDOUT_FILENO _fileno(stdout)
+      |          ^~~~~~~~~~~~~
+In file included from C:/Users/PC/Tools/msys64/ucrt64/include/locale.h:12,
+                 from C:/Users/PC/Tools/msys64/ucrt64/include/c++/16.2.0/clocale:47,
+                 from C:/Users/PC/Tools/msys64/ucrt64/include/c++/16.2.0/x86_64-w64-mingw32/bits/c++locale.h:41,
+                 from C:/Users/PC/Tools/msys64/ucrt64/include/c++/16.2.0/bits/localefwd.h:42,
+                 from C:/Users/PC/Tools/msys64/ucrt64/include/c++/16.2.0/string:48,
+                 from C:\Tools\oss-cad-suite\share\verilator\include\verilatedos.h:680,
+                 from C:\Tools\oss-cad-suite\share\verilator\include\verilated.cpp:51:
+C:/Users/PC/Tools/msys64/ucrt64/include/stdio.h:56:9: note: this is the location of the previous definition
+   56 | #define STDOUT_FILENO   1
+      |         ^~~~~~~~~~~~~
+C:\Tools\oss-cad-suite\share\verilator\include\verilated.cpp:79:10: warning: 'STDERR_FILENO' redefined
+   79 | # define STDERR_FILENO _fileno(stderr)
+      |          ^~~~~~~~~~~~~
+C:/Users/PC/Tools/msys64/ucrt64/include/stdio.h:57:9: note: this is the location of the previous definition
+   57 | #define STDERR_FILENO   2
+      |         ^~~~~~~~~~~~~
+PASS: 4-lane simulator executable built and used by the passing regression.

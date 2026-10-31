@@ -1,0 +1,62 @@
+{
+  "head": {
+    "text": "WF-004 CTR counter allocation",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p......."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10......"
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1......."
+    },
+    {
+      "name": "PARA_CTR_WIDTH",
+      "wave": "=.......",
+      "data": [
+        "32"
+      ]
+    },
+    {
+      "name": "i_cfg_iv",
+      "wave": "=.......",
+      "data": [
+        "...FFFFFFFE"
+      ]
+    },
+    {
+      "name": "i_batch_lane_valid",
+      "wave": "=.......",
+      "data": [
+        "0011"
+      ]
+    },
+    {
+      "name": "counter lane 0",
+      "wave": "=.......",
+      "data": [
+        "...FFFFFFFE"
+      ]
+    },
+    {
+      "name": "counter lane 1",
+      "wave": "=.......",
+      "data": [
+        "...FFFFFFFF"
+      ]
+    }
+  ],
+  "foot": {
+    "text": "With two active lanes, lane 0 uses the base and lane 1 uses base+1. Upper counter bits stay fixed.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

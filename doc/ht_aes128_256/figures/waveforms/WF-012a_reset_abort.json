@@ -1,0 +1,35 @@
+{
+  "head": {
+    "text": "WF-012 Reset aborts in-flight work",
+    "tick": 0
+  },
+  "signal": [
+    {
+      "name": "i_clk_core",
+      "wave": "p........"
+    },
+    {
+      "name": "i_rst_n_core",
+      "wave": "1..0.1..."
+    },
+    {
+      "name": "i_batch_valid",
+      "wave": "10......."
+    },
+    {
+      "name": "o_batch_ready",
+      "wave": "1........"
+    },
+    {
+      "name": "o_batch_valid",
+      "wave": "0........"
+    }
+  ],
+  "foot": {
+    "text": "Batch accepted at C0. Reset asserts before the result reaches either tap and clears pipeline valid state; no stale output appears.",
+    "tock": 0
+  },
+  "config": {
+    "hscale": 2
+  }
+}

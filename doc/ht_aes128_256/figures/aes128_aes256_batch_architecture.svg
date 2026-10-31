@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2460" height="1519" viewBox="70 350 2460 1519" font-family="Arial, Helvetica, sans-serif" font-size="18">
+<rect x="70" y="350" width="2460" height="1519" fill="#FFFFFF"/>
+<rect x="510" y="380" width="380" height="260" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+<rect x="570" y="500" width="260" height="80" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+<text x="700" y="536" text-anchor="middle">u_aes128_256_batch_core</text>
+<text x="700" y="558" text-anchor="middle">(m_aes128_256_batch_core)</text>
+<text x="990" y="481" text-anchor="middle">DOUT</text>
+<text x="990" y="503" text-anchor="middle">N-block result</text>
+<text x="980" y="591" text-anchor="middle">ERR</text>
+<text x="980" y="613" text-anchor="middle">error record</text>
+<text x="868" y="421" text-anchor="end">AES-128 / AES-256 BATCH ENGINE</text>
+<text x="868" y="443" text-anchor="end">(m_aes128_256_batch_top)</text>
+<text x="104" y="1685" text-anchor="start" font-weight="bold">Legend</text>
+<text x="284" y="1726" text-anchor="start">Interface connector (one per signal group; arrow = active to passive)</text>
+<text x="104" y="1801" text-anchor="start">The top has one core instance. The core contains the selected key schedule, mode/counter control, N-lane pipeline, result tap, errors, and zeroize logic.</text>
+<text x="700" y="711" text-anchor="middle">CLK</text>
+<text x="700" y="733" text-anchor="middle">clock / reset</text>
+<text x="405" y="481" text-anchor="middle">CFG</text>
+<text x="405" y="503" text-anchor="middle">key/mode config</text>
+<text x="410" y="591" text-anchor="middle">ZERO</text>
+<text x="410" y="613" text-anchor="middle">request / done</text>
+<text x="205" y="536" text-anchor="middle">DIN</text>
+<text x="205" y="558" text-anchor="middle">N-block batch</text>
+<rect x="100" y="970" width="2400" height="170" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+<text x="1300" y="997" text-anchor="middle" font-weight="bold">Block Functions &amp; Interfaces</text>
+<rect x="100" y="1010" width="330" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1035" text-anchor="start" font-weight="bold">Block</text>
+<rect x="430" y="1010" width="1480" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="434" y="1035" text-anchor="start" font-weight="bold">Function</text>
+<rect x="1910" y="1010" width="230" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1914" y="1035" text-anchor="start" font-weight="bold">Source</text>
+<rect x="2140" y="1010" width="360" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="2144" y="1035" text-anchor="start" font-weight="bold">Interfaces (mnemonics)</text>
+<rect x="100" y="1046" width="330" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1071" text-anchor="start">TOP FRAME</text>
+<rect x="430" y="1046" width="1480" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="434" y="1071" text-anchor="start">Maximum 14-round pipeline; AES-128 result tap at stage 10, AES-256 at stage 14.</text>
+<rect x="1910" y="1046" width="230" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1914" y="1071" text-anchor="start">Sections 5, 10, 14.2</text>
+<rect x="2140" y="1046" width="360" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="2144" y="1071" text-anchor="start">CFG, DIN, DOUT, ERR, ZERO, CLK</text>
+<rect x="100" y="1082" width="330" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1107" text-anchor="start">u_aes128_256_batch_core</text>
+<text x="104" y="1129" text-anchor="start">(m_aes128_256_batch_core)</text>
+<rect x="430" y="1082" width="1480" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="434" y="1107" text-anchor="start">Stores the selected AES key schedule and message context; controls modes, CTR, lane pipeline, result tap, errors, and zeroize. AES-128 uses 10</text>
+<text x="434" y="1129" text-anchor="start">rounds; AES-256 uses 14.</text>
+<rect x="1910" y="1082" width="230" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1914" y="1107" text-anchor="start">Sections 5.1, 6.2,</text>
+<text x="1914" y="1129" text-anchor="start">14.2</text>
+<rect x="2140" y="1082" width="360" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="2144" y="1118" text-anchor="start">CFG, DIN, ZERO, DOUT, ERR, CLK</text>
+<rect x="100" y="1180" width="2400" height="424" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+<text x="1300" y="1207" text-anchor="middle" font-weight="bold">Interface Table</text>
+<rect x="100" y="1220" width="90" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1245" text-anchor="start" font-weight="bold">ID</text>
+<rect x="190" y="1220" width="300" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="194" y="1245" text-anchor="start" font-weight="bold">Interface</text>
+<rect x="490" y="1220" width="110" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="494" y="1245" text-anchor="start" font-weight="bold">Category</text>
+<rect x="600" y="1220" width="470" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="604" y="1245" text-anchor="start" font-weight="bold">Active side -&gt; passive side</text>
+<rect x="1070" y="1220" width="1430" height="36" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1074" y="1245" text-anchor="start" font-weight="bold">Key signals</text>
+<rect x="100" y="1256" width="90" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1292" text-anchor="start">CFG</text>
+<rect x="190" y="1256" width="300" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="194" y="1292" text-anchor="start">Message configuration</text>
+<rect x="490" y="1256" width="110" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="494" y="1281" text-anchor="start">custom</text>
+<text x="494" y="1303" text-anchor="start">valid/ready</text>
+<rect x="600" y="1256" width="470" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="604" y="1292" text-anchor="start">Host  IP</text>
+<rect x="1070" y="1256" width="1430" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1074" y="1292" text-anchor="start">i_cfg_valid, i_cfg_key_size, i_cfg_key, i_cfg_mode, i_cfg_decipher, i_cfg_iv, i_cfg_cfb_segment_size, o_cfg_ready</text>
+<rect x="100" y="1314" width="90" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1350" text-anchor="start">CLK</text>
+<rect x="190" y="1314" width="300" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="194" y="1350" text-anchor="start">Core clock/reset</text>
+<rect x="490" y="1314" width="110" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="494" y="1339" text-anchor="start">custom</text>
+<text x="494" y="1361" text-anchor="start">clock/reset</text>
+<rect x="600" y="1314" width="470" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="604" y="1350" text-anchor="start">SoC -&gt; IP</text>
+<rect x="1070" y="1314" width="1430" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1074" y="1350" text-anchor="start">i_clk_core, i_rst_n_core</text>
+<rect x="100" y="1372" width="90" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1408" text-anchor="start">DIN</text>
+<rect x="190" y="1372" width="300" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="194" y="1408" text-anchor="start">N-wide input batch</text>
+<rect x="490" y="1372" width="110" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="494" y="1397" text-anchor="start">custom</text>
+<text x="494" y="1419" text-anchor="start">valid/ready</text>
+<rect x="600" y="1372" width="470" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="604" y="1408" text-anchor="start">Host  IP</text>
+<rect x="1070" y="1372" width="1430" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1074" y="1408" text-anchor="start">i_batch_valid, i_batch_data, i_batch_lane_valid, i_batch_last, o_batch_ready</text>
+<rect x="100" y="1430" width="90" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1466" text-anchor="start">DOUT</text>
+<rect x="190" y="1430" width="300" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="194" y="1466" text-anchor="start">N-wide result batch</text>
+<rect x="490" y="1430" width="110" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="494" y="1455" text-anchor="start">custom</text>
+<text x="494" y="1477" text-anchor="start">valid/ready</text>
+<rect x="600" y="1430" width="470" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="604" y="1466" text-anchor="start">IP  Host</text>
+<rect x="1070" y="1430" width="1430" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1074" y="1466" text-anchor="start">o_batch_valid, o_batch_data, o_batch_lane_valid, o_batch_last, i_batch_ready</text>
+<rect x="100" y="1488" width="90" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1524" text-anchor="start">ERR</text>
+<rect x="190" y="1488" width="300" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="194" y="1524" text-anchor="start">Error record</text>
+<rect x="490" y="1488" width="110" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="494" y="1513" text-anchor="start">custom</text>
+<text x="494" y="1535" text-anchor="start">valid/ready</text>
+<rect x="600" y="1488" width="470" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="604" y="1524" text-anchor="start">IP  Host</text>
+<rect x="1070" y="1488" width="1430" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1074" y="1524" text-anchor="start">o_err_valid, o_err_code, i_err_ready</text>
+<rect x="100" y="1546" width="90" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="104" y="1582" text-anchor="start">ZERO</text>
+<rect x="190" y="1546" width="300" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="194" y="1582" text-anchor="start">Zeroize request/completion</text>
+<rect x="490" y="1546" width="110" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="494" y="1571" text-anchor="start">custom</text>
+<text x="494" y="1593" text-anchor="start">pulse</text>
+<rect x="600" y="1546" width="470" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="604" y="1582" text-anchor="start">Host  IP</text>
+<rect x="1070" y="1546" width="1430" height="58" fill="#FFFFFF" stroke="#000000" stroke-width="1"/>
+<text x="1074" y="1582" text-anchor="start">i_zeroize_req, o_zeroize_done</text>
+<path d="M 700 690 L 700 580" fill="none" stroke="#000000" stroke-width="2.0"/>
+<polygon points="700,580 706,592 694,592" fill="#000000" stroke="#000000" stroke-width="1"/>
+<path d="M 460 520 L 570 520" fill="none" stroke="#000000" stroke-width="2.0"/>
+<polygon points="570,520 558,526 558,514" fill="#000000" stroke="#000000" stroke-width="1"/>
+<path d="M 460 560 L 570 560" fill="none" stroke="#000000" stroke-width="2.0"/>
+<polygon points="570,560 558,566 558,554" fill="#000000" stroke="#000000" stroke-width="1"/>
+<path d="M 280 540 L 570 540" fill="none" stroke="#000000" stroke-width="2.0"/>
+<polygon points="570,540 558,546 558,534" fill="#000000" stroke="#000000" stroke-width="1"/>
+<path d="M 830 520 L 940 520" fill="none" stroke="#000000" stroke-width="2.0"/>
+<polygon points="940,520 928,526 928,514" fill="#000000" stroke="#000000" stroke-width="1"/>
+<path d="M 830 560 L 940 560" fill="none" stroke="#000000" stroke-width="2.0"/>
+<polygon points="940,560 928,566 928,554" fill="#000000" stroke="#000000" stroke-width="1"/>
+<path d="M 100 1719 L 260 1719" fill="none" stroke="#000000" stroke-width="2.0"/>
+<polygon points="260,1719 248,1725 248,1713" fill="#000000" stroke="#000000" stroke-width="1"/>
+</svg>
